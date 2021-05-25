@@ -5,6 +5,9 @@
 <p>Artist name: <%= @event.time %></p>
 <i>Logo URL: <%= @event.schedule %></i>
 
+<%= link_to 'Edit this event', edit_event_path(@event) %>
+<%= link_to 'Delete this event', event_path(@event), method: :delete %>
+
 <br>
 <br>
 
