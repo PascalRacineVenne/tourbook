@@ -1,0 +1,14 @@
+<%= simple_form_for([@tour, @event]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :date, label: 'Date:' %>
+    <%= f.input :time, label: 'Time:' %>
+    <%= f.input :schedule, label: 'Schedule:' %>
+  </div>
+
+  <div class="form-actions d-flex justify-content-center">
+    <%= f.button :submit, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

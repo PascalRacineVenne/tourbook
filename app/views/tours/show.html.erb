@@ -1,0 +1,33 @@
+<h1>Tours#show</h1>
+
+<br>
+<br>
+
+<%= link_to 'Edit this tour', edit_tour_path(@tour) %>
+<%= link_to 'Delete this tour', tour_path(@tour), method: :delete %>
+
+<h1><%= @tour.name %></h1>
+<p>Artist name: <%= @tour.artist_name %></p>
+<i>Logo URL: <%= @tour.logo_url %></i>
+
+<br>
+<br>
+
+<b>Events</b>
+<%= link_to 'Add an event', new_tour_event_path(@tour) %>
+
+<br>
+<br>
+
+<% @events.each do |event| %>
+  <b><%= link_to event.date, event_path(event) %></b>
+  <p><%= event.time %></p>
+  <i><%= event.schedule %></i>
+  <br>
+  <br>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to 'Back', tours_path %>
