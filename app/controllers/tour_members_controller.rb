@@ -19,22 +19,20 @@ class TourMembersController < ApplicationController
   end
 
   def edit
-    @tour = Tour.find(params[:tour_id])
-    @event = Event.find(params[:id])
   end
 
   def update
-    @tour = Tour.find(params[:tour_id])
-    @tour_member = TourMember.find(params[:id])
     if @tour_member.update(tour_member_params)
-      redirect_to event_path(@event), notice: 'Your event was successfully updated.'
+      redirect_to tour_path(Tour.find(@tour_member.tour_id)), notice: 'Your tour member was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-
+    @tour_id = @tour_member.tour_id
+    @tour_member.destroy
+    redirect_to tour_path(Tour.find(@tour_id)), notice: 'Your tour member was successfully deleted.'
   end
 
   private
