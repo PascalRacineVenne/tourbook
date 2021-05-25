@@ -30,4 +30,19 @@
 <br>
 <br>
 
+<b>Tour members</b>
+<%= link_to 'Add a tour member', new_tour_tour_member_path(@tour) %>
+
+<br>
+<br>
+
+<% @tour_members.each do |tour_member| %>
+  <p><%= tour_member.job_title %></p>
+  <br>
+  <br>
+<% end %>
+
+<br>
+<br>
+
 <%= link_to 'Back', tours_path %>

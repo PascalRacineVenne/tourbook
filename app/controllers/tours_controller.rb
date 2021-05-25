@@ -20,6 +20,7 @@ class ToursController < ApplicationController
 
   def show
     @events = @tour.events
+    @tour_members = @tour.tour_members
   end
 
   def edit
