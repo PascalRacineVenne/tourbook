@@ -20,8 +20,7 @@
 <br>
 
 <% @events.each do |event| %>
-  <b><%= link_to event.date, event_path(event) %></b>
-  <p><%= event.time %></p>
+  <b><%= link_to event.show_start_at, event_path(event) %></b>
   <i><%= event.schedule %></i>
   <br>
   <br>
@@ -37,7 +36,7 @@
 <br>
 
 <% @tour_members.each do |tour_member| %>
-  <p><%= tour_member.job_title %></p>
+  <p><%= tour_member.job_title %></p> <%= link_to 'Edit this tour member', edit_tour_member_path(tour_member)  %>
   <br>
   <br>
 <% end %>
