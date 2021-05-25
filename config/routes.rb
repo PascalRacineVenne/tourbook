@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :tour_members, only: [:new, :create]
   end
 
+  resources :users, only: [:show, :edit, :update]
   resources :events, only: [:show, :edit, :update, :destroy]
   resources :tour_members, only: [:edit, :update, :destroy]
 end
