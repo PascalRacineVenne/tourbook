@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_191140) do
 
   create_table "tour_members", force: :cascade do |t|
     t.string "job_title"
-    t.boolean "administrator"
+    t.boolean "administrator", default: false
     t.bigint "tour_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false

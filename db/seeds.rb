@@ -1,4 +1,5 @@
 puts 'cleaning db'
+Event.destroy_all
 User.destroy_all
 Tour.destroy_all
 

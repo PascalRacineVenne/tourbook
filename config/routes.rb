@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # get 'tours/update'
   # get 'tours/destroy'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'tours#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :tours do
     resources :events, only: [:new, :create]
