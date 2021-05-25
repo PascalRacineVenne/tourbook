@@ -4,13 +4,16 @@ class TourMembersController < ApplicationController
   def new
     @tour = Tour.find(params[:tour_id])
     @tour_member = TourMember.new
+    @members = User.all.map { |user| [user.email, user.id] }
   end
 
   def create
     @tour = Tour.find(params[:tour_id])
     @tour_member = TourMember.new(tour_member_params)
     @tour_member.administrator = true
-    @tour_member.tour_id = @tour.id
+    @tour_member.tour = @tour
+    @user = User.find(params[:tour_member][:user])
+    @tour_member.user = @user
     if @tour_member.save
       redirect_to tour_path(@tour), notice: 'Your tour member was successfully created.'
     else
@@ -19,9 +22,12 @@ class TourMembersController < ApplicationController
   end
 
   def edit
+    @members = User.all.map { |user| [user.email, user.id] }
   end
 
   def update
+    @user = User.find(params[:tour_member][:user])
+    @tour_member.user = @user
     if @tour_member.update(tour_member_params)
       redirect_to tour_path(Tour.find(@tour_member.tour_id)), notice: 'Your tour member was successfully updated.'
     else

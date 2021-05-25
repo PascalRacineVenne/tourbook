@@ -36,7 +36,7 @@
 <br>
 
 <% @tour_members.each do |tour_member| %>
-  <p><%= tour_member.job_title %></p> <%= link_to 'Edit this tour member', edit_tour_member_path(tour_member) %> <%= link_to 'Delete this tour member', tour_member_path(tour_member), method: :delete %>
+  <p><%= tour_member.job_title %> - User_id: <%= tour_member.user_id %></p> <%= link_to 'Edit this tour member', edit_tour_member_path(tour_member) %> <%= link_to 'Delete this tour member', tour_member_path(tour_member), method: :delete %>
   <br>
   <br>
 <% end %>
