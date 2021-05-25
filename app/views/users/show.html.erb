@@ -1,0 +1,16 @@
+<!-- <img src="<%#= @user.image_url %>" alt="" class="avatar"> -->
+
+<% if @user.first_name %>
+  <h1>hi, <%= @user.nickname ? @user.nickname : @user.first_name %>!</h1>
+  <%= link_to 'edit', edit_user_path(@user) %>
+  <p>Nickname: <%= @user.nickname %></p>
+  <p>First Name: <%= @user.first_name %></p>
+  <p>Last Name: <%= @user.last_name %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Phone: <%= @user.phone %></p>
+  <p>Bio: <%= @user.description %></p>
+<% else %>
+  <h1>hi, <%= @user.email %></h1>
+  <p>please update your profile <%= link_to 'here', edit_user_path(@user) %></p>
+<% end %>
+
