@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   def destroy
     @tour_id = @event.tour_id
     @event.destroy
-    redirect_to tour_path(Tour.find(@event.tour_id)), notice: 'Your event was successfully deleted.'
+    redirect_to tour_path(Tour.find(@tour_id)), notice: 'Your event was successfully deleted.'
   end
 
   private
