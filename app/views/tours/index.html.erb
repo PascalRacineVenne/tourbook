@@ -1,0 +1,13 @@
+<h1>Tours#index</h1>
+
+<br>
+<br>
+
+<%= link_to 'Add a tour', new_tour_path %>
+
+<br>
+<br>
+
+<% @tours.each do |tour| %>
+  <h1><%= link_to tour.name, tour_path(tour) %></h1>
+<% end %>
