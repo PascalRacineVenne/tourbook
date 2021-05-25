@@ -7,6 +7,7 @@ class ToursController < ApplicationController
 
   def new
     @tour = Tour.new
+    raise
   end
 
   def create
@@ -20,6 +21,7 @@ class ToursController < ApplicationController
 
   def show
     @events = @tour.events
+    @tour_members = @tour.tour_members
   end
 
   def edit
