@@ -3,8 +3,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :date, label: 'Date:' %>
-    <%= f.input :time, label: 'Time:' %>
+    <%= f.input :show_start_at, label: 'Show starts at:' %>
     <%= f.input :schedule, label: 'Schedule:' %>
   </div>
 
