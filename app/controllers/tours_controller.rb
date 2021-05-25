@@ -7,7 +7,6 @@ class ToursController < ApplicationController
 
   def new
     @tour = Tour.new
-    raise
   end
 
   def create
