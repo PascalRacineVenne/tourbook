@@ -16,12 +16,11 @@ ActiveRecord::Schema.define(version: 2021_05_25_191140) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
     t.text "schedule"
     t.bigint "tour_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "show_start_at"
     t.index ["tour_id"], name: "index_events_on_tour_id"
   end
 

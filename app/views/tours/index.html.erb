@@ -10,4 +10,6 @@
 
 <% @tours.each do |tour| %>
   <h1><%= link_to tour.name, tour_path(tour) %></h1>
+  <p><%= tour.artist_name %></p>
+  <img src="<%= tour.logo_url %>" alt="">
 <% end %>
