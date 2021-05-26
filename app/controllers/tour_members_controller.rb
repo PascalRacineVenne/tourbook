@@ -8,6 +8,7 @@ class TourMembersController < ApplicationController
   end
 
   def create
+    raise
     @tour = Tour.find(params[:tour_id])
     @tour_member = TourMember.new(tour_member_params)
     @tour_member.administrator = true

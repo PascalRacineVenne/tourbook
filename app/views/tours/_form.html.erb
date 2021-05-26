@@ -7,6 +7,11 @@
     <%= f.input :artist_name, label: 'Artist name:' %>
     <%= f.input :logo_url, label: 'Logo URL:' %>
   </div>
+  <%= f.simple_fields_for(:tour_members) do |ftm| %>
+    <%= ftm.input :job_title, label: 'Job title:' %>
+    <%= ftm.association :user,label: 'User:' %>
+  <% end %>
+
 
   <div class="form-actions d-flex justify-content-center">
     <%= f.button :submit, class: 'btn btn-secondary' %>
