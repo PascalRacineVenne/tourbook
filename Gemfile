@@ -34,6 +34,7 @@ gem 'simple_form'
 
 # Custom
 gem 'devise'
+gem 'cocoon'
 
 group :development, :test do
   gem 'pry-byebug'

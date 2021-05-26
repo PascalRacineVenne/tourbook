@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :skills, through: :job_skills
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def to_label
+    email
+  end
 end

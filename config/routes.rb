@@ -18,10 +18,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :tours do
     resources :events, only: [:new, :create]
-    resources :tour_members, only: [:new, :create]
   end
 
   resources :users, only: [:show, :edit, :update]
   resources :events, only: [:show, :edit, :update, :destroy]
-  resources :tour_members, only: [:edit, :update, :destroy]
 end
