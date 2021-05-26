@@ -1,4 +1,4 @@
-class TourPolicy < ApplicationPolicy
+class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,7 +6,7 @@ class TourPolicy < ApplicationPolicy
   end
 
   def show?
-    record.users.include?(user)
+    record.tour.users.include?(user)
   end
 
   def new?
@@ -32,8 +32,7 @@ class TourPolicy < ApplicationPolicy
   private
 
   def user_tour_admin?
-    tour_member = record.tour_members.find_by(user: user)
-    record.users.include?(user) && tour_member.administrator
+    tour_member = record.tour.tour_members.find_by(user: user)
+    record.tour.users.include?(user) && tour_member.administrator
   end
-
 end

@@ -24,7 +24,9 @@
       <br>
 
       <b>Events</b>
-      <%= link_to 'Add an event', new_tour_event_path(@tour) %>
+      <% if policy(@tour).edit? %>
+        <%= link_to 'Add an event', new_tour_event_path(@tour) %>
+      <% end %>
 
       <br>
       <br>
