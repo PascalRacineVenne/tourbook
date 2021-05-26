@@ -1,4 +1,6 @@
-<%= link_to 'Add a tour', new_tour_path %>
+<% if policy(Tour).create? %>
+  <%= link_to "Add a tour", new_tour_path %>
+<% end %>
 
 <br>
 <br>

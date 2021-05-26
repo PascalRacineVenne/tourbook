@@ -1,16 +1,19 @@
 class ToursController < ApplicationController
+  # skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tours = Tour.all
+    @tours = policy_scope(Tour).select { |tour| tour.users.include?(current_user) }
   end
 
   def new
     @tour = Tour.new
+    authorize @tour
   end
 
   def create
     @tour = Tour.new(tour_params)
+    authorize @tour
     if @tour.save
       redirect_to tour_path(@tour), notice: 'Your tour was successfully created.'
     else

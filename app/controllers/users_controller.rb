@@ -10,21 +10,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # if @user.update(user_params)
-    #   @job_skill = Skill.find(JobSkill.find_by_user_id(@user.id).skill_id)
-    #   if @job_skill.nil?
-    #     @job_skill = JobSkill.new
-    #     @job_skill.skill = Skill.find(params[:user][:job_skill_ids][1])
-    #     @job_skill.user = @user
-    #     @job_skill = JobSkill.new(user_id: @job_skill.user.id, skill_id: @job_skill.skill.id)
-    #   else
-    #     @job_skill.destroy
-    #     @job_skill = JobSkill.new
-    #     @job_skill.skill = Skill.find(params[:user][:job_skill_ids][1])
-    #     @job_skill.user = @user
-    #   end
-    #   @job_skill.save
-    # end
     if @user.update(user_params)
       @user.job_skills.destroy_all
       params[:user][:skill_ids].each do |id|

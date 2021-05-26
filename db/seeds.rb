@@ -1,7 +1,9 @@
 puts 'cleaning db'
 Event.destroy_all
+TourMember.destroy_all
 User.destroy_all
 Tour.destroy_all
+
 
 puts 'creating users!'
 
@@ -41,7 +43,7 @@ tours.each do |tour|
   Tour.create!(
     name: tour[:name],
     artist_name: tour[:artist_name],
-    logo_url: tour[:logo_url]
+    # logo_url: tour[:logo_url]
   )
 end
 
@@ -59,6 +61,17 @@ Tour.all.each do |tour|
     event.save!
   end
 end
+
+puts 'creating tour members'
+
+10.times do
+  tour_member = TourMember.new
+  tour_member.user = User.all.sample
+  tour_member.tour = Tour.all.sample
+  tour_member.save!
+end
+
+puts "created #{TourMember.all.count} tour members !"
 
 puts "created #{Event.all.count} events!"
 
