@@ -1,9 +1,12 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1>Edit Event</h1>
 
+      <%= render 'form', tour: @tour, event: @event %>
 
-<h1>Edit Event</h1>
+      <%= link_to 'Back', event_path(@event) %>
 
-<%= render 'form', tour: @tour, event: @event %>
-
-<%= link_to 'Back', event_path(@event) %>
+    </div>
+  </div>
+</div>

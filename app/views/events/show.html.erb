@@ -1,14 +1,22 @@
-<h1>Events#show</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
 
-<h1>Show starts at: <%= @event.show_start_at %></h1>
-<p>Schedule: <%= @event.schedule %></p>
+      <h1>Events#show</h1>
 
-<br>
+      <h1>Show starts at: <%= @event.show_start_at %></h1>
+      <p>Schedule: <%= @event.schedule %></p>
 
-<%= link_to 'Edit this event', edit_event_path(@event) %>
-<%= link_to 'Delete this event', event_path(@event), method: :delete %>
+      <br>
 
-<br>
-<br>
+      <%= link_to 'Edit this event', edit_event_path(@event) %>
+      <%= link_to 'Delete this event', event_path(@event), method: :delete %>
 
-<%= link_to 'Back to tour', tour_path(@tour) %>
+      <br>
+      <br>
+
+      <%= link_to 'Back to tour', tour_path(@tour) %>
+
+    </div>
+  </div>
+</div>

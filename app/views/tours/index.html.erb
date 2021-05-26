@@ -1,12 +1,18 @@
-<%= link_to 'Add a tour', new_tour_path %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= link_to 'Add a tour', new_tour_path %>
 
-<br>
-<br>
+      <br>
+      <br>
 
-<% @tours.each do |tour| %>
-  <h1><%= link_to tour.name, tour_path(tour) %></h1>
-  <p><%= tour.artist_name %></p>
-  <% if tour.logo.present? %>
-    <%= cl_image_tag tour.logo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-<% end %>
+      <% @tours.each do |tour| %>
+        <h1><%= link_to tour.name, tour_path(tour) %></h1>
+        <p><%= tour.artist_name %></p>
+        <% if tour.logo.present? %>
+          <%= cl_image_tag tour.logo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
