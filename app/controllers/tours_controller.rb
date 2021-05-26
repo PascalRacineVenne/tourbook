@@ -13,7 +13,9 @@ class ToursController < ApplicationController
 
   def create
     @tour = Tour.new(tour_params)
-    TourMember.create!(tour: @tour, user: current_user, administrator: true)
+    tour_member = TourMember.new(tour: @tour, administrator: true)
+    tour_member.user = current_user if tour_member.user.nil?
+    tour_member.save
     authorize @tour
     if @tour.save
       redirect_to tour_path(@tour), notice: 'Your tour was successfully created.'
