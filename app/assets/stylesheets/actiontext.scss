@@ -36,4 +36,13 @@
       max-width: 100% !important;
     }
   }
+
+  li > ul li {
+    list-style: none;
+  }
+  > ul > li {
+    display: flex;
+    margin-bottom: 1rem;
+  }
 }
+
