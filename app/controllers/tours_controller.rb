@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:index, :show]
+  # skip_before_action :authenticate_user!, only: :show
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,6 +13,7 @@ class ToursController < ApplicationController
 
   def create
     @tour = Tour.new(tour_params)
+    TourMember.create!(tour: @tour, user: current_user, administrator: true)
     authorize @tour
     if @tour.save
       redirect_to tour_path(@tour), notice: 'Your tour was successfully created.'
@@ -43,6 +44,7 @@ class ToursController < ApplicationController
 
   def set_tour
     @tour = Tour.find(params[:id])
+    authorize @tour
   end
 
   def tour_params
