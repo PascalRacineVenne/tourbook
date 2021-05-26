@@ -14,7 +14,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user_tour_admin?
   end
 
   def edit?
