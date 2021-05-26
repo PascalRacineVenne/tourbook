@@ -9,6 +9,7 @@
   <p>Email: <%= @user.email %></p>
   <p>Phone: <%= @user.phone %></p>
   <p>Bio: <%= @user.description %></p>
+  <p>Skill: <%#= @skill.name %></p>
 <% else %>
   <h1>hi, <%= @user.email %></h1>
   <p>please update your profile <%= link_to 'here', edit_user_path(@user) %></p>

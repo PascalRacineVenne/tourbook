@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_204421) do
+ActiveRecord::Schema.define(version: 2021_05_26_015100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 2021_05_25_204421) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "show_start_at"
     t.index ["tour_id"], name: "index_events_on_tour_id"
+  end
+
+  create_table "job_skills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "skill_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_job_skills_on_skill_id"
+    t.index ["user_id"], name: "index_job_skills_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.text "detail"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tour_members", force: :cascade do |t|
@@ -61,6 +77,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_204421) do
   end
 
   add_foreign_key "events", "tours"
+  add_foreign_key "job_skills", "skills"
+  add_foreign_key "job_skills", "users"
   add_foreign_key "tour_members", "tours"
   add_foreign_key "tour_members", "users"
 end

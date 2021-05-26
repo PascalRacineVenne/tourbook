@@ -11,6 +11,7 @@
     <%= f.input :description, label: 'Bio:' %>
     <!-- uncomment below when cloudinary installed -->
     <%#= f.input :photo, as: :file, label: 'Avatar:' %>
+    <%= f.association :job_skills, as: :check_boxes, collection: @skills, label: 'Job skill:' %>
   </div>
 
   <div class="form-actions d-flex justify-content-center">
