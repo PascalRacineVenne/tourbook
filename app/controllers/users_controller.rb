@@ -2,14 +2,31 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
+
   end
 
   def edit
+    @skills = Skill.all.map { |skill| [skill.name, skill.id] }
   end
 
   def update
-    @user.update(user_params)
-    redirect_to user_path(@user), notice: 'updated!'
+    # if @user.update(user_params)
+    #   @job_skill = Skill.find(JobSkill.find_by_user_id(@user.id).skill_id)
+    #   if @job_skill.nil?
+    #     @job_skill = JobSkill.new
+    #     @job_skill.skill = Skill.find(params[:user][:job_skill_ids][1])
+    #     @job_skill.user = @user
+    #     @job_skill = JobSkill.new(user_id: @job_skill.user.id, skill_id: @job_skill.skill.id)
+    #   else
+    #     @job_skill.destroy
+    #     @job_skill = JobSkill.new
+    #     @job_skill.skill = Skill.find(params[:user][:job_skill_ids][1])
+    #     @job_skill.user = @user
+    #   end
+    #   @job_skill.save
+      @user.update(user_params)
+      redirect_to user_path(@user), notice: 'updated!'
+    # end
   end
 
   private
@@ -21,4 +38,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :phone, :description)
   end
+
+  # def job_skill_params
+  #   params.require(:job_skill).permit(:user_id, :skill_id)
+  # end
 end

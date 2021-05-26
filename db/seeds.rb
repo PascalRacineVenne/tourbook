@@ -61,3 +61,11 @@ Tour.all.each do |tour|
 end
 
 puts "created #{Event.all.count} events!"
+
+puts 'creating skills'
+
+Skill.create(name: 'French', detail: 'Montreal')
+Skill.create(name: 'English', detail: 'Toronto')
+Skill.create(name: 'Mandarin', detail: 'Shanghai')
+
+puts "created #{Skill.all.count} skills!"
