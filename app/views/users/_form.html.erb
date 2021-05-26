@@ -9,6 +9,7 @@
     <%= f.input :email, label: 'Email:' %>
     <%= f.input :phone, label: 'Phone Number:' %>
     <%= f.input :description, label: 'Bio:' %>
+    <%= f.input :avatar, as: :file %>
     <!-- uncomment below when cloudinary installed -->
     <%#= f.input :photo, as: :file, label: 'Avatar:' %>
     <%= f.association :skills, as: :check_boxes, label: 'Job skills:' %>

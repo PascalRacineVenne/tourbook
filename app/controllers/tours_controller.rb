@@ -43,6 +43,6 @@ class ToursController < ApplicationController
   end
 
   def tour_params
-    params.require(:tour).permit(:name, :artist_name, :logo_url, tour_members_attributes: [:id, :job_title, :user_id, :_destroy])
+    params.require(:tour).permit(:name, :artist_name, :logo, tour_members_attributes: [:id, :job_title, :user_id, :_destroy])
   end
 end
