@@ -49,6 +49,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:date, :time, :schedule, :tour_id)
+    params.require(:event).permit(:show_start_at, :schedule, :tour_id)
   end
 end

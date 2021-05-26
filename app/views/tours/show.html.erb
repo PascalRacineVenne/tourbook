@@ -1,51 +1,60 @@
-<h1>Tours#show</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
 
-<br>
-<br>
+      <h1>Tours#show</h1>
 
-<% if policy(@tour).edit? %>
-  <%= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
-<% end %>
-<% if policy(@tour).destroy? %>
-  <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
-<% end %>
+      <% if policy(@tour).edit? %>
+        <%= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
+      <% end %>
+      <% if policy(@tour).destroy? %>
+        <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
+      <% end %>
 
-<h1><%= @tour.name %></h1>
-<p>Artist name: <%= @tour.artist_name %></p>
-<i>Logo URL: <%= @tour.logo_url %></i>
+      <br>
+      <br>
 
-<br>
-<br>
+      <h1><%= @tour.name %></h1>
+      <p>Artist name: <%= @tour.artist_name %></p>
+      <% if @tour.logo.present?%>
+        <%= cl_image_tag @tour.logo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
 
-<b>Events</b>
-<%= link_to 'Add an event', new_tour_event_path(@tour) %>
+      <br>
+      <br>
 
-<br>
-<br>
+      <b>Events</b>
+      <%= link_to 'Add an event', new_tour_event_path(@tour) %>
 
-<% @events.each do |event| %>
-  <b><%= link_to event.show_start_at, event_path(event) %></b>
-  <i><%= event.schedule %></i>
-  <br>
-  <br>
-<% end %>
+      <br>
+      <br>
 
-<br>
-<br>
+      <% @events.each do |event| %>
+        <b><%= link_to event.show_start_at, event_path(event) %></b>
+        <i><%= event.schedule %></i>
+        <br>
+        <br>
+      <% end %>
 
-<b>Tour members</b>
-<%#= link_to 'Add a tour member', new_tour_tour_member_path(@tour) %>
+      <br>
+      <br>
 
-<br>
-<br>
+      <b>Tour members</b>
 
-<% @tour_members.each do |tour_member| %>
-  <p><%= tour_member.job_title %> - User_id: <%= tour_member.user_id %></p> <%#= link_to 'Edit this tour member', edit_tour_member_path(tour_member) %> <%#= link_to 'Delete this tour member', tour_member_path(tour_member), method: :delete %>
-  <br>
-  <br>
-<% end %>
+      <br>
+      <br>
 
-<br>
-<br>
+      <% @tour_members.each do |tour_member| %>
+        <p><%= tour_member.job_title %> - User_id: <%= tour_member.user_id %></p>
+        <br>
+        <br>
+      <% end %>
 
-<%= link_to 'Back', tours_path %>
+      <br>
+      <br>
+
+      <%= link_to 'Back', tours_path %>
+
+    </div>
+  </div>
+</div>
