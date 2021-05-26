@@ -8,7 +8,9 @@
 
 <h1><%= @tour.name %></h1>
 <p>Artist name: <%= @tour.artist_name %></p>
-<i>Logo URL: <%= @tour.logo_url %></i>
+<% if @tour.logo.present?%>
+  <%= cl_image_tag @tour.logo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 
 <br>
 <br>
