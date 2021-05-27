@@ -1,17 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <%= image_tag "icons/icon_menu.png" %>
+    <!-- <span class="navbar-toggler-icon"></span> -->
   </button>
 
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "logos/tourbook_logo_2.png" %>
   <% end %>
 
   <% if user_signed_in? %>
     <%= link_to user_path(current_user), class: "navbar-brand" do %>
       <% if current_user.avatar.present? %>
-        <%= cl_image_tag current_user.avatar.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag current_user.avatar.key, crop: :fill, class: 'avatar' %>
       <% else %>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
       <% end %>
