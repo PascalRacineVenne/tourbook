@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user
 
-  def show; end
+  def show
+  end
 
   def edit
     @skills = Skill.pluck(:name, :id)
