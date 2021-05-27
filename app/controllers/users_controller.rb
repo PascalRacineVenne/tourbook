@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user
 
-  def show
-
-  end
+  def show; end
 
   def edit
-    @skills = Skill.all.map { |skill| [skill.name, skill.id] }
+    @skills = Skill.pluck(:name, :id)
   end
 
   def update
@@ -23,13 +21,11 @@ class UsersController < ApplicationController
 
   def set_user
     @user = current_user
+    authorize @user
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :nickname, :phone, :description, :skill_ids, :avatar)
+    params.require(:user).permit(:full_name, :nickname, :phone,
+                                 :description, :skill_ids, :avatar)
   end
-
-  # def job_skill_params
-  #   params.require(:job_skill).permit(:user_id, :skill_id)
-  # end
 end

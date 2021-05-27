@@ -47,7 +47,7 @@
       <br>
 
       <% @tour_members.each do |tour_member| %>
-        <p><%= tour_member.job_title %> - User_id: <%= tour_member.user_id %></p>
+        <p><%= tour_member.job_title %> - <%= tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email %></p>
         <br>
         <br>
       <% end %>
