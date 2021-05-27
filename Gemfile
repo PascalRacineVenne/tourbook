@@ -35,6 +35,7 @@ gem 'simple_form'
 # Custom
 gem 'devise'
 gem 'cocoon'
+gem 'pundit'
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do

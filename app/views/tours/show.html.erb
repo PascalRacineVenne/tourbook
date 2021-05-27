@@ -4,11 +4,15 @@
 
       <h1>Tours#show</h1>
 
-      <br>
-      <br>
+      <% if policy(@tour).edit? %>
+        <%= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
+      <% end %>
+      <% if policy(@tour).destroy? %>
+        <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
+      <% end %>
 
-      <%= link_to 'Edit this tour', edit_tour_path(@tour) %>
-      <%= link_to 'Delete this tour', tour_path(@tour), method: :delete %>
+      <br>
+      <br>
 
       <h1><%= @tour.name %></h1>
       <p>Artist name: <%= @tour.artist_name %></p>
@@ -20,7 +24,9 @@
       <br>
 
       <b>Events</b>
-      <%= link_to 'Add an event', new_tour_event_path(@tour) %>
+      <% if policy(@tour).edit? %>
+        <%= link_to 'Add an event', new_tour_event_path(@tour) %>
+      <% end %>
 
       <br>
       <br>
@@ -41,7 +47,7 @@
       <br>
 
       <% @tour_members.each do |tour_member| %>
-        <p><%= tour_member.job_title %> - User_id: <%= tour_member.user_id %></p>
+        <p><%= tour_member.job_title %> - <%= tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email %></p>
         <br>
         <br>
       <% end %>

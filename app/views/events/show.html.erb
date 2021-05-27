@@ -9,8 +9,10 @@
 
       <br>
 
-      <%= link_to 'Edit this event', edit_event_path(@event) %>
-      <%= link_to 'Delete this event', event_path(@event), method: :delete %>
+      <% if policy(@tour).edit? %>
+        <%= link_to 'Edit this event', edit_event_path(@event) %>
+        <%= link_to 'Delete this event', event_path(@event), method: :delete %>
+      <% end %>
 
       <br>
       <br>
