@@ -1,29 +1,21 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <%= simple_form_for(@user) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <%= f.input :first_name, label: 'First Name:' %>
-          <%= f.input :last_name, label: 'Last Name:' %>
-          <%= f.input :nickname, label: 'Nickname:' %>
-          <%= f.input :email, label: 'Email:' %>
-          <%= f.input :phone, label: 'Phone Number:' %>
-          <%= f.input :description, label: 'Bio:' %>
-          <%= f.input :avatar, as: :file %>
-          <!-- uncomment below when cloudinary installed -->
-          <%#= f.input :photo, as: :file, label: 'Avatar:' %>
-          <%= f.association :skills, as: :check_boxes, label: 'Job skills:' %>
-        </div>
-
-        <div class="form-actions d-flex justify-content-center">
-          <%= f.button :submit, class: 'btn btn-warning' %>
-        </div>
-      <% end %>
-
-    </div>
+  <div class="form-inputs">
+    <%= f.input :first_name, label: 'First Name:' %>
+    <%= f.input :last_name, label: 'Last Name:' %>
+    <%= f.input :nickname, label: 'Nickname:' %>
+    <%= f.input :email, label: 'Email:' %>
+    <%= f.input :phone, label: 'Phone Number:' %>
+    <%= f.input :description, label: 'Bio:' %>
+    <%= f.input :avatar, as: :file %>
+    <!-- uncomment below when cloudinary installed -->
+    <%#= f.input :photo, as: :file, label: 'Avatar:' %>
+    <%= f.association :skills, as: :check_boxes, label: 'Job skills:' %>
   </div>
-</div>
+
+  <div class="form-actions d-flex justify-content-center">
+    <%= f.button :submit, class: 'btn btn-warning' %>
+  </div>
+<% end %>

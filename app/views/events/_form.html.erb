@@ -1,22 +1,14 @@
-<!-- <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6"> -->
+<%= simple_form_for([@tour, @event]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <%= simple_form_for([@tour, @event]) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <%= f.input :show_start_at, label: 'Show starts at:' %>
-          <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
-        </div>
-
-        <div class="form-actions d-flex justify-content-center">
-          <%= f.button :submit, class: 'btn btn-secondary' %>
-        </div>
-      <% end %>
-
-<!--     </div>
+  <div class="form-inputs">
+    <%= f.input :show_start_at, label: 'Show starts at:' %>
+    <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
   </div>
-</div> -->
+
+  <div class="form-actions d-flex justify-content-center">
+    <%= f.button :submit, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
 
