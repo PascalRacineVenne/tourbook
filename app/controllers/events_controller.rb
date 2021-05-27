@@ -48,6 +48,9 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+    # dt = @event.show_start_at
+    # @event.time = dt.strftime("%I:%M%p")
+    # @event.date = dt.strftime("%a %b %d")
     authorize @event
   end
 

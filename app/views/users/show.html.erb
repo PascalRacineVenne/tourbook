@@ -4,9 +4,11 @@
 
       <!-- <img src="<%#= @user.image_url %>" alt="" class="avatar"> -->
 
-      <% if @user.full_name %>
-        <h1>hi, <%= @user.nickname ? @user.nickname : @user.full_name %>!</h1>
-        <%= link_to 'edit', edit_user_path(@user) %>
+      <% if @user.full_name.nil? && @user == current_user%>
+        <h1><%= @user.nickname || @user.full_name ? @user.nickname || @user.full_name : @user.email %></h1>
+        <% if policy(@user).edit? %>
+          <p>please update your profile <%= link_to 'here', edit_user_path(@user) %></p>
+        <% end %>
         <p>Nickname: <%= @user.nickname %></p>
         <p>Name: <%= @user.full_name %></p>
         <p>Email: <%= @user.email %></p>
@@ -20,8 +22,21 @@
         </ul>
 
       <% else %>
-        <h1>hi, <%= @user.email %></h1>
-        <p>please update your profile <%= link_to 'here', edit_user_path(@user) %></p>
+        <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
+        <% if policy(@user).edit? %>
+          <%= link_to 'edit', edit_user_path(@user) %>
+        <% end %>
+        <p>Nickname: <%= @user.nickname %></p>
+        <p>Name: <%= @user.full_name %></p>
+        <p>Email: <%= @user.email %></p>
+        <p>Phone: <%= @user.phone %></p>
+        <p>Bio: <%= @user.description %></p>
+        <p>Skills: </p>
+        <ul>
+          <% @user.skills.each do |skill| %>
+            <li><%= skill.name %></li>
+          <% end %>
+        </ul>
       <% end %>
 
     </div>
