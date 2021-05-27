@@ -4,6 +4,7 @@ class ToursController < ApplicationController
 
   def index
     @tours = policy_scope(Tour).select { |tour| tour.users.include?(current_user) }
+    @tour = Tour.new
   end
 
   def new
@@ -26,6 +27,7 @@ class ToursController < ApplicationController
 
   def show
     @events = @tour.events
+    @tour_member = TourMember.new
     @tour_members = @tour.tour_members
   end
 

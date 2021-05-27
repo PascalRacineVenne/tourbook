@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
 
+
     <div class="col-md-6">
-      <% if policy(Tour).create? %>
-        <%= link_to "Add a tour", new_tour_path %>
+      <% if policy(@tour).create? %>
+        <%= render 'modal_add_tour', tour: @tour %>
       <% end %>
+      <%# if policy(Tour).create? %>
+        <%#= link_to "Add a tour", new_tour_path %>
+      <%# end %>
 
       <br>
       <br>

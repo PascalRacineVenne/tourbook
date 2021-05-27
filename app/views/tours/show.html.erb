@@ -5,8 +5,11 @@
       <h1>Tours#show</h1>
 
       <% if policy(@tour).edit? %>
-        <%= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
+        <%= render 'modal_edit_tour', tour: @tour %>
       <% end %>
+      <%# if policy(@tour).edit? %>
+        <%#= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
+      <%# end %>
       <% if policy(@tour).destroy? %>
         <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
       <% end %>
@@ -42,6 +45,10 @@
       <br>
 
       <b>Tour members</b>
+
+      <% if policy(@tour).edit? %>
+        <%= render 'modal_edit_member', tour: @tour %>
+      <% end %>
 
       <br>
       <br>
