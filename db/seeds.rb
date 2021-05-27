@@ -46,9 +46,8 @@ tours = [
   { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
   { name: 'Wagon Girls', artist_name: 'Camille & Filles', logo: 'https://i.ytimg.com/vi/6oQv1tui-k8/maxresdefault.jpg'}
 ]
-counter = 0
+
 tours.each do |tour|
-  puts "creating tour #{counter}"
   t = Tour.new(
     name: tour[:name],
     artist_name: tour[:artist_name],
@@ -56,18 +55,32 @@ tours.each do |tour|
   file = URI.open(tour[:logo])
   t.logo.attach(io: file, filename: "logo.jpg", content_type: 'image/png')
   t.save!
-  counter += 1
 end
 
 puts "created #{Tour.all.count} tours!"
 
 puts 'creating events'
 
+venues = [
+  {venue: 'Sala Rossa', city: 'Montreal, QC'},
+  {venue: 'Danforth Music Hall', city: 'Toronto, ON'},
+  {venue: 'LIVE! On Elgin', city: 'Ottawa, ON'},
+  {venue: 'Commodore Ballroom', city: 'Vancouver, BC'},
+  {venue: 'The Baron', city: 'Calgary, MB'},
+  {venue: 'The Cutting Room', city: 'New York, NY'},
+  {venue: 'House of Blues', city: 'Boston, MA'},
+  {venue: "Nectar's", city: 'Burlington, VT'},
+  {venue: "L'ANTI Bar & Spectacles", city: 'Quebec, QC'}
+]
+
 Tour.all.each do |tour|
   10.times do
+    venue = venues.sample
     event = Event.new(
       schedule: 'schedule#placeholder',
-      show_start_at: rand(30..60).days.from_now.beginning_of_day + rand(18..22).hours
+      show_start_at: rand(30..60).days.from_now.beginning_of_day + rand(18..22).hours,
+      venue: venue[:venue],
+      city: venue[:city]
     )
     event.tour = tour
     event.save!

@@ -2,8 +2,6 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
 
-      <h1>Tours#show</h1>
-
       <% if policy(@tour).edit? %>
         <%= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
       <% end %>
@@ -11,7 +9,6 @@
         <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
       <% end %>
 
-      <br>
       <br>
 
       <h1><%= @tour.name %></h1>
@@ -21,39 +18,24 @@
       <% end %>
 
       <br>
-      <br>
 
-      <b>Events</b>
       <% if policy(@tour).edit? %>
         <%= link_to 'Add an event', new_tour_event_path(@tour) %>
       <% end %>
 
       <br>
-      <br>
 
       <% @events.each do |event| %>
-        <b><%= link_to event.show_start_at, event_path(event) %></b>
-        <i><%= event.schedule %></i>
-        <br>
+        <p><strong><%= link_to event.show_start_at.strftime("%I:%M%p %a %b %d"), event_path(event) %></strong> | <%= event.venue %></p>
+        <p><%= event.city %></p>
         <br>
       <% end %>
-
-      <br>
-      <br>
 
       <b>Tour members</b>
 
-      <br>
-      <br>
-
       <% @tour_members.each do |tour_member| %>
-        <p><%= tour_member.job_title %> - <%= tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email %></p>
-        <br>
-        <br>
+        <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
       <% end %>
-
-      <br>
-      <br>
 
       <%= link_to 'Back', root_path %>
 
