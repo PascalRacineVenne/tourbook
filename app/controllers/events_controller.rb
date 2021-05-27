@@ -9,12 +9,14 @@ class EventsController < ApplicationController
   def new
     @tour = Tour.find(params[:tour_id])
     @event = Event.new
+    authorize @event
   end
 
   def create
     @tour = Tour.find(params[:tour_id])
     @event = Event.new(event_params)
     @event.tour_id = params[:tour_id]
+    authorize @event
     if @event.save
       redirect_to tour_path(@tour), notice: 'Your event was successfully created.'
     else
@@ -46,6 +48,7 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.find(params[:id])
+    authorize @event
   end
 
   def event_params
