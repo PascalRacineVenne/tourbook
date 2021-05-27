@@ -33,7 +33,7 @@ class ToursController < ApplicationController
 
   def destroy
     @tour.destroy
-    redirect_to tours_path, notice: 'Your tour was successfully deleted.'
+    redirect_to root_path, notice: 'Your tour was successfully deleted.'
   end
 
   private
