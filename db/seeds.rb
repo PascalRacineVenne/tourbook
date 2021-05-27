@@ -37,7 +37,7 @@ puts 'creating tours'
 
 tours = [
   { name: 'Hairless Heroes', artist_name: 'Steph Pas', logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53195d3d-df08-48aa-98e8-f34bc81a9980/d4xmo4x-10fe2193-2098-4ce1-8c98-5feec94c05f6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzMTk1ZDNkLWRmMDgtNDhhYS05OGU4LWYzNGJjODFhOTk4MFwvZDR4bW80eC0xMGZlMjE5My0yMDk4LTRjZTEtOGM5OC01ZmVlYzk0YzA1ZjYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.P8fsS9P9Hn-jVMbK5lu7BQPi39vpxhsLeaxlMScz5go'},
-  { name: 'Silence Amplified', artist_name: 'Thomas & Alex', logo: 'https://p2.piqsels.com/preview/669/771/726/woman-finger-whisper-lip.jpg'},
+  { name: 'Silence Amplified', artist_name: 'Thomas & Alex', logo: 'https://media.istockphoto.com/photos/whisper-picture-id139524150?k=6&m=139524150&s=612x612&w=0&h=ccXVWhxVpkxd6THkZ_z4OakWJLQjtMpIixUQkNcAJWU='},
   { name: 'Prince Curly', artist_name: 'Chrissy B', logo: 'https://www.byrdie.com/thmb/FRZ_vGcwUhfl-631cd0zWU1ovpk=/500x350/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-924890330-a46e282977ff4373bac4732736df7782.jpg'},
   { name: 'Bros & Brews', artist_name: 'Cloton Laundry', logo: 'https://images.saymedia-content.com/.image/t_share/MTc0MzU0ODM0NjQ2OTAyMTIw/ten-wonderful-uses-for-beer-besides-drinking-it.jpg'},
   { name: 'Moto Sounds', artist_name: 'Daniel Bronzeman', logo: 'https://i.pinimg.com/originals/5c/56/18/5c561846c00cc8b76229e290daca79f1.jpg'},
@@ -46,8 +46,9 @@ tours = [
   { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
   { name: 'Wagon Girls', artist_name: 'Camille & Filles', logo: 'https://i.ytimg.com/vi/6oQv1tui-k8/maxresdefault.jpg'}
 ]
-
+counter = 0
 tours.each do |tour|
+  puts "creating tour #{counter}"
   t = Tour.new(
     name: tour[:name],
     artist_name: tour[:artist_name],
@@ -55,6 +56,7 @@ tours.each do |tour|
   file = URI.open(tour[:logo])
   t.logo.attach(io: file, filename: "logo.jpg", content_type: 'image/png')
   t.save!
+  counter += 1
 end
 
 puts "created #{Tour.all.count} tours!"
