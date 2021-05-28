@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
 
+      <%= cl_image_tag @user.avatar.key, height: 100, width: 100, crop: :fill %>
       <!-- <img src="<%#= @user.image_url %>" alt="" class="avatar"> -->
 
       <% if @user.full_name.nil? && @user == current_user%>
@@ -28,8 +29,8 @@
         <% end %>
         <p>Nickname: <%= @user.nickname %></p>
         <p>Name: <%= @user.full_name %></p>
-        <p>Email: <%= @user.email %></p>
-        <p>Phone: <%= @user.phone %></p>
+        <p>Email: <%= link_to @user.email, '#' %></p>
+        <p>Phone: <%= link_to @user.phone, 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff5f20120-d2de-11e8-b8d4-d6fb90acb7b1.jpg?crop=3383%2C1903%2C34%2C501&resize=1180'%></p>
         <p>Bio: <%= @user.description %></p>
         <p>Skills: </p>
         <ul>

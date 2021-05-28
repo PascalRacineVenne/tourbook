@@ -19,6 +19,8 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <%= f.input :venue, label: 'Venue:' %>
+    <%= f.input :city, label: 'City:' %>
     <%= f.input :show_start_at, label: 'Show starts at:' %>
     <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
   </div>
