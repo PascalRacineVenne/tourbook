@@ -23,15 +23,9 @@
 
       <br>
 
-      <h1><%= @tour.name %></h1>
-      <p>Artist name: <%= @tour.artist_name %></p>
-      <% if @tour.logo.present?%>
-        <%= cl_image_tag @tour.logo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+      <b>EVENTS</b>
 
       <br>
-
-      <p>Events</p>
 
       <% if policy(@tour).edit? %>
         <%= render 'modal_add_event', tour: @tour %>
@@ -45,15 +39,21 @@
         <br>
       <% end %>
 
-      <p>Tour members</p>
+      <b>TOUR MEMBERS</b>
+
+      <br>
 
       <% if policy(@tour).edit? %>
         <%= render 'modal_edit_member', tour: @tour %>
       <% end %>
 
+      <br>
+
       <% @tour_members.each do |tour_member| %>
         <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
       <% end %>
+
+      <br>
 
       <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
 

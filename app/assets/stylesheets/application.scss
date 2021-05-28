@@ -10,6 +10,8 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/card";
+@import "components/modal";
 @import "pages/index";
 
 // Custom
@@ -23,30 +25,4 @@ body {
 }
 html {
   height: -webkit-fill-available;
-}
-
-.modal-content {
-  width: 100%;
-  min-height: 100vh !important;
-}
-
-.modal-dialog {
-  margin: 0 !important;
-}
-
-.card-category {
-  background-size: cover;
-  background-position: center;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
