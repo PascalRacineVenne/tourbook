@@ -6,7 +6,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editTourModalTitle">Edit this tour</h5>
+        <h5 class="modal-title" id="editTourModalTitle">Edit Tour</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -22,10 +22,6 @@
             <%#= f.input :logo_url, label: 'Logo URL:' %>
             <%= f.input :logo, as: :file %>
           </div>
-          <%= f.simple_fields_for(:tour_members) do |ftm| %>
-            <%= render 'tour_member_fields', f: ftm %>
-          <% end %>
-          <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

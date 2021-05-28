@@ -1,14 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
 
-
     <div class="col-md-6">
-      <% if policy(@tour).create? %>
+      <% if policy(Tour).create? %>
         <%= render 'modal_add_tour', tour: @tour %>
       <% end %>
-      <%# if policy(Tour).create? %>
-        <%#= link_to "Add a tour", new_tour_path %>
-      <%# end %>
 
       <br>
       <br>
@@ -20,6 +16,7 @@
           <%= cl_image_tag tour.logo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>

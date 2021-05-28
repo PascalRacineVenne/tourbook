@@ -19,7 +19,7 @@ class ToursController < ApplicationController
     tour_member.save
     authorize @tour
     if @tour.save
-      redirect_to tour_path(@tour), notice: 'Your tour was successfully created.'
+      redirect_to tour_path(@tour)
     else
       render :new
     end
@@ -27,7 +27,9 @@ class ToursController < ApplicationController
 
   def show
     @events = @tour.events.order(show_start_at: :asc)
+    @tour_member = TourMember.new
     @tour_members = @tour.tour_members
+    @event = Event.create
   end
 
   def edit
@@ -35,12 +37,12 @@ class ToursController < ApplicationController
 
   def update
     @tour.update(tour_params)
-    redirect_to tour_path(@tour), notice: 'Your tour was successfully updated.'
+    redirect_to tour_path(@tour)
   end
 
   def destroy
     @tour.destroy
-    redirect_to root_path, notice: 'Your tour was successfully deleted.'
+    redirect_to root_path
   end
 
   private
