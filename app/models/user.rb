@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   def to_label
-    email
+    full_name
   end
 end
