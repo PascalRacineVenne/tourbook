@@ -24,3 +24,12 @@ body {
 html {
   height: -webkit-fill-available;
 }
+
+.modal-content {
+  width: 100%;
+  min-height: 100vh !important;
+}
+
+.modal-dialog {
+  margin: 0 !important;
+}

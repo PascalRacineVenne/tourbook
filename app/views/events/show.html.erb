@@ -10,14 +10,19 @@
       <br>
 
       <% if policy(@tour).edit? %>
-        <%= link_to 'Edit this event', edit_event_path(@event) %>
-        <%= link_to 'Delete this event', event_path(@event), method: :delete %>
+        <%= render 'modal_edit_event', tour: @tour, event: @event %>
+        <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
       <% end %>
 
+      <%# if policy(@tour).edit? %>
+        <%#= link_to 'Edit this event', edit_event_path(@event) %>
+        <%#= link_to 'Delete this event', event_path(@event), method: :delete %>
+      <%# end %>
+
       <br>
       <br>
 
-      <%= link_to 'Back to tour', tour_path(@tour) %>
+      <%= link_to 'Back to tour', tour_path(@tour), class: "btn btn-link btn-sm" %>
 
     </div>
   </div>

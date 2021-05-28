@@ -3,7 +3,7 @@
     <div class="col-md-6">
 
       <% if policy(@tour).edit? %>
-        <%= link_to 'Edit Details', edit_tour_path(@tour), class: 'btn btn-secondary' %>
+        <%= render 'modal_edit_tour', tour: @tour %>
       <% end %>
       <% if policy(@tour).destroy? %>
         <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
@@ -19,8 +19,10 @@
 
       <br>
 
+      <p>Events</p>
+
       <% if policy(@tour).edit? %>
-        <%= link_to 'Add an event', new_tour_event_path(@tour) %>
+        <%= render 'modal_add_event', tour: @tour %>
       <% end %>
 
       <br>
@@ -33,11 +35,15 @@
 
       <p>Tour members</p>
 
+      <% if policy(@tour).edit? %>
+        <%= render 'modal_edit_member', tour: @tour %>
+      <% end %>
+
       <% @tour_members.each do |tour_member| %>
         <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
       <% end %>
 
-      <%= link_to 'Back', root_path %>
+      <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
 
     </div>
   </div>
