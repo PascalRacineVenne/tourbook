@@ -19,7 +19,7 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-inputs">
-          <%= f.input :show_start_at, label: 'Show starts at:', html5: true, input_html: { class: 'show-start-at' } %>
+          <%= f.input :show_start_at, label: 'Show starts at:', html5: true, input_html: { class: 'show-starts-at' } %>
           <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
         </div>
 
