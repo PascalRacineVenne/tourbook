@@ -7,10 +7,10 @@ class ToursController < ApplicationController
     @tour = Tour.new
   end
 
-  def new
-    @tour = Tour.new
-    authorize @tour
-  end
+  # def new
+  #   @tour = Tour.new
+  #   authorize @tour
+  # end
 
   def create
     @tour = Tour.new(tour_params)
@@ -32,8 +32,8 @@ class ToursController < ApplicationController
     @event = Event.create
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def update
     @tour.update(tour_params)
