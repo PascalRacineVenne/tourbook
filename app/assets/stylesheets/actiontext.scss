@@ -11,6 +11,9 @@
 
 @import "trix/dist/trix";
 
+trix-editor {
+  overflow-y: auto !important; }
+
 .trix-content {
   .attachment-gallery {
     > action-text-attachment,
@@ -35,7 +38,7 @@
       padding: 0 !important;
       max-width: 100% !important;
     }
-  }
+}
 
   li > ul li {
     list-style: none;
