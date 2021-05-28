@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfileModal">
+  Edit my Profile
+</button>
+
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProfileModalTitle">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <%= simple_form_for(@user) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <%= f.input :full_name, label: 'Name:' %>
+            <%= f.input :nickname, label: 'Nickname:' %>
+            <%= f.input :email, label: 'Email:' %>
+            <%= f.input :phone, label: 'Phone Number:' %>
+            <%= f.input :description, label: 'Bio:' %>
+            <%= f.input :avatar, as: :file %>
+            <!-- uncomment below when cloudinary installed -->
+            <%#= f.input :photo, as: :file, label: 'Avatar:' %>
+            <%= f.association :skills, as: :check_boxes, label: 'Job skills:' %>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <%= f.button :submit, class: 'btn btn-primary', value: 'Edit my profile' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
