@@ -14,7 +14,7 @@ class ToursController < ApplicationController
 
   def create
     @tour = Tour.new(tour_params)
-    tour_member = TourMember.new(tour: @tour, administrator: true)
+    tour_member = TourMember.new(tour: @tour, job_title: 'Manager', administrator: true)
     tour_member.user = current_user if tour_member.user.nil?
     tour_member.save
     authorize @tour
