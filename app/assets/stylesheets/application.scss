@@ -18,7 +18,18 @@
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 html {
   height: -webkit-fill-available;
+}
+
+.modal-content {
+  width: 100%;
+  min-height: 100vh !important;
+}
+
+.modal-dialog {
+  margin: 0 !important;
 }

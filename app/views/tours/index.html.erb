@@ -3,7 +3,7 @@
 
     <div class="col-md-6">
       <% if policy(Tour).create? %>
-        <%= link_to "Add a tour", new_tour_path %>
+        <%= render 'modal_add_tour', tour: @tour %>
       <% end %>
 
       <br>
@@ -16,6 +16,7 @@
           <%= cl_image_tag tour.logo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>
