@@ -20,7 +20,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to tour_path(@tour)
     else
-      render :new
+      render 'tours/show'
     end
   end
 
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
-      render :edit
+      render 'events/show'
     end
   end
 

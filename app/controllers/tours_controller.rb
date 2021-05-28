@@ -21,7 +21,7 @@ class ToursController < ApplicationController
     if @tour.save
       redirect_to tour_path(@tour)
     else
-      render :new
+      render 'tours/index'
     end
   end
 
