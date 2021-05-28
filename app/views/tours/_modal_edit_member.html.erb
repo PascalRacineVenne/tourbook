@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editMemberModal">
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
   Edit the tour members
 </button>
 
@@ -23,8 +23,9 @@
         </div>
         <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
 
-        <div class="form-actions d-flex justify-content-center">
-          <%= f.button :submit, class: 'btn btn-secondary', value: "Edit Tour Members" %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+          <%= f.button :submit, class: 'btn btn-secondary btn-sm', value: "Edit Tour Members" %>
         </div>
       <% end %>
       </div>
