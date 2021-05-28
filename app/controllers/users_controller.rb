@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       params[:user][:skill_ids].each do |id|
         JobSkill.create!(user_id: @user.id, skill_id: id) unless id == ''
       end
-      redirect_to user_path(@user), notice: 'updated!'
+      redirect_to user_path(@user)
     end
   end
 
