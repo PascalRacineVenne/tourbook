@@ -1,4 +1,4 @@
-.card-category {
+.card-tour {
   background-size: cover;
   background-position: center;
   height: 120px;
@@ -15,12 +15,39 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-category h2 {
+.card-tour h2 {
   text-decoration: none;
   font-size: 25px;
 }
 
-.card-category p {
+.card-tour p {
   text-decoration: none;
   font-size: 15px;
 }
+
+.card-event {
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+#event-photo {
+  position: relative;
+}
+
+#event-photo img {
+  position: absolute;
+  top: 6px;
+  right: 15px;
+}
+
+
