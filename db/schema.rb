@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_152650) do
+ActiveRecord::Schema.define(version: 2021_05_31_161558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 2021_05_31_152650) do
 
   create_table "broadcasts", force: :cascade do |t|
     t.string "name"
-    t.string "imageable_type"
-    t.bigint "imageable_id"
+    t.string "broadcastable_type"
+    t.bigint "broadcastable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["imageable_type", "imageable_id"], name: "index_broadcasts_on_imageable_type_and_imageable_id"
+    t.index ["broadcastable_type", "broadcastable_id"], name: "index_broadcasts_on_broadcastable_type_and_broadcastable_id"
   end
 
   create_table "events", force: :cascade do |t|
