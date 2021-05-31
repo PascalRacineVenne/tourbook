@@ -109,13 +109,13 @@ puts "created #{Skill.all.count} skills!"
 puts 'creating tour members'
 
 tour_members = [
-  {user: User.find_by(email: 'freddy@tunez.com'), event: Event.find((Event.all).sample.id), job_title: 'Drummer', administrator: false},
-  {user: User.find_by(email: 'freddy@tunez.com'), event: Event.find((Event.all).sample.id), job_title: 'Drummer', administrator: false},
-  {user: User.find_by(email: 'freddy@tunez.com'), event: Event.find((Event.all).sample.id), job_title: 'Drummer', administrator: false},
-  {user: User.find_by(email: 'steph@ilovemycat.com'), event: Event.find((Event.all).sample.id), job_title: 'Singer', administrator: false},
-  {user: User.find_by(email: 'a-m@muzak.com'), event: Event.find((Event.all).sample.id), job_title: 'Sound Tech', administrator: true},
-  {user: User.find_by(email: 'cathy@mgmt.com'), event: Event.find((Event.all).sample.id), job_title: 'Manager', administrator: true},
-  {user: User.find_by(email: 'cathy@mgmt.com'), event: Event.find((Event.all).sample.id), job_title: 'Sound Tech', administrator: false},
+  {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Moto Sounds').events.first, job_title: 'Drummer', administrator: false},
+  {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Man in Love').events.first, job_title: 'Drummer', administrator: false},
+  {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Hairless Heroes').events.first, job_title: 'Drummer', administrator: false},
+  {user: User.find_by(email: 'steph@ilovemycat.com'), event: Tour.find_by(name: 'Hairless Heroes').events.first, job_title: 'Singer', administrator: false},
+  {user: User.find_by(email: 'a-m@muzak.com'), event: Tour.find_by(name: 'Hairless Heroes').events.first, job_title: 'Sound Tech', administrator: true},
+  {user: User.find_by(email: 'cathy@mgmt.com'), event: Tour.find_by(name: 'Man in Love').events.first, job_title: 'Manager', administrator: true},
+  {user: User.find_by(email: 'cathy@mgmt.com'), event: Tour.find_by(name: 'Silence Amplified').events.first, job_title: 'Sound Tech', administrator: false},
   # {user: User.find_by(email:), tour: Tour.find_by(name:), job_title: , administrator: }
 ]
 
