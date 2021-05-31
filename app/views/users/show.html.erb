@@ -8,7 +8,7 @@
       <% if @user.full_name.nil? && @user == current_user%>
         <h1><%= @user.nickname || @user.full_name ? @user.nickname || @user.full_name : @user.email %></h1>
         <% if policy(@user).edit? %>
-          <p>Please update your profile <%= render 'modal_edit_profile', user: @user %></p>
+          <p>Please update your profile <%= render 'layouts/modals/modal_edit_profile', user: @user %></p>
         <% end %>
         <p>Nickname: <%= @user.nickname %></p>
         <p>Name: <%= @user.full_name %></p>
@@ -25,7 +25,7 @@
       <% else %>
         <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
         <% if policy(@user).edit? %>
-          <%= render 'modal_edit_profile', user: @user %>
+          <%= render 'layouts/modals/modal_edit_profile', user: @user %>
         <% end %>
         <p>Nickname: <%= @user.nickname %></p>
         <p>Name: <%= @user.full_name %></p>
