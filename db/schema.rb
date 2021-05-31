@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_195644) do
+ActiveRecord::Schema.define(version: 2021_05_31_155536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,11 +76,11 @@ ActiveRecord::Schema.define(version: 2021_05_27_195644) do
   create_table "tour_members", force: :cascade do |t|
     t.string "job_title"
     t.boolean "administrator", default: false
-    t.bigint "tour_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tour_id"], name: "index_tour_members_on_tour_id"
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_tour_members_on_event_id"
     t.index ["user_id"], name: "index_tour_members_on_user_id"
   end
 
@@ -112,6 +112,6 @@ ActiveRecord::Schema.define(version: 2021_05_27_195644) do
   add_foreign_key "events", "tours"
   add_foreign_key "job_skills", "skills"
   add_foreign_key "job_skills", "users"
-  add_foreign_key "tour_members", "tours"
+  add_foreign_key "tour_members", "events"
   add_foreign_key "tour_members", "users"
 end

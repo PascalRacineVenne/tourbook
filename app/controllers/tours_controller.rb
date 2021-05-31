@@ -1,16 +1,11 @@
 class ToursController < ApplicationController
   # skip_before_action :authenticate_user!, only: :show
-  before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  before_action :set_tour, only: [:show, :update, :destroy]
 
   def index
-    @tours = policy_scope(Tour).select { |tour| tour.users.include?(current_user) }
+    @tours = policy_scope(Tour).select { |tour| tour.tour_members.include?(current_user) }
     @tour = Tour.new
   end
-
-  # def new
-  #   @tour = Tour.new
-  #   authorize @tour
-  # end
 
   def create
     @tour = Tour.new(tour_params)
@@ -30,9 +25,6 @@ class ToursController < ApplicationController
     @events = @tour.events.order(show_start_at: :asc)
     @tour_members = @tour.tour_members
   end
-
-  # def edit
-  # end
 
   def update
     @tour.update(tour_params)

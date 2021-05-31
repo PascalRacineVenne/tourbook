@@ -1,16 +1,10 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :update, :destroy]
 
   def show
     @tour_id = @event.tour_id
     @tour = Tour.find(@tour_id)
   end
-
-  # def new
-  #   @tour = Tour.find(params[:tour_id])
-  #   @event = Event.new
-  #   authorize @event
-  # end
 
   def create
     @tour = Tour.find(params[:tour_id])
@@ -24,10 +18,6 @@ class EventsController < ApplicationController
       render 'tours/show'
     end
   end
-
-  # def edit
-  #   @event = Event.find(params[:id])
-  # end
 
   def update
     @tour_id = @event.tour_id
