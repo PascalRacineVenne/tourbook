@@ -1,22 +1,16 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :update, :destroy]
 
   def show
     @tour_id = @event.tour_id
     @tour = Tour.find(@tour_id)
   end
 
-  # def new
-  #   @tour = Tour.find(params[:tour_id])
-  #   @event = Event.new
-  #   authorize @event
-  # end
-
   def create
     @tour = Tour.find(params[:tour_id])
     @event = Event.new(event_params)
     @event.tour_id = params[:tour_id]
-    authorize @event
+    # authorize @event
     if @event.save
       redirect_to tour_path(@tour)
       # raise
@@ -24,10 +18,6 @@ class EventsController < ApplicationController
       render 'tours/show'
     end
   end
-
-  # def edit
-  #   @event = Event.find(params[:id])
-  # end
 
   def update
     @tour_id = @event.tour_id
@@ -53,10 +43,10 @@ class EventsController < ApplicationController
     # dt = @event.show_start_at
     # @event.time = dt.strftime("%I:%M%p")
     # @event.date = dt.strftime("%a %b %d")
-    authorize @event
+    # authorize @event
   end
 
   def event_params
-    params.require(:event).permit(:show_start_at, :venue, :city, :schedule, :tour_id)
+    params.require(:event).permit(:show_start_at, :venue, :city, :schedule, :tour_id, tour_members_attributes: [:id, :job_title, :user_id, :_destroy])
   end
 end

@@ -19,9 +19,26 @@
           <div class="form-inputs">
             <%= f.input :name, label: 'Name:' %>
             <%= f.input :artist_name, label: 'Artist name:' %>
-            <%#= f.input :logo_url, label: 'Logo URL:' %>
             <%= f.input :logo, as: :file %>
           </div>
+
+          <div class="form-inputs">
+            <%= f.simple_fields_for(:event) do |ftm| %>
+              <%= render 'event_fields', f: ftm %>
+
+              <%#= ftm.simple_fields_for(:tour_members) do |ftmember| %>
+                <%#= render 'tour_member_fields', ftmember: ftmember %>
+              <%# end %>
+
+            <% end %>
+          </div>
+
+          <div class="form-inputs">
+            <%#= f.simple_fields_for(:tour_members) do |ftm| %>
+              <%#= render 'tour_member_fields', f: ftm %>
+            <%# end %>
+          </div>
+          <div class="links"><%#= link_to_add_association 'Add a tour member', f, :tour_members %></div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
