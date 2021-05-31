@@ -15,7 +15,6 @@ class User < ApplicationRecord
   end
 
   def broadcasts
-    Broadcast.where(broadcastable: tours)
-    # .or(Broadcast.where(broadcastable: events))
+    Broadcast.where(broadcastable: tours).or(Broadcast.where(broadcastable: events))
   end
 end
