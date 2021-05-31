@@ -26,9 +26,9 @@ class ToursController < ApplicationController
   end
 
   def show
+    @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
     @tour_members = @tour.tour_members
-    @event = Event.create
   end
 
   # def edit

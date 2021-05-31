@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     authorize @event
     if @event.save
       redirect_to tour_path(@tour)
+      # raise
     else
       render 'tours/show'
     end
@@ -33,6 +34,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to event_path(@event)
+      # raise
     else
       render 'events/show'
     end
@@ -55,6 +57,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:show_start_at, :schedule, :tour_id)
+    params.require(:event).permit(:show_start_at, :venue, :city, :schedule, :tour_id)
   end
 end

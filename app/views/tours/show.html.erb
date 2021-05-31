@@ -3,19 +3,19 @@
     <div class="col-md-6">
 
       <% if @tour.logo.present? %>
-        <div class="card-category" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'>
+        <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'>
           <h2><%= @tour.name %></h2>
           <p><%= @tour.artist_name %></p>
         </div>
       <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80)">
+        <div class="card-tour" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80)">
           <h2><%= @tour.name %></h2>
           <p><%= @tour.artist_name %></p>
         </div>
       <% end %>
 
       <% if policy(@tour).edit? %>
-        <%= render 'modal_edit_tour', tour: @tour %>
+        <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
       <% end %>
       <% if policy(@tour).destroy? %>
         <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
@@ -28,15 +28,32 @@
       <br>
 
       <% if policy(@tour).edit? %>
-        <%= render 'modal_add_event', tour: @tour %>
+        <%= render 'layouts/modals/modal_add_event', tour: @tour %>
       <% end %>
 
       <br>
 
       <% @events.each do |event| %>
-        <p><strong><%= link_to event.show_start_at.strftime("%I:%M%p %a %b %d"), event_path(event) %></strong> | <%= event.venue %></p>
-        <p><%= event.city %></p>
-        <br>
+        <%= link_to event_path(event) do %>
+          <div class="card-event">
+            <div class="card-event-block">
+              <div class="row">
+                <div class="col-2" id="event">
+                  <%= event.show_start_at.strftime("%b")%>
+                  <b><%= event.show_start_at.strftime("%d")%></b>
+                  <%= event.show_start_at.strftime("%a")%>
+                </div>
+                <div class="col-8" id="event">
+                  <b><%= event.venue %></b>
+                  <%= event.city %>
+                </div>
+                <div class="col-2" id="event-photo">
+                    <%= image_tag "icons/icon-arrow-right.png", alt: "alttext" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
 
       <b>TOUR MEMBERS</b>
@@ -44,7 +61,7 @@
       <br>
 
       <% if policy(@tour).edit? %>
-        <%= render 'modal_edit_member', tour: @tour %>
+        <%= render 'layouts/modals/modal_edit_member', tour: @tour %>
       <% end %>
 
       <br>
