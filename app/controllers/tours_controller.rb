@@ -7,16 +7,15 @@ class ToursController < ApplicationController
     # @tours = Tour.all
     @users = User.all
     @tour = Tour.new
+    @tour.events.build
   end
 
   def create
     @tour = Tour.new(tour_params)
-    # @tour_member = TourMember.new(event: @event, job_title: 'Manager', administrator: true)
-    # @tour_member.user = current_user if tour_member.user.nil?
+    add_first_event
+    add_tour_members
     authorize @tour
     if @tour.save
-      add_event
-      add_current_member
       redirect_to tour_path(@tour)
     else
       render 'tours/index'
@@ -26,7 +25,6 @@ class ToursController < ApplicationController
   def show
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
-    @tour_members = @event.tour_members
   end
 
   def update
@@ -39,25 +37,21 @@ class ToursController < ApplicationController
     redirect_to root_path
   end
 
-  def add_event
-    @event = Event.new(show_start_at: params.dig(:tour, :event)[:show_start_at])
-    # @event = Event.new(tour_params)
-    @event.tour = @tour
-    @event.save
+  private
+
+  def add_first_event
+    @event = Event.new(show_start_at: params.dig(:tour, :events_attributes, "0", :show_start_at))
+    @tour.events = [@event]
   end
 
-  def add_current_member
-    # att = params.dig(:tour, :event, :tour_members)
-    # @tour_member = TourMember.new(job_title: att[:job_title], user_id: att[:user])
-    # @tour_member.event = @event
-    # @tour_member.save
-
+  def add_tour_members
     @tour_member = TourMember.new(event: @event, job_title: 'Manager', administrator: true)
     @tour_member.user = current_user if @tour_member.user.nil?
     @tour_member.save
-  end
 
-  private
+    atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
+    @event.tour_members.build(atts)
+  end
 
   def set_tour
     @tour = Tour.find(params[:id])
@@ -66,13 +60,5 @@ class ToursController < ApplicationController
 
   def tour_params
     params.require(:tour).permit(:name, :artist_name, :logo, events_attributes: [:id, :show_start_at])
-  end
-
-  def event_params
-    params.require(params.dig(:tour, :event)).permit(:show_start_at)
-  end
-
-  def tour_member_params
-
   end
 end

@@ -5,3 +5,4 @@ class Tour < ApplicationRecord
   accepts_nested_attributes_for :events, reject_if: :all_blank
   has_one_attached :logo
 end
+
