@@ -1,22 +1,19 @@
 class ToursController < ApplicationController
   # skip_before_action :authenticate_user!, only: :show
-  before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  before_action :set_tour, only: [:show, :update, :destroy]
 
   def index
     @tours = policy_scope(Tour).select { |tour| tour.users.include?(current_user) }
+    # @tours = Tour.all
+    @users = User.all
     @tour = Tour.new
+    @tour.events.build
   end
-
-  # def new
-  #   @tour = Tour.new
-  #   authorize @tour
-  # end
 
   def create
     @tour = Tour.new(tour_params)
-    tour_member = TourMember.new(tour: @tour, job_title: 'Manager', administrator: true)
-    tour_member.user = current_user if tour_member.user.nil?
-    tour_member.save
+    add_first_event
+    add_tour_members
     authorize @tour
     if @tour.save
       redirect_to tour_path(@tour)
@@ -28,11 +25,7 @@ class ToursController < ApplicationController
   def show
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
-    @tour_members = @tour.tour_members
   end
-
-  # def edit
-  # end
 
   def update
     @tour.update(tour_params)
@@ -46,12 +39,26 @@ class ToursController < ApplicationController
 
   private
 
+  def add_first_event
+    @event = Event.new(show_start_at: params.dig(:tour, :events_attributes, "0", :show_start_at))
+    @tour.events = [@event]
+  end
+
+  def add_tour_members
+    @tour_member = TourMember.new(event: @event, job_title: 'Manager', administrator: true)
+    @tour_member.user = current_user if @tour_member.user.nil?
+    @tour_member.save
+
+    atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
+    @event.tour_members.build(atts)
+  end
+
   def set_tour
     @tour = Tour.find(params[:id])
-    authorize @tour
+    # authorize @tour
   end
 
   def tour_params
-    params.require(:tour).permit(:name, :artist_name, :logo, tour_members_attributes: [:id, :job_title, :user_id, :_destroy])
+    params.require(:tour).permit(:name, :artist_name, :logo, events_attributes: [:id, :show_start_at])
   end
 end

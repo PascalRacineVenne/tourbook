@@ -19,8 +19,19 @@
           <div class="form-inputs">
             <%= f.input :name, placeholder: 'Tour name', label: false %>
             <%= f.input :artist_name, placeholder: 'Artist name', label: false %>
-            <%#= f.input :logo_url, label: 'Logo URL:' %>
             <%= f.input :logo, as: :file %>
+          </div>
+
+          <div class="form-inputs">
+            <%= f.simple_fields_for(:events) do |fe| %>
+              <%= render 'event_fields', f: fe %>
+
+              <%= fe.simple_fields_for(:tour_members) do |ftm| %>
+                <%= render 'tour_member_fields', f: ftm %>
+              <% end %>
+              <div class="links"><%= link_to_add_association 'Add a tour member', fe, :tour_members %></div>
+
+            <% end %>
           </div>
 
           <div class="modal-footer">

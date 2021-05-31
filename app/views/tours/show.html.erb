@@ -51,6 +51,10 @@
       <% if policy(@tour).destroy? %>
         <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
       <% end %>
+                       
+      <%# if policy(@tour).edit? %>
+        <%#= render 'layouts/modals/modal_edit_member', tour: @tour %>
+      <%# end %>
 
       <b>EVENTS</b>
 
@@ -61,7 +65,7 @@
         <%= render 'layouts/modals/modal_edit_member', tour: @tour %>
       <% end %>
 
-      <% @tour_members.each do |tour_member| %>
+      <% @tour.tour_members.each do |tour_member| %>
         <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
       <% end %>
 

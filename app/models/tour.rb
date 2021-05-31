@@ -1,7 +1,9 @@
 class Tour < ApplicationRecord
-  has_many :tour_members, dependent: :destroy
-  has_many :users, through: :tour_members
   has_many :events, dependent: :destroy
-  accepts_nested_attributes_for :tour_members, reject_if: :all_blank, allow_destroy: true
+  has_many :tour_members, through: :events
+  has_many :users, through: :tour_members
+  accepts_nested_attributes_for :events, reject_if: :all_blank
   has_one_attached :logo
+  has_many :broadcasts, as: :broadcastable
 end
+
