@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-6 px-0">
 
       <% if @tour.logo.present? %>
         <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'>
