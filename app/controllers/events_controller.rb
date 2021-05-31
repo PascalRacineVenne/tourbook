@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     @tour = Tour.find(params[:tour_id])
     @event = Event.new(event_params)
     @event.tour_id = params[:tour_id]
-    authorize @event
+    # authorize @event
     if @event.save
       redirect_to tour_path(@tour)
       # raise
@@ -43,10 +43,10 @@ class EventsController < ApplicationController
     # dt = @event.show_start_at
     # @event.time = dt.strftime("%I:%M%p")
     # @event.date = dt.strftime("%a %b %d")
-    authorize @event
+    # authorize @event
   end
 
   def event_params
-    params.require(:event).permit(:show_start_at, :venue, :city, :schedule, :tour_id)
+    params.require(:event).permit(:show_start_at, :venue, :city, :schedule, :tour_id, tour_members_attributes: [:id, :job_title, :user_id, :_destroy])
   end
 end
