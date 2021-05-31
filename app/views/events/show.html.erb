@@ -11,7 +11,7 @@
       <br>
 
       <% if policy(@tour).edit? %>
-        <%= render 'modal_edit_event', tour: @tour, event: @event %>
+        <%= render 'layouts/modals/modal_edit_event', tour: @tour, event: @event %>
         <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
       <% end %>
 
