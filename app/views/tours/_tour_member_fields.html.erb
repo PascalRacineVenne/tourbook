@@ -1,6 +1,6 @@
 <div class="nested-fields">
-  <%= ftmember.input :job_title, label: 'Job title:' %>
-  <%= ftmember.input :user, collection: @users, label: 'User:' %>
-  <%= link_to_remove_association 'Remove this tour member', ftmember %>
+  <%= f.input :job_title, label: 'Job title:' %>
+  <%= f.input :user_id, collection: @users, label: 'User:' %>
+  <%= link_to_remove_association 'Remove this tour member', f %>
 </div>
 
