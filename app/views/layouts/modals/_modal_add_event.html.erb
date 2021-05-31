@@ -2,9 +2,10 @@
   Add an event
 </button>
 
+
 <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content modal-content-color">
       <div class="modal-header">
         <h5 class="modal-title" id="addEventModalTitle">Add Event</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -18,9 +19,9 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :venue, label: 'Venue:' %>
-            <%= f.input :city, label: 'City:' %>
-            <%= f.input :show_start_at, label: 'Show starts at:', html5: true %>
+            <%= f.input :venue, placeholder: 'Venue', label: false %>
+            <%= f.input :city, placeholder: 'City', label: false %>
+            <%= f.input :show_start_at, html5: true, label: false %>
             <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
           </div>
 
@@ -33,3 +34,4 @@
     </div>
   </div>
 </div>
+

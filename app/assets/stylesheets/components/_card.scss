@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
   color: white;
   font-size: 24px;
   font-weight: bold;
@@ -26,17 +26,26 @@
 }
 
 .card-event {
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-bottom:  1px solid $blue;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 #event {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  color: $blue;
+}
+
+#event-venue {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: center;
+  align-items: flex-start;
   color: black;
 }
 

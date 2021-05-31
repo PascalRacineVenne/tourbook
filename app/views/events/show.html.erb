@@ -1,38 +1,43 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <%= link_to "new broadcast", new_tour_broadcast_path(@event.tour) %>
+<div class="wrapper-light-blue">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+      
+        <%= link_to "new broadcast", new_tour_broadcast_path(@event.tour) %>
 
-      <%#= link_to event_path(event) do %>
-        <div class="card-event">
-          <div class="card-event-block">
-            <div class="row">
-              <div class="col-2" id="event">
-                <%= @event.show_start_at.strftime("%b")%>
-                <b><%= @event.show_start_at.strftime("%d")%></b>
-                <%= @event.show_start_at.strftime("%a")%>
-              </div>
-              <div class="col-8" id="event">
-                <b><%= @event.venue %></b>
-                <%= @event.city %>
-              </div>
-              <div class="col-2" id="event-photo">
-                  <%= image_tag "icons/icon-arrow-right.png", alt: "alttext" %>
+        <%#= link_to event_path(event) do %>
+          <div class="card-event">
+            <div class="card-event-block">
+              <div class="row">
+                <div class="col-2" id="event">
+                  <%= @event.show_start_at.strftime("%b")%>
+                  <b><%= @event.show_start_at.strftime("%d")%></b>
+                  <%= @event.show_start_at.strftime("%a")%>
+                </div>
+                <div class="col-8" id="event">
+                  <b><%= @event.venue %></b>
+                  <%= @event.city %>
+                </div>
+                <div class="col-2" id="event-photo">
+                    <%= image_tag "icons/icon-arrow-right.png", alt: "alttext" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      <%# end %>
+        <%# end %>
 
-      <b>Schedule: <%= @event.schedule %></b>
+        <% if policy(@tour).edit? %>
+          <%= render 'layouts/modals/modal_edit_event', tour: @tour, event: @event %>
+          <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
+        <% end %>
 
-      <%# if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_edit_event', tour: @tour, event: @event %>
-        <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
-      <%# end %>
+        <%# if policy(@tour).edit? %>
+          <%#= link_to 'Edit this event', edit_event_path(@event) %>
+          <%#= link_to 'Delete this event', event_path(@event), method: :delete %>
+        <%# end %>
+        <%= link_to 'Back to tour', tour_path(@tour), class: "btn btn-link btn-sm" %>
 
-      <%= link_to 'Back to tour', tour_path(@tour), class: "btn btn-link btn-sm" %>
-
+      </div>
     </div>
   </div>
 </div>
