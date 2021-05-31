@@ -112,6 +112,8 @@ tour_members = [
   {user: User.find_by(email: 'freddy@tunez.com'), tour: Tour.find_by(name: 'Moto Sounds'), job_title: 'Drummer', administrator: false},
   {user: User.find_by(email: 'freddy@tunez.com'), tour: Tour.find_by(name: 'Man in Love'), job_title: 'Drummer', administrator: false},
   {user: User.find_by(email: 'freddy@tunez.com'), tour: Tour.find_by(name: 'Hairless Heroes'), job_title: 'Drummer', administrator: false},
+  {user: User.find_by(email: 'steph@ilovemycat.com'), tour: Tour.find_by(name: 'Hairless Heroes'), job_title: 'Singer', administrator: false},
+  {user: User.find_by(email: 'a-m@muzak.com'), tour: Tour.find_by(name: 'Hairless Heroes'), job_title: 'Sound Tech', administrator: true},
   {user: User.find_by(email: 'cathy@mgmt.com'), tour: Tour.find_by(name: 'Man in Love'), job_title: 'Manager', administrator: true},
   {user: User.find_by(email: 'cathy@mgmt.com'), tour: Tour.find_by(name: 'Silence Amplified'), job_title: 'Sound Tech', administrator: false},
   # {user: User.find_by(email:), tour: Tour.find_by(name:), job_title: , administrator: }
