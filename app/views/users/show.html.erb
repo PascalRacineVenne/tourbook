@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
-
-      <%= cl_image_tag @user.avatar.key, height: 100, width: 100, crop: :fill %>
-      <!-- <img src="<%#= @user.image_url %>" alt="" class="avatar"> -->
+      <% if  @user.avatar.attached? %>
+        <%= cl_image_tag @user.avatar.key, height: 100, width: 100, crop: :fill %>
+        <!-- else pour image par défaut -->
+      <% end %>
 
       <% if @user.full_name.nil? && @user == current_user%>
         <h1><%= @user.nickname || @user.full_name ? @user.nickname || @user.full_name : @user.email %></h1>
