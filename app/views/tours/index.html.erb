@@ -3,7 +3,7 @@
 
     <div class="col-md-6">
       <% if policy(Tour).create? %>
-        <%= render 'modal_add_tour', tour: @tour %>
+        <%= render 'layouts/modals/modal_add_tour', tour: @tour %>
       <% end %>
 
       <br>
