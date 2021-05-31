@@ -14,12 +14,12 @@
         </div>
       <% end %>
 
-      <% if policy(@tour).edit? %>
+      <%# if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
-      <% end %>
-      <% if policy(@tour).destroy? %>
+      <%# end %>
+      <%# if policy(@tour).destroy? %>
         <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
-      <% end %>
+      <%#  end %>
 
       <br>
 
@@ -27,9 +27,9 @@
 
       <br>
 
-      <% if policy(@tour).edit? %>
+      <%# if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_add_event', tour: @tour %>
-      <% end %>
+      <%# end %>
 
       <br>
 
@@ -60,9 +60,9 @@
 
       <br>
 
-      <% if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_edit_member', tour: @tour %>
-      <% end %>
+      <%# if policy(@tour).edit? %>
+        <%#= render 'layouts/modals/modal_edit_member', tour: @tour %>
+      <%# end %>
 
       <br>
 
