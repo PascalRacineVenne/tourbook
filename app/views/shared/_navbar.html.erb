@@ -3,6 +3,8 @@
     <%= image_tag "logos/tourbook_logo_2.png" %>
   <% end %>
 
+  <%= link_to 'notifs', notifications_path %>
+
   <% if user_signed_in? %>
 
     <%= link_to user_path(current_user) do %>

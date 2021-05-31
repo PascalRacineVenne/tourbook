@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def to_label
     full_name
   end
+
+  def broadcasts
+    Broadcast.where(broadcastable: tours).or(Broadcast.where(broadcastable: events))
+  end
 end
