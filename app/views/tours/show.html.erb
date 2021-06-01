@@ -81,10 +81,8 @@
       <%#= render 'layouts/modals/modal_edit_member', tour: @tour %>
       <%# end %>
 
-      <% @tour.events.each do |event| %>
-        <% event.tour_members.each do |tour_member| %>
+      <% @uniq_tour_members.each do |tour_member| %>
         <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-        <% end %>
       <% end %>
 
       <%= render 'layouts/modals/modal_manage_members_for_tour', tour: @tour %>

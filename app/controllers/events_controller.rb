@@ -9,10 +9,12 @@ class EventsController < ApplicationController
     @tour = Tour.find(params[:tour_id])
     @event = Event.new(event_params)
     @event.tour_id = params[:tour_id]
-    @event.tour_members = @tour.events.first.tour_members
-    @event.tour_members = @tour.tour_members
+    # @event.tour_members = @tour.tour_members
     # authorize @event
     if @event.save
+      @tour.events.first.tour_members.each do |tm|
+        TourMember.create(job_title: tm.job_title, event: @event, user: tm.user)
+      end
       redirect_to tour_path(@tour)
     else
       render 'tours/show'
@@ -20,6 +22,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    raise
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
