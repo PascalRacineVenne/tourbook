@@ -4,8 +4,9 @@
       <div class="col-md-6">
 
         <%= link_to "new broadcast", new_tour_broadcast_path(@event.tour) %>
+        <!-- New Notif icon-->
         <%= link_to new_tour_broadcast_path(@event.tour) do %>
-          <%= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+          <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
         <% end %>
 
         <%#= link_to event_path(event) do %>
