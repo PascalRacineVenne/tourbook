@@ -1,3 +1,6 @@
 <div class="nested-fields">
+  <%= f.input :venue, placeholder: 'Venue', label: false %>
+  <%= f.input :city, placeholder: 'City', label: false %>
   <%= f.input :show_start_at, label: 'Show starts at:', html5: true %>
+  <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
 </div>

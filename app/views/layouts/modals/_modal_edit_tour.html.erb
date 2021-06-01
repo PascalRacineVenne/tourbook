@@ -17,14 +17,13 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :name, label: 'Name:' %>
-            <%= f.input :artist_name, label: 'Artist name:' %>
-            <%#= f.input :logo_url, label: 'Logo URL:' %>
+            <%= f.input :name, placeholder: 'Tour name', label: false %>
+            <%= f.input :artist_name, placeholder: 'Artist name', label: false %>
             <%= f.input :logo, as: :file %>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+            <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
             <%= f.button :submit, class: 'btn btn-primary btn-sm' %>
           </div>
         <% end %>
