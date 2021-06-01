@@ -22,7 +22,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    raise
     if @event.update(event_params)
       redirect_to event_path(@event)
     else
