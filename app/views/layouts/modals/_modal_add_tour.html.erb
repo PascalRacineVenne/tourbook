@@ -1,6 +1,15 @@
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addTourModal">
-  Add a tour
-</button>
+<!-- ADD TOUR plsu icon -->
+<%= image_tag "icons/icon_plus.svg",
+  class: 'icon-round',
+  data:  { toggle: "modal",
+   target: "#addTourModal"
+ } %>
+
+<!-- Notif icon -->
+ <%= link_to notifications_path do %>
+   <%= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+ <% end %>
+
 
 <div class="modal fade" id="addTourModal" tabindex="-1" role="dialog" aria-labelledby="addTourModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">

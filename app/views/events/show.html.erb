@@ -2,8 +2,11 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-      
+
         <%= link_to "new broadcast", new_tour_broadcast_path(@event.tour) %>
+        <%= link_to new_tour_broadcast_path(@event.tour) do %>
+          <%= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+        <% end %>
 
         <%#= link_to event_path(event) do %>
           <div class="card-event">
@@ -19,7 +22,7 @@
                   <%= @event.city %>
                 </div>
                 <div class="col-2" id="event-photo">
-                    <%= image_tag "icons/icon-arrow-right.png", alt: "alttext" %>
+                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
                 </div>
               </div>
             </div>

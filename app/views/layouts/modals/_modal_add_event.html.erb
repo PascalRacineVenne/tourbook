@@ -1,7 +1,21 @@
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addEventModal">
+<!-- Add event plus icon -->
+
+<%= image_tag "icons/icon_plus.svg",
+  class: 'icon-round',
+  data:  { toggle: "modal",
+   target: "#addEventModal"
+ } %>
+
+<!-- Notif icon -->
+
+<%= link_to notifications_path do %>
+  <%= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+<% end %>
+
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addEventModal">
   Add an event
 </button>
-
+ -->
 
 <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">

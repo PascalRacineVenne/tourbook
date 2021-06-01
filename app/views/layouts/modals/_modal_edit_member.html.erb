@@ -1,6 +1,19 @@
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
+<!-- Edit Crew icon -->
+
+<%= image_tag "icons/icon_crew_round.svg",
+  class: 'icon-round',
+  data:  { toggle: "modal",
+   target: "#editMemberModal"
+ } %>
+
+<!-- Notif icon -->
+ <%= link_to notifications_path do %>
+   <%= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+ <% end %>
+
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
   Edit the tour members
-</button>
+</button> -->
 
 <div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="editMemberModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">

@@ -1,6 +1,20 @@
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal">
+<!-- Edit event icon -->
+
+<%= image_tag "icons/icon_edit.svg",
+  class: 'icon-round',
+  data:  { toggle: "modal",
+   target: "#editEventModal"
+ } %>
+
+<!-- Notif icon -->
+
+ <%= link_to notifications_path do %>
+   <%= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+ <% end %>
+
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal">
   Edit this event
-</button>
+</button> -->
 
 <div class="modal fade" id="editEventModal" tabindex="-1" role="dialog" aria-labelledby="editEventModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
