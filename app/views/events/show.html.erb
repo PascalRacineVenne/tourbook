@@ -1,21 +1,28 @@
 <div class="wrapper-light-blue">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6 px-0">
-        <div class="card-event">
-          <div class="card-event-block">
-            <div class="row">
-              <div class="col-2" id="event">
-                <h3> <%= @event.show_start_at.strftime("%b")%> </h3>
-                <h3> <strong> <%= @event.show_start_at.strftime("%d")%> </strong></h3>
-                <h3><%= @event.show_start_at.strftime("%a")%></h3>
-              </div>
-              <div class="col-8" id="event-venue">
-                <h3> <strong><%= @event.venue %> </strong></h3>
-                <p> <%= @event.city %> </p>
-              </div>
-              <div class="col-2" id="event-photo">
-                  <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
+
+      <div class="col-md-6">
+
+        <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
+
+        <%#= link_to event_path(event) do %>
+          <div class="card-event">
+            <div class="card-event-block">
+              <div class="row">
+                <div class="col-2" id="event">
+                  <%= @event.show_start_at.strftime("%b")%>
+                  <b><%= @event.show_start_at.strftime("%d")%></b>
+                  <%= @event.show_start_at.strftime("%a")%>
+                </div>
+                <div class="col-8" id="event">
+                  <b><%= @event.venue %></b>
+                  <%= @event.city %>
+                </div>
+                <div class="col-2" id="event-photo">
+                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
+                </div>
+
               </div>
             </div>
           </div>

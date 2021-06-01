@@ -2,6 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-md-6 px-0">
 
+      <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
+
       <%# if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
       <%# end %>
@@ -33,7 +35,6 @@
 
       <%# if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_add_event', tour: @tour %>
-
       <%# end %>
 
 <!-- IMG for specific tour??? -->
@@ -62,32 +63,11 @@
       <%# end %>
 <!-- END -->
 
-<!-- =========  EDIT TOUR POLICY ============= -->
-
-      <%# if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
-      <%# end %>
-      <%# if policy(@tour).destroy? %>
-        <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
-      <%# end %>
-
-
-      <%# if policy(@tour).edit? %>
-        <%#= render 'layouts/modals/modal_edit_event', tour: @tour %>
-      <%# end %>
       <b>TOUR MEMBERS</b>
 
-      <%# if policy(@tour).edit? %>
-      <%#= render 'layouts/modals/modal_edit_member', tour: @tour %>
-      <%# end %>
-
-      <% @tour.events.each do |event| %>
-        <% event.tour_members.each do |tour_member| %>
+      <% @uniq_tour_members.each do |tour_member| %>
         <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-        <% end %>
       <% end %>
-
-      <%= render 'layouts/modals/modal_manage_members_for_tour', tour: @tour %>
 
       <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
 
