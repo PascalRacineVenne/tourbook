@@ -1,22 +1,12 @@
-<!-- ADD TOUR plsu icon -->
-<%= image_tag "icons/icon_plus.svg",
-  id: 'plus',
-  class: 'icon-round',
-  data:  { toggle: "modal",
-  target: "#addTourModal"
- } %>
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
+  Manage the tour members
+</button>
 
-<!-- Notif icon -->
- <%= link_to notifications_path do %>
-   <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif' %>
- <% end %>
-
-
-<div class="modal fade" id="addTourModal" tabindex="-1" role="dialog" aria-labelledby="addTourModalTitle" aria-hidden="true">
+<div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="editMemberModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h5 class="modal-title" id="addTourModalTitle">Add Tour</h5>
+        <h5 class="modal-title" id="editMemberModalTitle">Manage Tour Members</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,27 +17,21 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :name, placeholder: 'Tour name', label: false %>
-            <%= f.input :artist_name, placeholder: 'Artist name', label: false %>
-            <%= f.input :logo, as: :file %>
+            <% f.input :name, placeholder: 'Tour name', label: false %>
+            <% f.input :artist_name, placeholder: 'Artist name', label: false %>
+            <% f.input :logo, as: :file %>
           </div>
 
           <div class="form-inputs">
             <%= f.simple_fields_for(:events) do |fe| %>
-              <hr>
-              <%= render 'event_fields', f: fe %>
-
+              <% render 'event_fields', f: fe %>
               <%= fe.simple_fields_for(:tour_members) do |ftm| %>
-                <hr>
                 <%= render 'tour_member_fields', f: ftm %>
               <% end %>
               <div class="links"><%= link_to_add_association 'Add a tour member', fe, :tour_members %></div>
-
             <% end %>
-          </div>
-
           <div class="modal-footer">
-            <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Add a tour' %>
+            <%= f.button :submit, class: 'btn btn-secondary btn-sm', value: "Save Changes" %>
           </div>
         <% end %>
       </div>

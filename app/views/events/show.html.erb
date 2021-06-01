@@ -2,8 +2,6 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-
-        <%= link_to "new broadcast", new_tour_broadcast_path(@event.tour) %>
         <!-- New Notif icon-->
         <%= link_to new_tour_broadcast_path(@event.tour) do %>
           <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
@@ -28,17 +26,19 @@
               </div>
             </div>
           </div>
-        <%# end %>
+        </div>
 
-        <% if policy(@tour).edit? %>
-          <%= render 'layouts/modals/modal_edit_event', tour: @tour, event: @event %>
-          <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
-        <% end %>
 
         <%# if policy(@tour).edit? %>
-          <%#= link_to 'Edit this event', edit_event_path(@event) %>
-          <%#= link_to 'Delete this event', event_path(@event), method: :delete %>
+          <%= render 'layouts/modals/modal_edit_event', event: @event %>
         <%# end %>
+
+        <% @event.tour_members.each do |tour_member| %>
+          <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+        <% end %>
+
+        <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
+
         <%= link_to 'Back to tour', tour_path(@tour), class: "btn btn-link btn-sm" %>
 
       </div>

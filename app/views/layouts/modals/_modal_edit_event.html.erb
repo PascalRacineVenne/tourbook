@@ -39,7 +39,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+            <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
             <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Edit this event' %>
           </div>
         <% end %>
