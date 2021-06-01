@@ -29,7 +29,7 @@ class ToursController < ApplicationController
 
   def update
     @tour.update(tour_params)
-    update_all_tour_members
+    # update_all_tour_members
     redirect_to tour_path(@tour)
   end
 
@@ -64,12 +64,12 @@ class ToursController < ApplicationController
     params.require(:tour).permit(:name, :artist_name, :logo, events_attributes: [:id, :venue, :city, :show_start_at, :schedule])
   end
 
-  def update_all_tour_members
-    @tour.events.each do |event|
-      if params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes] != nil
-        atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
-        event.tour_members.build(atts)
-      end
-    end
-  end
+  # def update_all_tour_members
+  #   @tour.events.each do |event|
+  #     if params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes] != nil
+  #       atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
+  #       event.tour_members.build(atts)
+  #     end
+  #   end
+  # end
 end
