@@ -1,9 +1,10 @@
 <!-- Edit event icon -->
 
 <%= image_tag "icons/icon_edit.svg",
+  id: 'edit',
   class: 'icon-round',
   data:  { toggle: "modal",
-   target: "#editEventModal"
+  target: "#editEventModal"
  } %>
 
 <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal">
@@ -14,7 +15,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h5 class="modal-title" id="editEventModalTitle">Edit Event</h5>
+        <h2 class="modal-title" id="editEventModalTitle">Edit Event</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

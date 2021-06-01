@@ -26,3 +26,7 @@ body {
 html {
   height: -webkit-fill-available;
 }
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}

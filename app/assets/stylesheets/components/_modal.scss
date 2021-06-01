@@ -8,5 +8,19 @@
 }
 
 .modal-content-color {
-background: linear-gradient(317.08deg, #FF7A00 0%, #FFD336 96.63%);
+  background: linear-gradient(317.08deg, #FF7A00 0%, #FFD336 96.63%);
+}
+
+.modal-title {
+  font-family: $special-font;
+  font-size: 36px;
+  font-style: bold;
+}
+
+.modal label {
+  font-weight: bold;
+}
+
+.modal {
+  color: white;
 }

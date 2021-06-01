@@ -11,6 +11,7 @@
       <%# end %>
       <!-- end tour background -->
 
+
       <% if  @user.avatar.attached? %>
         <%= cl_image_tag @user.avatar.key, crop: :fill, class: 'avatar-large' %>
         <!-- else pour image par défaut -->
