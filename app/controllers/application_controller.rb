@@ -16,7 +16,11 @@ class ApplicationController < ActionController::Base
   private
 
   def set_broadcasts
-    @broadcasts = current_user.broadcasts
+    if current_user
+      @broadcasts = current_user.broadcasts
+    else
+      @broadcasts = []
+    end
   end
 
   def skip_pundit?
