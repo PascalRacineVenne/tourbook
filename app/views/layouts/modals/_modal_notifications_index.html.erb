@@ -1,0 +1,47 @@
+<%= image_tag "icons/icon_notif.svg",
+  id: 'notif',
+  class: 'icon-round',
+  data:  { toggle: "modal",
+  target: "#notificationsIndexModal"
+ } %>
+
+ <div class="modal fade" id="notificationsIndexModal" tabindex="-1" role="dialog" aria-labelledby="notificationsIndexModalTitle" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content modal-content-color">
+       <div class="modal-header">
+         <h5 class="modal-title" id="notificationsIndexModalTitle">Notifications</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+
+        <% @broadcasts.each do |broadcast| %>
+          <%= link_to tour_path(broadcast.broadcastable) do %>
+            <div class="card-event">
+              <div class="card-event-block">
+                <div class="row">
+                  <div class="col-2" id="event">
+                    <% if  broadcast.broadcastable.logo.attached? %>
+                      <%= cl_image_tag broadcast.broadcastable.logo.key, crop: :fill, class: 'avatar-square' %>
+                    <% else %>
+                    <img src="https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80" class="avatar-square" />
+                    <% end %>
+                  </div>
+                  <div class="col-8" id="event-venue">
+                    <p><strong><%= broadcast.broadcastable.name %></strong> -- <%= broadcast.name %></p>
+                    <%= broadcast.content %>
+                  </div>
+                  <div class="col-2" id="event-photo">
+                      <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
