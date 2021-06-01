@@ -62,6 +62,13 @@
   <% elsif (controller_name == "users" && action_name == "show")%>
 <!-- =======USERS SHOW PAGE ICONS====== -->
     <div class="users-show">
+      <%= image_tag "icons/icon_edit.svg",
+        id: 'edit',
+        class: 'icon-round',
+        data:  { toggle: "modal",
+         target: "#editProfileModal"
+       } %>
+
       <% if user_signed_in? %>
         <%= image_tag "icons/icon_notif.svg",
           id: 'notif',
