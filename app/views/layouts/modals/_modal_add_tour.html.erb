@@ -16,7 +16,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h5 class="modal-title" id="addTourModalTitle">Add Tour</h5>
+        <h1 class="modal-title" id="addTourModalTitle">Add Tour</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,9 +27,9 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :name, placeholder: 'Tour name', label: false %>
-            <%= f.input :artist_name, placeholder: 'Artist name', label: false %>
-            <%= f.input :logo, as: :file %>
+            <p class="control-label"> <%= f.input :name, placeholder: 'Tour name', label: false %> </p>
+            <p class="control-label"> <%= f.input :artist_name, placeholder: 'Artist name', label: false %> </p>
+            <p class="control-label"> <%= f.input :logo, as: :file %> </p>
           </div>
 
           <div class="form-inputs">
