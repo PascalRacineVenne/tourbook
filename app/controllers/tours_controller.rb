@@ -23,11 +23,13 @@ class ToursController < ApplicationController
   def show
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
-    # raise
+    @uniq_user_ids = @tour.tour_members.select(:user_id).map(&:user_id).uniq
+    @uniq_tour_members = @uniq_user_ids.map { |id| @tour.tour_members.find_by(user_id: id) }
   end
 
   def update
     @tour.update(tour_params)
+    update_all_tour_members
     redirect_to tour_path(@tour)
   end
 
@@ -60,5 +62,14 @@ class ToursController < ApplicationController
 
   def tour_params
     params.require(:tour).permit(:name, :artist_name, :logo, events_attributes: [:id, :venue, :city, :show_start_at, :schedule])
+  end
+
+  def update_all_tour_members
+    @tour.events.each do |event|
+      if params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes] != nil
+        atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
+        event.tour_members.build(atts)
+      end
+    end
   end
 end
