@@ -1,0 +1,73 @@
+<div class="icon-nav">
+  <% if request.path.include?(/tours\d+/) %>
+
+    <div class="tours-show">
+      <% if user_signed_in? %>
+        <%= image_tag "icons/icon_notif.svg",
+          id: 'notif',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#notificationsIndexModal"
+         } %>
+        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+      <% end %>
+
+      <%= image_tag "icons/icon_plus.svg",
+        id: 'plus',
+        class: 'icon-round',
+        data:  { toggle: "modal",
+        target: "#addEventModal"
+       } %>
+
+    </div>
+
+  <% elsif request.path.include?(/events\d+/)%>
+
+    <div class="events-show">
+      <% if user_signed_in? %>
+        <%= image_tag "icons/icon_notif.svg",
+          id: 'notif',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#notificationsIndexModal"
+         } %>
+        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+      <% end %>
+    </div>
+
+  <% elsif request.path.include?(/users\d+/)%>
+
+    <div class="users-show">
+      <% if user_signed_in? %>
+        <%= image_tag "icons/icon_notif.svg",
+          id: 'notif',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#notificationsIndexModal"
+         } %>
+        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+      <% end %>
+    </div>
+
+  <% else %>
+
+    <div class="tours-index">
+      <% if user_signed_in? %>
+        <%= image_tag "icons/icon_notif.svg",
+          id: 'notif',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#notificationsIndexModal"
+         } %>
+        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+      <% end %>
+
+      <%= image_tag "icons/icon_plus.svg",
+        id: 'plus',
+        class: 'icon-round',
+        data:  { toggle: "modal",
+        target: "#addTourModalNEW"
+       } %>
+    </div>
+  <% end %>
+</div>

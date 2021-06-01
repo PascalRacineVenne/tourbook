@@ -3,32 +3,43 @@
 }
 
 .icon-round {
-  position: fixed;
+  // position: fixed;
   z-index: 1000;
   width: 40px;
 }
 
-#plus {
-  left: 316px;
-  top: 600px;
-}
-
-#notif {
-  left: 300px;
-  top: 208px;
+#notif{
+  // left: 316px;
+  // top: 600px;
 }
 
 #edit {
-  left: 316px;
-  top: 548px;
+  // left: 316px;
+  // top: 500px;
+}
+
+#plus {
+  display: flex;
+  // left: 316px;
+  // top: 550px;
 }
 
 #admin {
-  left: 234px;
-  top: 140px;
+  // left: 234px;
+  // top: 140px;
 }
 
 #crew {
-  left: 316px;
-  top: 496px;
+  // left: 316px;
+  // top: 600px;
+}
+
+.icon-nav {
+  position: fixed;
+  border: 1px solid red;
+  z-index: 1000;
+  width: 60px;
+  height: 200px;
+  bottom: 24px;
+  right: 16px;
 }
