@@ -1,5 +1,6 @@
 <div class="icon-nav">
-  <% if request.path.include?(/tours\d+/) %>
+  <%# if request.path.include?(/tours\d+/) %>
+  <% if (controller_name == "tours" && action_name == "show") %>
 <!-- =======TOURS SHOW PAGE ICONS====== -->
     <div class="tours-show">
       <%= image_tag "icons/icon_plus.svg",
@@ -27,7 +28,7 @@
 
     </div>
 
-  <% elsif request.path.include?(/events\d+/)%>
+  <% elsif (controller_name == "events" && action_name == "show")%>
 <!-- =======EVENTS SHOW PAGE ICONS====== -->
     <div class="events-show">
 
@@ -58,7 +59,7 @@
 
     </div>
 
-  <% elsif request.path.include?(/users\d+/)%>
+  <% elsif (controller_name == "users" && action_name == "show")%>
 <!-- =======USERS SHOW PAGE ICONS====== -->
     <div class="users-show">
       <% if user_signed_in? %>
@@ -71,7 +72,7 @@
       <% end %>
     </div>
 
-  <% else %>
+  <% elsif (controller_name == "tours" && action_name == "index") %>
   <!-- =======TOURS INDEX PAGE ICONS====== -->
     <div class="tours-index">
       <%= image_tag "icons/icon_plus.svg",
