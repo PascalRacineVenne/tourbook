@@ -17,23 +17,24 @@
   font-family: $headers-font;
   font-weight: 400;
   text-decoration: none;
-  font-size: 28px;
+  // font-size: 28px;
 }
 .card-tour h2 {
   font-family: $headers-font;
   font-weight: 400;
   text-decoration: none;
-  font-size: 23px;
+  // font-size: 23px;
 }
 
 .card-tour p {
   text-decoration: none;
-  font-size: 16px;
+  // font-size: 16px;
 }
 
 .card-event {
-  border-bottom:  1px solid $blue;
+  // border-bottom:  1px solid $blue;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 10px;
   margin-bottom: 0;
   background-color: white;
