@@ -2,9 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-md-6 px-0">
 
-      <%# if policy(@broadcast).create? %>
+      <% if policy(@tour).edit? %>
         <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
-      <%# end %>
+      <% end %>
 
       <% if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>

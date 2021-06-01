@@ -2,16 +2,17 @@ class BroadcastsController < ApplicationController
   def new
     @tour = Tour.find(params[:tour_id])
     @broadcast = Broadcast.new
+    authorize @broadcast
   end
 
   def create
     @tour = Tour.find(params[:tour_id])
     @broadcast = Broadcast.new(broadcast_params)
     @broadcast.broadcastable = broadcastable
+    authorize @broadcast
     if @broadcast.save
       redirect_to @tour
     else
-    # raise
       render :new
     end
   end
