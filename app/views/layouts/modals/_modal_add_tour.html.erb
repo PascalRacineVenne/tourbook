@@ -24,9 +24,11 @@
 
           <div class="form-inputs">
             <%= f.simple_fields_for(:events) do |fe| %>
+              <hr>
               <%= render 'event_fields', f: fe %>
 
               <%= fe.simple_fields_for(:tour_members) do |ftm| %>
+                <hr>
                 <%= render 'tour_member_fields', f: ftm %>
               <% end %>
               <div class="links"><%= link_to_add_association 'Add a tour member', fe, :tour_members %></div>
@@ -35,7 +37,6 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
             <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Add a tour' %>
           </div>
         <% end %>
