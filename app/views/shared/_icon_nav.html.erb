@@ -1,42 +1,65 @@
 <div class="icon-nav">
   <% if request.path.include?(/tours\d+/) %>
-
+<!-- =======TOURS SHOW PAGE ICONS====== -->
     <div class="tours-show">
-      <% if user_signed_in? %>
-        <%= image_tag "icons/icon_notif.svg",
-          id: 'notif',
-          class: 'icon-round',
-          data:  { toggle: "modal",
-          target: "#notificationsIndexModal"
-         } %>
-        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
-      <% end %>
-
       <%= image_tag "icons/icon_plus.svg",
         id: 'plus',
         class: 'icon-round',
         data:  { toggle: "modal",
         target: "#addEventModal"
-       } %>
+      } %>
 
-    </div>
+      <%= image_tag "icons/icon_edit.svg",
+         id: 'edit',
+         class: 'icon-round',
+         data:  { toggle: "modal",
+          target: "#editTourModal"
+      } %>
 
-  <% elsif request.path.include?(/events\d+/)%>
-
-    <div class="events-show">
       <% if user_signed_in? %>
         <%= image_tag "icons/icon_notif.svg",
           id: 'notif',
           class: 'icon-round',
           data:  { toggle: "modal",
           target: "#notificationsIndexModal"
-         } %>
-        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+        } %>
       <% end %>
+
+    </div>
+
+  <% elsif request.path.include?(/events\d+/)%>
+<!-- =======EVENTS SHOW PAGE ICONS====== -->
+    <div class="events-show">
+
+      <%= image_tag "icons/icon_edit.svg",
+        id: 'edit',
+        class: 'icon-round',
+        data:  { toggle: "modal",
+        target: "#editEventModal"
+      } %>
+
+      <%= image_tag "icons/icon_crew_round.svg",
+         id: 'crew',
+         class: 'icon-round',
+         data:  { toggle: "modal",
+          target: "#editMemberModal"
+      } %>
+
+      <% if user_signed_in? %>
+        <%= image_tag "icons/icon_notif.svg",
+          id: 'notif',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#notificationsIndexModal"
+        } %>
+      <% end %>
+
+<!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
+
     </div>
 
   <% elsif request.path.include?(/users\d+/)%>
-
+<!-- =======USERS SHOW PAGE ICONS====== -->
     <div class="users-show">
       <% if user_signed_in? %>
         <%= image_tag "icons/icon_notif.svg",
@@ -45,29 +68,27 @@
           data:  { toggle: "modal",
           target: "#notificationsIndexModal"
          } %>
-        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
       <% end %>
     </div>
 
   <% else %>
-
+  <!-- =======TOURS INDEX PAGE ICONS====== -->
     <div class="tours-index">
-      <% if user_signed_in? %>
-        <%= image_tag "icons/icon_notif.svg",
-          id: 'notif',
-          class: 'icon-round',
-          data:  { toggle: "modal",
-          target: "#notificationsIndexModal"
-         } %>
-        <%#= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
-      <% end %>
-
       <%= image_tag "icons/icon_plus.svg",
         id: 'plus',
         class: 'icon-round',
         data:  { toggle: "modal",
         target: "#addTourModalNEW"
        } %>
+
+      <% if user_signed_in? %>
+        <%= image_tag "icons/icon_notif.svg",
+          id: 'notif',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#notificationsIndexModal"
+        } %>
+      <% end %>
     </div>
   <% end %>
 </div>
