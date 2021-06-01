@@ -7,6 +7,7 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
+                #placeholder: 'forgot your password?',
                 input_html: { autocomplete: "email" } %>
   </div>
 
@@ -15,4 +16,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>

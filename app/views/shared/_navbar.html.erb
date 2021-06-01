@@ -9,8 +9,6 @@
   <%# end %>
 
   <% if user_signed_in? %>
-
-    <%= link_to user_path(current_user) do %>
       <% if current_user.avatar.present? %>
         <%= cl_image_tag current_user.avatar.key,
           crop: :fill,
@@ -21,9 +19,7 @@
           'aria-haspopup': true,
           'aria-expanded': false
         %>
-
       <% else %>
-
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",
           class: "avatar dropdown-toggle",
           id: "navbarDropdown",
@@ -32,9 +28,7 @@
           'aria-haspopup': true,
           'aria-expanded': false
         %>
-
       <% end %>
-    <% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">

@@ -5,11 +5,12 @@
 .icon-round {
   position: fixed;
   z-index: 1000;
+  width: 40px;
 }
 
 #plus {
   left: 300px;
-  top: 128px;
+  top: 144px;
 }
 
 #notif {
@@ -19,10 +20,15 @@
 
 #edit {
   left: 300px;
-  top: 128px;
+  top: 272px;
 }
 
 #admin {
   left: 234px;
   top: 140px;
+}
+
+#crew {
+  left: 300px;
+  top: 144px;
 }

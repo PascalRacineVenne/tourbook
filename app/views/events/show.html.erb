@@ -1,6 +1,7 @@
 <div class="wrapper-light-blue">
   <div class="container">
     <div class="row justify-content-center">
+
       <div class="col-md-6">
 
         <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
@@ -21,11 +22,17 @@
                 <div class="col-2" id="event-photo">
                     <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
+      </div>
 
+        <!-- New Notif icon FROM Holly-->
+        <%= link_to new_tour_broadcast_path(@event.tour) do %>
+          <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
+        <% end %>
 
         <%# if policy(@tour).edit? %>
           <%= render 'layouts/modals/modal_edit_event', event: @event %>
