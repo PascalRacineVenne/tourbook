@@ -1,9 +1,10 @@
 <!-- Edit event icon -->
 
 <%= image_tag "icons/icon_edit.svg",
+  id: 'edit',
   class: 'icon-round',
   data:  { toggle: "modal",
-   target: "#editEventModal"
+  target: "#editEventModal"
  } %>
 
 <!-- Notif icon -->
@@ -20,7 +21,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h5 class="modal-title" id="editEventModalTitle">Edit Event</h5>
+        <h1 class="modal-title" id="editEventModalTitle">Edit Event</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -32,8 +33,8 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :venue, label: 'Venue:' %>
-            <%= f.input :city, label: 'City:' %>
+            <p class="control-label"> <%= f.input :venue, label: 'Venue:' %> </p>
+            <p class="control-label"> <%= f.input :city, label: 'City:' %> </p>
             <%= f.input :show_start_at, label: 'Show starts at:', html5: true %>
             <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
           </div>

@@ -8,21 +8,27 @@
   align-items: center;
   margin-bottom: 4px;
   color: white;
-  font-size: 24px;
-  font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-tour h2 {
+.card-tour h1 {
+  font-family: $headers-font;
+  font-weight: 400;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 28px;
+}
+.card-tour h2 {
+  font-family: $headers-font;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 23px;
 }
 
 .card-tour p {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .card-event {
@@ -32,12 +38,20 @@
   margin-bottom: 0;
 }
 
+.card-event h3 {
+  font-family: $headers-font;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 19px;
+  margin-bottom: 0;
+}
+
 #event {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  color: $blue;
+  color: black;
 }
 
 #event-venue {
