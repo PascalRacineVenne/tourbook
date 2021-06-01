@@ -13,6 +13,9 @@
 
   <body>
       <%= render 'shared/navbar' %>
+      <%= link_to notifications_path do %>
+        <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif' %>
+      <% end %>
         <div class="page-body">
           <%#= render 'shared/flashes' %>
 <!--             <p class="notice"><%#= notice %></p>

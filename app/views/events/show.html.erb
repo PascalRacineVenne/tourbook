@@ -2,10 +2,8 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <!-- New Notif icon-->
-        <%= link_to new_tour_broadcast_path(@event.tour) do %>
-          <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
-        <% end %>
+
+        <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
 
         <%#= link_to event_path(event) do %>
           <div class="card-event">
