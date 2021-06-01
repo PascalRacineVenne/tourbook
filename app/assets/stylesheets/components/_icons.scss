@@ -1,3 +1,28 @@
 .icon-blue {
   color: $blue;
 }
+
+.icon-round {
+  position: fixed;
+  z-index: 1000;
+}
+
+#plus {
+  left: 300px;
+  top: 128px;
+}
+
+#notif {
+  left: 300px;
+  top: 208px;
+}
+
+#edit {
+  left: 300px;
+  top: 128px;
+}
+
+#admin {
+  left: 234px;
+  top: 140px;
+}

@@ -1,6 +1,19 @@
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProfileModal">
+<%= image_tag "icons/icon_edit.svg",
+  id: 'edit',
+  class: 'icon-round',
+  data:  { toggle: "modal",
+   target: "#editProfileModal"
+ } %>
+
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editProfileModal">
   Edit my Profile
-</button>
+</button> -->
+
+<!-- Notif icon -->
+
+<%= link_to notifications_path do %>
+  <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif' %>
+<% end %>
 
 <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">

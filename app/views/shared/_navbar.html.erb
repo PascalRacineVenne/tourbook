@@ -3,7 +3,10 @@
     <%= image_tag "logos/tourbook_logo_2.png" %>
   <% end %>
 
-  <%= link_to 'notifs', notifications_path %>
+  <%#= link_to 'notifs', notifications_path %>
+  <%#= link_to notifications_path do %>
+    <%#= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+  <%# end %>
 
   <% if user_signed_in? %>
 
