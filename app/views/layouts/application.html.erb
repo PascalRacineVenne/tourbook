@@ -14,7 +14,9 @@
   <body>
       <%= render 'shared/navbar' %>
       <%#= link_to notifications_path do %>
-      <%= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+      <% end %>
         <%#= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif' %>
       <%# end %>
         <div class="page-body">
