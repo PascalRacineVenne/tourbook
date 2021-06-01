@@ -6,7 +6,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def show?
-    record.tour.tour_members.include?(user)
+    record.users.include?(user)
   end
 
   def new?

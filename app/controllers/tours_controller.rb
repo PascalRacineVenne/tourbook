@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_tour, only: [:show, :update, :destroy]
 
   def index
@@ -57,7 +57,7 @@ class ToursController < ApplicationController
 
   def set_tour
     @tour = Tour.find(params[:id])
-    # authorize @tour
+    authorize @tour
   end
 
   def tour_params

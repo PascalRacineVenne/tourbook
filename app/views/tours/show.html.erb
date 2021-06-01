@@ -2,40 +2,44 @@
   <div class="row justify-content-center">
     <div class="col-md-6 px-0">
 
-      <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
-
-      <%# if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
+      <%# if policy(@broadcast).create? %>
+        <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
       <%# end %>
+
+      <% if policy(@tour).edit? %>
+        <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
+      <% end %>
 <!-- ITERATION OVER EVENT LISTS -->
       <% @events.each do |event| %>
-        <%= link_to event_path(event) do %>
-          <div class="card-event">
-            <div class="card-event-block">
-              <div class="row">
-                <div class="col-2" id="event">
-                  <h3> <%= event.show_start_at.strftime("%b")%> </h3>
-                  <h3><strong> <%= event.show_start_at.strftime("%d")%> </strong></h3>
-                  <h3> <%= event.show_start_at.strftime("%a")%> </h3>
-                </div>
-                <div class="col-8" id="event-venue">
-                  <h3><strong><%= event.venue %></strong></h3>
-                  <p> <%= event.city %> </p>
-                </div>
-                <div class="col-2" id="event-photo">
-                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue' %>
+        <% if policy(event).show? %>
+          <%= link_to event_path(event) do %>
+            <div class="card-event">
+              <div class="card-event-block">
+                <div class="row">
+                  <div class="col-2" id="event">
+                    <h3> <%= event.show_start_at.strftime("%b")%> </h3>
+                    <h3><strong> <%= event.show_start_at.strftime("%d")%> </strong></h3>
+                    <h3> <%= event.show_start_at.strftime("%a")%> </h3>
+                  </div>
+                  <div class="col-8" id="event-venue">
+                    <h3><strong><%= event.venue %></strong></h3>
+                    <p> <%= event.city %> </p>
+                  </div>
+                  <div class="col-2" id="event-photo">
+                      <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue' %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
 
 <!-- ADD EVENT -->
 
-      <%# if policy(@tour).edit? %>
+      <% if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_add_event', tour: @tour %>
-      <%# end %>
+      <% end %>
 
 <!-- IMG for specific tour??? -->
 
