@@ -2,6 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-md-6 px-0">
 
+      <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
+
       <%# if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
       <%# end %>
@@ -65,10 +67,10 @@
 <!-- =========  EDIT TOUR POLICY ============= -->
 
       <%# if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
+        <%#= render 'layouts/modals/modal_edit_tour', tour: @tour %>
       <%# end %>
       <%# if policy(@tour).destroy? %>
-        <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
+        <%#= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary btn-sm' %>
       <%# end %>
 
 
