@@ -1,7 +1,6 @@
 <div class="wrapper-light-blue">
   <div class="container">
     <div class="row justify-content-center">
-
       <div class="col-md-6 px-0">
 
         <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
@@ -22,31 +21,36 @@
                 <div class="col-2" id="event-photo">
                     <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
                 </div>
-
               </div>
+              <div class="col-2" id="event-photo">
+                  <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
+              </div>
+
             </div>
           </div>
         </div>
-      </div>
-
-        <!-- New Notif icon FROM Holly-->
-        <%= link_to new_tour_broadcast_path(@event.tour) do %>
-          <%= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
-        <% end %>
-
-        <%# if policy(@tour).edit? %>
-          <%= render 'layouts/modals/modal_edit_event', event: @event %>
-        <%# end %>
-
-        <% @event.tour_members.each do |tour_member| %>
-          <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-        <% end %>
-
-        <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
-
-        <%= link_to 'Back to tour', tour_path(@tour), class: "btn btn-link btn-sm" %>
 
       </div>
     </div>
+
+      <!-- New Notif icon FROM Holly-->
+      <%#= link_to new_tour_broadcast_path(@event.tour) do %>
+        <%#= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
+      <%# end %>
+
+      <% if policy(@tour).edit? %>
+        <%= render 'layouts/modals/modal_edit_event', event: @event %>
+      <% end %>
+
+      <% @event.tour_members.each do |tour_member| %>
+        <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+      <% end %>
+
+      <% if policy(@tour).edit? %>
+        <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
+      <% end %>
+
+      <%= link_to 'Back to tour', tour_path(@tour), class: "btn btn-link btn-sm" %>
+
   </div>
 </div>

@@ -33,7 +33,7 @@ class TourPolicy < ApplicationPolicy
 
   def user_tour_admin?
     tour_member = record.tour_members.find_by(user: user)
-    record.tour_members.include?(user) && tour_member.administrator
+    record.users.include?(user) && tour_member.administrator
   end
 
 end

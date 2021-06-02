@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
+    <%= image_tag "UI/stage_light_2.png", class: "profile-background" %>
     <div class="col-md-6">
 <!-- tour background -->
       <%# if @tour.logo.present? %>
@@ -10,30 +11,30 @@
         <!-- </div> -->
       <%# end %>
       <!-- end tour background -->
-
-
-      <% if  @user.avatar.attached? %>
-        <%= cl_image_tag @user.avatar.key, crop: :fill, class: 'avatar-large' %>
-        <!-- else pour image par défaut -->
-      <% end %>
-
-      <% if @user.full_name.nil? && @user == current_user%>
-        <h1><%= @user.nickname || @user.full_name ? @user.nickname || @user.full_name : @user.email %></h1>
-        <% if policy(@user).edit? %>
-          <p>Please update your profile <%= render 'layouts/modals/modal_edit_profile', user: @user %></p>
+      <div class="profile-avatar">
+        <% if  @user.avatar.attached? %>
+          <%= cl_image_tag @user.avatar.key, crop: :fill, class: 'avatar-large' %>
+          <!-- else pour image par défaut -->
         <% end %>
-        <p>Nickname: <%= @user.nickname %></p>
-        <p>Name: <%= @user.full_name %></p>
-        <p>Email: <%= @user.email %></p>
-        <p>Phone: <%= @user.phone %></p>
-        <p>Bio: <%= @user.description %></p>
-        <p>Skills: </p>
-        <ul>
-          <% @user.skills.each do |skill| %>
-            <li><%= skill.name %></li>
-          <% end %>
-        </ul>
+      </div>
 
+      <div class="profile-description">
+        <% if @user.full_name.nil? && @user == current_user%>
+          <h1><%= @user.nickname || @user.full_name ? @user.nickname || @user.full_name : @user.email %></h1>
+          <% if policy(@user).edit? %>
+            <p>Please update your profile <%= render 'layouts/modals/modal_edit_profile', user: @user %></p>
+          <% end %>
+            <p>Nickname: <%= @user.nickname %></p>
+            <p>Name: <%= @user.full_name %></p>
+            <p>Email: <%= @user.email %></p>
+            <p>Phone: <%= @user.phone %></p>
+            <p>Bio: <%= @user.description %></p>
+            <p>Skills: </p>
+            <ul>
+              <% @user.skills.each do |skill| %>
+                <li><%= skill.name %></li>
+              <% end %>
+            </ul>
       <% else %>
         <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
         <% if policy(@user).edit? %>
@@ -51,6 +52,9 @@
           <% end %>
         </ul>
       <% end %>
+      </div>
+
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary btn-sm" %>
 
     </div>
   </div>
