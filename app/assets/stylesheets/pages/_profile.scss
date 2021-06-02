@@ -12,7 +12,7 @@
 .profile-description {
   text-align: justify;
   position: relative;
-  bottom: 80px;
+  bottom: 60px;
 }
 
 .profile-description h1, p {
@@ -70,4 +70,10 @@
 .bio p {
   padding: 12px 20px 12px 20px;
   text-align: justify;
+}
+
+.log-out {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
 }
