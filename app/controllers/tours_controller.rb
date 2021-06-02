@@ -21,7 +21,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    # @broadcast = Broadcast.new
+    @broadcast = Broadcast.new
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
     @uniq_user_ids = @tour.tour_members.select(:user_id).map(&:user_id).uniq

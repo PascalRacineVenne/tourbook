@@ -1,4 +1,4 @@
-<%= image_tag "icons/icon_crew_round.svg",
+<%#= image_tag "icons/icon_crew_round.svg",
   id: 'crew',
   class: 'icon-round',
   data:  { toggle: "modal",
@@ -15,9 +15,17 @@
         </button>
       </div>
       <div class="modal-body">
-        <% @uniq_tour_members.each do |tour_member| %>
-          <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+        <% @uniq_tour_members.each do |tm| %>
+          <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar' %>
+          <p><strong><%= tm.job_title %></strong> - <%= link_to (tm.user.full_name ? tm.user.full_name : tm.user.email), user_path(tm.user) %></p>
         <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ABANDONNED IDEA TO IMPLEMENT TOUR-LEVEL TOUR-MEMBER EDIT -->
 <!--         <%#= simple_form_for(@tour) do |f| %>
           <%#= f.error_notification %>
           <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -40,7 +48,3 @@
             <%#= f.button :submit, class: 'btn btn-secondary btn-sm', value: "Save Changes" %>
           </div>
         <%# end %> -->
-      </div>
-    </div>
-  </div>
-</div>

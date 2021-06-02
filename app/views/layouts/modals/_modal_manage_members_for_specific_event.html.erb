@@ -13,9 +13,9 @@
  <%# end %>
 
 
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
   Manage the tour members
-</button>
+</button> -->
 
 
 <div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="editMemberModalTitle" aria-hidden="true">
@@ -32,12 +32,10 @@
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="form-inputs">
-            <%#= f.simple_fields_for(:events) do |fe| %>
               <%= f.simple_fields_for(:tour_members) do |ftm| %>
                 <%= render 'tour_member_fields', f: ftm %>
               <% end %>
               <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
-            <%# end %>
           <div class="modal-footer">
             <%= f.button :submit, class: 'btn btn-secondary btn-sm', value: "Save Changes" %>
           </div>
