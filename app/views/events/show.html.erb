@@ -4,8 +4,12 @@
       <div class="col-md-6 px-0">
 
         <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
+        <% if policy(@tour).edit? %>
+          <%= render 'layouts/modals/modal_edit_event', event: @event %>
+          <%= render 'layouts/modals/modal_new_broadcast', event: @event %>
+          <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
+        <% end %>
 
-        <%#= link_to event_path(event) do %>
           <div class="card-event">
             <div class="card-event-block">
               <div class="row">
@@ -38,16 +42,8 @@
         <%#= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
       <%# end %>
 
-      <% if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_edit_event', event: @event %>
-      <% end %>
-
       <% @event.tour_members.each do |tour_member| %>
         <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-      <% end %>
-
-      <% if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
       <% end %>
 
       <%= link_to 'Back', tour_path(@tour), class: "btn btn-link btn-sm" %>
