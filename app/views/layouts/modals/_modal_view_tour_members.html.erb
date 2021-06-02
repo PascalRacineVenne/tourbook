@@ -1,0 +1,46 @@
+<%= image_tag "icons/icon_crew_round.svg",
+  id: 'crew',
+  class: 'icon-round',
+  data:  { toggle: "modal",
+   target: "#viewTourMembersModal"
+ } %>
+
+<div class="modal fade" id="viewTourMembersModal" tabindex="-1" role="dialog" aria-labelledby="viewTourMembersModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-color">
+      <div class="modal-header">
+        <h2 class="modal-title" id="viewTourMembersModalTitle">Tour Members</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% @uniq_tour_members.each do |tour_member| %>
+          <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+        <% end %>
+<!--         <%#= simple_form_for(@tour) do |f| %>
+          <%#= f.error_notification %>
+          <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <div class="form-inputs">
+            <p class="control-label"><%# f.input :name, placeholder: 'Tour name', label: false %> </p>
+            <p class="control-label"><%# f.input :artist_name, placeholder: 'Artist name', label: false %> </p>
+            <p class="control-label"><%# f.input :logo, as: :file %> </p>
+          </div>
+
+          <div class="form-inputs">
+            <%#= f.simple_fields_for(:events) do |fe| %>
+              <%# render 'event_fields', f: fe %>
+              <%#= fe.simple_fields_for(:tour_members) do |ftm| %>
+                <%#= render 'tour_member_fields', f: ftm %>
+              <%# end %>
+              <div class="links"><%#= link_to_add_association 'Add a tour member', fe, :tour_members %></div>
+            <%# end %>
+          <div class="modal-footer">
+            <%#= f.button :submit, class: 'btn btn-secondary btn-sm', value: "Save Changes" %>
+          </div>
+        <%# end %> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -66,12 +66,18 @@
         <!-- </div> -->
       <%# end %>
 <!-- END -->
-
-      <b>TOUR MEMBERS</b>
-
-      <% @uniq_tour_members.each do |tour_member| %>
-        <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewTourMembersModal">
+  Tour Members
+</button> -->
+      <% if policy(@tour).show? %>
+        <%= render 'layouts/modals/modal_view_tour_members', tour_members: @uniq_tour_members %>
       <% end %>
+
+     <!--  <b>TOUR MEMBERS</b>
+
+      <%# @uniq_tour_members.each do |tour_member| %>
+        <p><strong><%#= tour_member.job_title %></strong> - <%#= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+      <%# end %> -->
 
       <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
 
