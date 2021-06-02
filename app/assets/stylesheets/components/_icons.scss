@@ -3,32 +3,36 @@
 }
 
 .icon-round {
-  position: fixed;
+  display: flex;
   z-index: 1000;
   width: 40px;
+  margin: 12px;
 }
 
-#plus {
-  left: 300px;
-  top: 144px;
-}
-
-#notif {
-  left: 300px;
-  top: 208px;
+#notif{
 }
 
 #edit {
-  left: 300px;
-  top: 272px;
 }
 
-#admin {
-  left: 234px;
-  top: 140px;
+#plus {
 }
 
 #crew {
-  left: 300px;
-  top: 144px;
+}
+
+#admin {
+}
+
+.icon-nav {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  // border: 1px solid red;
+  z-index: 1000;
+  width: 60px;
+  height: 200px;
+  bottom: 12px;
+  right: 12px;
 }
