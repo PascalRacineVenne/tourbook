@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   # Pundit: white-list approach.
-  # after_action :verify_authorized, except: :index, unless: :skip_pundit?
-  # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_broadcasts
-    current_user ? @broadcasts = current_user.broadcasts : @broadcasts = []
+    current_user ? @broadcasts = current_user.broadcasts.order(created_at: :desc) : @broadcasts = []
   end
 
   def skip_pundit?

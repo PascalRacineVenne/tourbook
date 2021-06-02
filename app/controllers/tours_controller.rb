@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: :show
   before_action :set_tour, only: [:show, :update, :destroy]
 
   def index
@@ -21,6 +21,7 @@ class ToursController < ApplicationController
   end
 
   def show
+    # @broadcast = Broadcast.new
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
     @uniq_user_ids = @tour.tour_members.select(:user_id).map(&:user_id).uniq
@@ -57,7 +58,7 @@ class ToursController < ApplicationController
 
   def set_tour
     @tour = Tour.find(params[:id])
-    # authorize @tour
+    authorize @tour
   end
 
   def tour_params

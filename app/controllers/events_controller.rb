@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.tour_id = params[:tour_id]
     # @event.tour_members = @tour.tour_members
-    # authorize @event
+    authorize @event
     if @event.save
       @tour.events.first.tour_members.each do |tm|
         TourMember.create(job_title: tm.job_title, event: @event, user: tm.user)
@@ -42,7 +42,8 @@ class EventsController < ApplicationController
     # dt = @event.show_start_at
     # @event.time = dt.strftime("%I:%M%p")
     # @event.date = dt.strftime("%a %b %d")
-    # authorize @event
+    # raise
+    authorize @event
   end
 
   def event_params
