@@ -13,6 +13,7 @@ class BroadcastsController < ApplicationController
     if @broadcast.save
       @broadcast.broadcastable.users.each do |user|
         Notification.create!(user: user, notifiable: @broadcast)
+        User::NotificationChannel.broadcast_to(user, {template: 'hi cathy'})
       end
       redirect_to @tour
     else
