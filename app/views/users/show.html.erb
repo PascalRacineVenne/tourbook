@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container wrapper-light-blue">
   <div class="row justify-content-center">
     <%= image_tag "UI/stage_light_2.png", class: "profile-background" %>
-    <div class="col-md-6">
+    <div class="col-md-6 px-0">
 <!-- tour background -->
       <%# if @tour.logo.present? %>
         <!-- <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'> -->
@@ -25,36 +25,48 @@
             <p>Please update your profile <%= render 'layouts/modals/modal_edit_profile', user: @user %></p>
           <% end %>
             <p>Nickname: <%= @user.nickname %></p>
-            <p>Name: <%= @user.full_name %></p>
             <p>Email: <%= @user.email %></p>
             <p>Phone: <%= @user.phone %></p>
-            <p>Bio: <%= @user.description %></p>
-            <p>Skills: </p>
-            <ul>
-              <% @user.skills.each do |skill| %>
-                <li><%= skill.name %></li>
-              <% end %>
-            </ul>
+            <div class="line"></div>
+            <div class="bio">
+              <p><%= @user.description %></p>
+            </div>
+            <div class="skills">
+              <!-- <h2>skills</h2> -->
+              <div class="skills-list">
+                <ul>
+                  <% @user.skills.each do |skill| %>
+                    <li><%= skill.name %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
       <% else %>
         <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
-        <% if policy(@user).edit? %>
-          <%= render 'layouts/modals/modal_edit_profile', user: @user %>
-        <% end %>
-        <p>Nickname: <%= @user.nickname %></p>
-        <p>Name: <%= @user.full_name %></p>
-        <p>Email: <%= link_to @user.email, '#' %></p>
-        <p>Phone: <%= link_to @user.phone, 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff5f20120-d2de-11e8-b8d4-d6fb90acb7b1.jpg?crop=3383%2C1903%2C34%2C501&resize=1180'%></p>
-        <p>Bio: <%= @user.description %></p>
-        <p>Skills: </p>
-        <ul>
-          <% @user.skills.each do |skill| %>
-            <li><%= skill.name %></li>
+          <% if policy(@user).edit? %>
+            <%= render 'layouts/modals/modal_edit_profile', user: @user %>
           <% end %>
-        </ul>
-      <% end %>
+            <p>Nickname: <%= @user.nickname %></p>
+            <p>Email: <%= link_to @user.email, '#' %></p>
+            <p>Phone: <%= link_to @user.phone, 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff5f20120-d2de-11e8-b8d4-d6fb90acb7b1.jpg?crop=3383%2C1903%2C34%2C501&resize=1180'%></p>
+            <div class="line"></div>
+            <div class="bio">
+              <p><%= @user.description %></p>
+            </div>
+            <div class="skills">
+              <!-- <h2>skills</h2> -->
+              <div class="skills-list">
+                <ul>
+                  <% @user.skills.each do |skill| %>
+                    <li><%= skill.name %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+        <% end %>
       </div>
 
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary btn-sm" %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary btn-sm log-out" %>
 
     </div>
   </div>
