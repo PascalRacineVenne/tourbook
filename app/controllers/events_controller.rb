@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     authorize @event
     if @event.save
       @tour.events.first.tour_members.each do |tm|
-        TourMember.create(job_title: tm.job_title, event: @event, user: tm.user)
+        TourMember.create(job_title: tm.job_title, event: @event, user: tm.user, administrator: true)
       end
       redirect_to tour_path(@tour)
     else

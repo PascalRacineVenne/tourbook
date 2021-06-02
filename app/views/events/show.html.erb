@@ -3,52 +3,40 @@
     <div class="row justify-content-center">
       <div class="col-md-6 px-0">
 
-
-
-          <div class="card-event">
-            <div class="card-event-block">
-              <div class="row">
-                <div class="col-2" id="event">
-                  <h3> <%= @event.show_start_at.strftime("%b")%> </h3>
-                  <h3><strong> <%= @event.show_start_at.strftime("%d")%> </strong></h3>
-                  <h3> <%= @event.show_start_at.strftime("%a")%> </h3>
-                </div>
-                <div class="col-8" id="event-venue">
-                  <h3><strong> <%= @event.venue %> </strong></h3>
-                  <p> <%= @event.city %> </p>
-                </div>
-                <div class="col-2" id="event-photo">
-                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
-                </div>
+        <div class="card-event">
+          <div class="card-event-block">
+            <div class="row">
+              <div class="col-2" id="event">
+                <h3> <%= @event.show_start_at.strftime("%b")%> </h3>
+                <h3><strong> <%= @event.show_start_at.strftime("%d")%> </strong></h3>
+                <h3> <%= @event.show_start_at.strftime("%a")%> </h3>
+              </div>
+              <div class="col-8" id="event-venue">
+                <h3><strong> <%= @event.venue %> </strong></h3>
+                <p> <%= @event.city %> </p>
               </div>
               <div class="col-2" id="event-photo">
                   <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
               </div>
-
             </div>
           </div>
         </div>
 
+        <%= @event.schedule %>
+
+        <% @event.tour_members.each do |tour_member| %>
+          <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+        <% end %>
+
+        <%= link_to 'Back', tour_path(@tour), class: "btn btn-link btn-sm" %>
+
+        <% if policy(@tour).edit? %>
+          <%= render 'layouts/modals/modal_edit_event', event: @event %>
+          <%= render 'layouts/modals/modal_new_broadcast', tour: @event.tour, broadcast: @broadcast %>
+          <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
+        <% end %>
+
       </div>
     </div>
-
-
-    <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
-    <% if policy(@tour).edit? %>
-      <%= render 'layouts/modals/modal_edit_event', event: @event %>
-      <%= render 'layouts/modals/modal_new_broadcast', tour: @event.tour, broadcast: @broadcast %>
-      <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
-    <% end %>
-      <!-- New Notif icon FROM Holly-->
-      <%#= link_to new_tour_broadcast_path(@event.tour) do %>
-        <%#= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif'%>
-      <%# end %>
-
-      <% @event.tour_members.each do |tour_member| %>
-        <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-      <% end %>
-
-      <%= link_to 'Back', tour_path(@tour), class: "btn btn-link btn-sm" %>
-
   </div>
 </div>

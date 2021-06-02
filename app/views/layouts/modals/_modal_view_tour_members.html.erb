@@ -16,8 +16,23 @@
       </div>
       <div class="modal-body">
         <% @uniq_tour_members.each do |tm| %>
-          <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar' %>
-          <p><strong><%= tm.job_title %></strong> - <%= link_to (tm.user.full_name ? tm.user.full_name : tm.user.email), user_path(tm.user) %></p>
+          <div class="card-event">
+            <div class="card-event-block">
+              <div class="row">
+                <div class="col-2" id="event">
+
+            <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar' %>
+                </div>
+                <div class="col-8" id="event-venue">
+                  <h3><strong> <%= link_to (tm.user.full_name ? tm.user.full_name : tm.user.email), user_path(tm.user) %> </strong></h3>
+                  <p> <%= tm.job_title %> </p>
+                </div>
+                <div class="col-2" id="event-photo">
+                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>
