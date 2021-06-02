@@ -1,4 +1,5 @@
 <div class="nested-fields">
+
   <p class="control-label"> <%= f.input :venue, placeholder: 'venue', label: false %> </p>
   <p class="control-label"> <%= f.input :city, placeholder: 'city', label: false %> </p>
   <p class="control-label"> <%= f.input :show_start_at, label: 'show starts at:', html5: true, input_html: {value: (f.object.show_start_at || DateTime.current)}  %> </p>
