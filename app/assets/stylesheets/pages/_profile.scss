@@ -1,0 +1,20 @@
+.profile-background {
+  height: 140px;
+  max-width: auto;
+  position: absolute;
+}
+
+.profile-avatar {
+  position: relative;
+  bottom: 20px;
+  right: 45px;
+}
+.profile-description {
+  text-align: justify;
+  position: relative;
+  bottom: 80px;
+}
+
+.profile-description h1, p {
+  text-align: right;
+}
