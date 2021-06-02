@@ -29,7 +29,8 @@
 }
 .skills h2 {
   // border: 1px solid red;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
 }
 .skills ul {
   // border: 1px solid red;
@@ -51,4 +52,22 @@
   margin: 8px;
   padding: 4px;
   text-align: center;
+}
+
+.line {
+  border-bottom: 2px solid gray;
+  width: 50%;
+  height: 16px;
+  position: absolute;
+  left: 25%;
+  margin-bottom: 12px;
+}
+
+.bio {
+  margin-top: 16px;
+}
+
+.bio p {
+  padding: 12px 20px 12px 20px;
+  text-align: justify;
 }
