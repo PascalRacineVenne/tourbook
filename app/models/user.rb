@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :events, through: :tour_members
   has_many :tours, through: :events
   has_many :job_skills, dependent: :destroy
+  has_many :notifications
   has_many :skills, through: :job_skills
   has_one_attached :avatar
   devise :database_authenticatable, :registerable,
