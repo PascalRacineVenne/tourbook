@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <%= image_tag "UI/stage_light_2.png", class: "profile-background" %>
-    <div class="col-md-6">
+    <div class="col-md-6 px-0">
 <!-- tour background -->
       <%# if @tour.logo.present? %>
         <!-- <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'> -->
@@ -29,12 +29,16 @@
             <p>Email: <%= @user.email %></p>
             <p>Phone: <%= @user.phone %></p>
             <p>Bio: <%= @user.description %></p>
-            <p>Skills: </p>
-            <ul>
-              <% @user.skills.each do |skill| %>
-                <li><%= skill.name %></li>
-              <% end %>
-            </ul>
+            <div class="skills">
+              <p>Skills: </p>
+              <div class="skills-list">
+                <ul>
+                  <% @user.skills.each do |skill| %>
+                    <li><%= skill.name %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
       <% else %>
         <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
         <% if policy(@user).edit? %>
