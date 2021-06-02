@@ -1,76 +1,78 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6 px-0">
+<div class="wrapper-light-blue">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 px-0">
 
-      <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
+        <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
 
-      <%# if policy(@tour).edit? %>
+        <%# if policy(@tour).edit? %>
         <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
-      <%# end %>
-<!-- ITERATION OVER EVENT LISTS -->
-      <% @events.each do |event| %>
-        <%= link_to event_path(event) do %>
-          <div class="card-event">
-            <div class="card-event-block">
-              <div class="row">
-                <div class="col-2" id="event">
-                  <h3> <%= event.show_start_at.strftime("%b")%> </h3>
-                  <h3><strong> <%= event.show_start_at.strftime("%d")%> </strong></h3>
-                  <h3> <%= event.show_start_at.strftime("%a")%> </h3>
-                </div>
-                <div class="col-8" id="event-venue">
-                  <h3><strong> <%= event.venue %> </strong></h3>
-                  <p> <%= event.city %> </p>
-                </div>
-                <div class="col-2" id="event-photo">
-                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue' %>
+        <%# end %>
+  <!-- ITERATION OVER EVENT LISTS -->
+        <% @events.each do |event| %>
+          <%= link_to event_path(event) do %>
+            <div class="card-event">
+              <div class="card-event-block">
+                <div class="row">
+                  <div class="col-2" id="event">
+                    <h3> <%= event.show_start_at.strftime("%b")%> </h3>
+                    <h3><strong> <%= event.show_start_at.strftime("%d")%> </strong></h3>
+                    <h3> <%= event.show_start_at.strftime("%a")%> </h3>
+                  </div>
+                  <div class="col-8" id="event-venue">
+                    <h3><strong> <%= event.venue %> </strong></h3>
+                    <p> <%= event.city %> </p>
+                  </div>
+                  <div class="col-2" id="event-photo">
+                      <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue' %>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
 
-<!-- ADD EVENT -->
+  <!-- ADD EVENT -->
 
-      <%# if policy(@tour).edit? %>
-        <%= render 'layouts/modals/modal_add_event', tour: @tour %>
-      <%# end %>
+        <%# if policy(@tour).edit? %>
+        <%#= render 'layouts/modals/modal_add_event', tour: @tour %>
+        <%# end %>
 
-<!-- IMG for specific tour??? -->
+  <!-- IMG for specific tour??? -->
 
-      <%# if @tour.logo.present? %>
-        <!-- <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'> -->
-          <!-- <h2><%#= @tour.name %></h2> -->
-          <!-- <p><%#= @tour.artist_name %></p> -->
-        <!-- </div> -->
+        <%# if @tour.logo.present? %>
+          <!-- <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'> -->
+            <!-- <h2><%#= @tour.name %></h2> -->
+            <!-- <p><%#= @tour.artist_name %></p> -->
+          <!-- </div> -->
 
-      <%# end %>
+        <%# end %>
 
-      <%#= render 'layouts/modals/modal_edit_event', tour: @tour %>
+        <%#= render 'layouts/modals/modal_edit_event', tour: @tour %>
 
-      <%# if @tour.logo.present? %>
-<!--         <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'>
-          <h2><%#= @tour.name %></h2>
-          <p><%#= @tour.artist_name %></p>
-        </div> -->
+        <%# if @tour.logo.present? %>
+  <!--         <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'>
+            <h2><%#= @tour.name %></h2>
+            <p><%#= @tour.artist_name %></p>
+          </div> -->
 
-      <%# else %>
-        <!-- <div class="card-tour" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80)"> -->
-          <!-- <h2><%#= @tour.name %></h2> -->
-          <!-- <p><%#= @tour.artist_name %></p> -->
-        <!-- </div> -->
-      <%# end %>
-<!-- END -->
+        <%# else %>
+          <!-- <div class="card-tour" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80)"> -->
+            <!-- <h2><%#= @tour.name %></h2> -->
+            <!-- <p><%#= @tour.artist_name %></p> -->
+          <!-- </div> -->
+        <%# end %>
+  <!-- END -->
 
-      <b>TOUR MEMBERS</b>
+        <b>TOUR MEMBERS</b>
 
-      <% @uniq_tour_members.each do |tour_member| %>
-        <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-      <% end %>
+        <% @uniq_tour_members.each do |tour_member| %>
+          <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+        <% end %>
 
-      <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
+        <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
 
+      </div>
     </div>
   </div>
 </div>

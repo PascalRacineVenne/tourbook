@@ -12,7 +12,7 @@
       <% if current_user.avatar.present? %>
         <%= cl_image_tag current_user.avatar.key,
           crop: :fill,
-          class: "avatar dropdown-toggle",
+          class: "avatar-bordered dropdown-toggle",
           id: "navbarDropdown",
           data: { toggle: "collapse",
           target: "#navbarSupportedContent" },
@@ -21,7 +21,7 @@
         %>
       <% else %>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",
-          class: "avatar dropdown-toggle",
+          class: "avatar-bordered dropdown-toggle",
           id: "navbarDropdown",
           data: { toggle: "collapse",
           target: "#navbarSupportedContent" },

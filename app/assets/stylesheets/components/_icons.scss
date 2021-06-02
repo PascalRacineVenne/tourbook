@@ -3,43 +3,36 @@
 }
 
 .icon-round {
-  // position: fixed;
+  display: flex;
   z-index: 1000;
   width: 40px;
+  margin: 12px;
 }
 
 #notif{
-  // left: 316px;
-  // top: 600px;
 }
 
 #edit {
-  // left: 316px;
-  // top: 500px;
 }
 
 #plus {
-  display: flex;
-  // left: 316px;
-  // top: 550px;
-}
-
-#admin {
-  // left: 234px;
-  // top: 140px;
 }
 
 #crew {
-  // left: 316px;
-  // top: 600px;
+}
+
+#admin {
 }
 
 .icon-nav {
   position: fixed;
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  // border: 1px solid red;
   z-index: 1000;
   width: 60px;
   height: 200px;
-  bottom: 24px;
-  right: 16px;
+  bottom: 12px;
+  right: 12px;
 }
