@@ -6,6 +6,8 @@ Event.destroy_all
 TourMember.destroy_all
 User.destroy_all
 Tour.destroy_all
+Broadcast.destroy_all
+Notification.destroy_all
 
 
 puts 'creating users!'
@@ -45,7 +47,6 @@ tours = [
   { name: 'Hairless Heroes', artist_name: 'Steph Pas', logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53195d3d-df08-48aa-98e8-f34bc81a9980/d4xmo4x-10fe2193-2098-4ce1-8c98-5feec94c05f6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzMTk1ZDNkLWRmMDgtNDhhYS05OGU4LWYzNGJjODFhOTk4MFwvZDR4bW80eC0xMGZlMjE5My0yMDk4LTRjZTEtOGM5OC01ZmVlYzk0YzA1ZjYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.P8fsS9P9Hn-jVMbK5lu7BQPi39vpxhsLeaxlMScz5go'},
   { name: 'French Connexion', artist_name: 'BT & jean-jean', logo: 'https://www.fluentu.com/blog/french/wp-content/uploads/sites/3/2014/01/casual-everyday-french-phrases1.jpg'},
   { name: 'Bros & Brews', artist_name: 'Cloton & Chrissy B', logo: 'https://images.saymedia-content.com/.image/t_share/MTc0MzU0ODM0NjQ2OTAyMTIw/ten-wonderful-uses-for-beer-besides-drinking-it.jpg'},
-  # { name: 'Prince Curly', artist_name: 'Chrissy B', logo: 'https://www.byrdie.com/thmb/FRZ_vGcwUhfl-631cd0zWU1ovpk=/500x350/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-924890330-a46e282977ff4373bac4732736df7782.jpg'},
   { name: 'Moto Sounds', artist_name: 'Daniel Bronzeman', logo: 'https://i.pinimg.com/originals/5c/56/18/5c561846c00cc8b76229e290daca79f1.jpg'},
   # { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
   # { name: 'Wagon Girls', artist_name: 'Camille & Filles', logo: 'https://i.ytimg.com/vi/6oQv1tui-k8/maxresdefault.jpg'}
@@ -119,20 +120,6 @@ tour_members = [
   # {user: User.find_by(email:), tour: Tour.find_by(name:), job_title: , administrator: }
 ]
 
-# User.all.each do |user|
-#   tours_array = Tour.all.to_a.clone
-#   rand(3...Tour.all.count).times do
-#     tm = TourMember.new(
-#       job_title: Skill.pluck(:name).sample
-#     )
-#     tm.user = user
-#     tour = tours_array.sample
-#     tm.tour = tour
-#     tours_array.delete(tour)
-#     tm.save!
-#   end
-# end
-
 tour_members.each do |tm|
   TourMember.create!(
     user: tm[:user],
@@ -144,3 +131,18 @@ end
 
 
 puts "created #{TourMember.all.count} tour members !"
+
+puts 'creating broadcasts'
+
+puts "created #{Broadcast.all.count} broadcasts !"
+
+puts 'creating notifications'
+
+puts "created #{Notification.all.count} notifications !"
+
+
+
+
+
+
+

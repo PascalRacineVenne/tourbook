@@ -11,6 +11,9 @@ class BroadcastsController < ApplicationController
     @broadcast.broadcastable = broadcastable
     authorize @broadcast
     if @broadcast.save
+      @broadcast.broadcastable.users.each do |user|
+        Notification.create!(user: user, notifiable: @broadcast)
+      end
       redirect_to @tour
     else
       render :new
