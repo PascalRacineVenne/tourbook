@@ -62,7 +62,9 @@
                       <%= render 'tour_member_fields', f: ftm %>
                     <% end %>
                     <div class="links"><%= link_to_add_association 'Add a member', fe, :tour_members %></div>
-                    <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Submit' %>
+                    <div class="modal-footer">
+                      <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Submit' %>
+                    </div>
                   <% end %>
                   </div>
                 </div>
