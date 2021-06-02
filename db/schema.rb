@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_161558) do
+ActiveRecord::Schema.define(version: 2021_06_02_194606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 2021_05_31_161558) do
     t.index ["user_id"], name: "index_job_skills_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "notifiable_type", null: false
+    t.bigint "notifiable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.text "detail"
@@ -121,6 +131,7 @@ ActiveRecord::Schema.define(version: 2021_05_31_161558) do
   add_foreign_key "events", "tours"
   add_foreign_key "job_skills", "skills"
   add_foreign_key "job_skills", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "tour_members", "events"
   add_foreign_key "tour_members", "users"
 end
