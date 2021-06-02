@@ -28,9 +28,13 @@ require("@rails/actiontext")
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { flatPickrCal } from '../plugins/init_flatpickr';
+import { buttonsListener, addTourButtonListener, closeButtonListener } from '../components/tour_modal';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  flatPickrCal();
+  buttonsListener();
+  addTourButtonListener();
+  closeButtonListener();
 });
