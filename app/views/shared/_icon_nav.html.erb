@@ -1,56 +1,82 @@
 <div class="icon-nav">
   <% if (controller_name == "tours" && action_name == "show") %>
     <!-- =======TOURS SHOW PAGE ICONS====== -->
-    <div class="tours-show">
-      <%= image_tag "icons/icon_plus.svg",
-        id: 'plus',
-        class: 'icon-round',
-        data:  { toggle: "modal",
-        target: "#addEventModal"
-      } %>
+    <% if policy(@tour).show? %>
 
-      <%= image_tag "icons/icon_edit.svg",
-         id: 'edit',
-         class: 'icon-round',
-         data:  { toggle: "modal",
-          target: "#editTourModal"
-      } %>
+      <div class="tours-show">
+        <% if policy(@tour).edit? %>
+          <%= image_tag "icons/icon_plus.svg",
+            id: 'plus',
+            class: 'icon-round',
+            data:  { toggle: "modal",
+            target: "#addEventModal"
+          } %>
 
-      <%= image_tag "icons/icon_crew_round.svg",
-         id: 'crew',
-         class: 'icon-round',
-         data:  { toggle: "modal",
-          target: "#editMemberModal"
-      } %>
+          <%= image_tag "icons/icon_edit.svg",
+             id: 'edit',
+             class: 'icon-round',
+             data:  { toggle: "modal",
+              target: "#editTourModal"
+          } %>
 
-      <% if user_signed_in? %>
-        <%= image_tag "icons/icon_bell_round.svg",
-          id: 'notif',
-          class: 'icon-round',
-          data:  { toggle: "modal",
-          target: "#notificationsIndexModal"
+          <!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
+          <%#= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
+          <%= image_tag "icons/icon_notif.svg",
+             id: 'new-notif',
+             class: 'icon-round',
+             data:  { toggle: "modal",
+              target: "#newBroadcastModal"
+          } %>
+        <% end %>
+
+        <%= image_tag "icons/icon_crew_round.svg",
+           id: 'crew',
+           class: 'icon-round',
+           data:  { toggle: "modal",
+            target: "#viewTourMembersModal"
         } %>
-      <% end %>
 
-    </div>
+        <% if user_signed_in? %>
+          <%= image_tag "icons/icon_bell_round.svg",
+            id: 'notif',
+            class: 'icon-round',
+            data:  { toggle: "modal",
+            target: "#notificationsIndexModal"
+          } %>
+        <% end %>
+
+      </div>
+    <% end %>
 
   <% elsif (controller_name == "events" && action_name == "show")%>
     <!-- =======EVENTS SHOW PAGE ICONS====== -->
     <div class="events-show">
 
-      <%= image_tag "icons/icon_edit.svg",
-        id: 'edit',
-        class: 'icon-round',
-        data:  { toggle: "modal",
-        target: "#editEventModal"
-      } %>
+      <% if policy(@tour).edit? %>
 
-      <%= image_tag "icons/icon_crew_round.svg",
-         id: 'crew',
-         class: 'icon-round',
-         data:  { toggle: "modal",
-          target: "#editMemberModal"
-      } %>
+        <%= image_tag "icons/icon_edit.svg",
+          id: 'edit',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+          target: "#editEventModal"
+        } %>
+
+        <%= image_tag "icons/icon_crew_round.svg",
+           id: 'crew',
+           class: 'icon-round',
+           data:  { toggle: "modal",
+            target: "#editMemberModal"
+        } %>
+
+        <!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
+        <%#= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
+        <%= image_tag "icons/icon_notif.svg",
+           id: 'new-notif',
+           class: 'icon-round',
+           data:  { toggle: "modal",
+            target: "#newBroadcastModal"
+        } %>
+      <% end %>
 
       <% if user_signed_in? %>
         <%= image_tag "icons/icon_bell_round.svg",
@@ -61,25 +87,19 @@
         } %>
       <% end %>
 
-    <!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
-      <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
-      <%#= image_tag "icons/icon_notif.svg",
-         id: 'new-notif',
-         class: 'icon-round',
-         data:  { toggle: "modal",
-          target: "#editMemberModal"
-      } %>
     </div>
 
   <% elsif (controller_name == "users" && action_name == "show")%>
     <!-- =======USERS SHOW PAGE ICONS====== -->
     <div class="users-show">
-      <%= image_tag "icons/icon_edit.svg",
-        id: 'edit',
-        class: 'icon-round',
-        data:  { toggle: "modal",
-         target: "#editProfileModal"
-       } %>
+      <% if policy(@user).edit? %>
+        <%= image_tag "icons/icon_edit.svg",
+          id: 'edit',
+          class: 'icon-round',
+          data:  { toggle: "modal",
+           target: "#editProfileModal"
+         } %>
+       <% end %>
 
       <% if user_signed_in? %>
         <%= image_tag "icons/icon_bell_round.svg",

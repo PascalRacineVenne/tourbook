@@ -4,12 +4,15 @@
       <div class="col-md-6 px-0">
 
         <% if policy(@tour).edit? %>
-          <%= link_to 'Create new broadcast', new_tour_broadcast_path(@tour) %>
+          <%= render 'layouts/modals/modal_new_broadcast', tour: @tour, broadcast: @broadcast %>
+          <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
+          <%= render 'layouts/modals/modal_add_event', tour: @tour %>
         <% end %>
 
-        <% if policy(@tour).edit? %>
-          <%= render 'layouts/modals/modal_edit_tour', tour: @tour %>
+        <% if policy(@tour).show? %>
+          <%= render 'layouts/modals/modal_view_tour_members', tour_members: @uniq_tour_members %>
         <% end %>
+
   <!-- ITERATION OVER EVENT LISTS -->
         <% @events.each do |event| %>
           <% if policy(event).show? %>
@@ -65,11 +68,23 @@
           <%# end %>
     <!-- END -->
 
-          <b>TOUR MEMBERS</b>
+      <%# else %>
+        <!-- <div class="card-tour" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80)"> -->
+          <!-- <h2><%#= @tour.name %></h2> -->
+          <!-- <p><%#= @tour.artist_name %></p> -->
+        <!-- </div> -->
+      <%# end %>
+<!-- END -->
+<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewTourMembersModal">
+  Tour Members
+</button> -->
 
-          <% @uniq_tour_members.each do |tour_member| %>
-            <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
-          <% end %>
+
+     <!--  <b>TOUR MEMBERS</b>
+
+      <%# @uniq_tour_members.each do |tour_member| %>
+        <p><strong><%#= tour_member.job_title %></strong> - <%#= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+      <%# end %> -->
 
           <%= link_to 'Back', root_path, class: "btn btn-link btn-sm" %>
 

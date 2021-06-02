@@ -21,7 +21,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    # @broadcast = Broadcast.new
+    @broadcast = Broadcast.new
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
     @uniq_user_ids = @tour.tour_members.select(:user_id).map(&:user_id).uniq
@@ -47,9 +47,8 @@ class ToursController < ApplicationController
   end
 
   def add_tour_members
-    @tour_member = TourMember.new(event: @event, job_title: 'Manager', administrator: true)
-    @tour_member.user = current_user if @tour_member.user.nil?
-    @tour_member.save
+    @event.tour_members.new(user: current_user, job_title: 'Manager', administrator: true)
+    # @tour_member.save
     if params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes] != nil
       atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
       @event.tour_members.build(atts)

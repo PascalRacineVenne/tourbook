@@ -32,7 +32,7 @@ class EventPolicy < ApplicationPolicy
   private
 
   def user_tour_admin?
-    tour_member = record.tour.tour_members.find_by(user: user)
-    record.tour.users.include?(user) && tour_member.administrator
+    record.tour.tour_members.where(user: user, administrator: true).exists?
+    # record.tour.users.include?(user) && tour_member.administrator
   end
 end
