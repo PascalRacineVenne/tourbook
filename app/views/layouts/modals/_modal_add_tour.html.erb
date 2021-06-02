@@ -15,9 +15,10 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#multiCollapseAddTour" role="button" aria-expanded="false" aria-controls="multiCollapseAddTour">Step 1: Create Tour</a>
-        <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#multiCollapseAddEvent" role="button" aria-expanded="false" aria-controls="multiCollapseAddEvent">Step 2: Add Event</a>
-        <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#multiCollapseAddMember" role="button" aria-expanded="false" aria-controls="multiCollapseAddMember">Step 3: Invite Members</a>
+
+        <a class="btn btn-primary btn-sm collapse-button" data-toggle="collapse" href="#multiCollapseAddTour" role="button" aria-expanded="false" aria-controls="multiCollapseAddTour">Step 1: Create Tour</a>
+        <a class="btn btn-primary btn-sm collapse-button" data-toggle="collapse" href="#multiCollapseAddEvent" role="button" aria-expanded="false" aria-controls="multiCollapseAddEvent">Step 2: Add Event</a>
+        <a class="btn btn-primary btn-sm collapse-button" data-toggle="collapse" href="#multiCollapseAddMember" role="button" aria-expanded="false" aria-controls="multiCollapseAddMember">Step 3: Invite Members</a>
 
         <%= simple_form_for(@tour) do |f| %>
           <%= f.error_notification %>
