@@ -29,10 +29,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { flatPickrCal } from '../plugins/init_flatpickr';
-import { buttonsListener } from '../components/tour_modal';
+import { buttonsListener, addTourButtonListener, closeButtonListener } from '../components/tour_modal';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   flatPickrCal();
   buttonsListener();
+  addTourButtonListener();
+  closeButtonListener();
 });

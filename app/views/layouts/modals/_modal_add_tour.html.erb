@@ -1,7 +1,7 @@
 <!-- ADD TOUR plsu icon -->
 <%= image_tag "icons/icon_plus.svg",
   id: 'plus',
-  class: 'icon-round',
+  class: 'icon-round add-tour',
   data:  { toggle: "modal",
   target: "#addTourModal"
  } %>
@@ -12,13 +12,15 @@
 
       <div class="modal-body">
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" id="close-add-tour" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
 
-        <a class="btn btn-primary btn-sm collapse-button" data-toggle="collapse" href="#multiCollapseAddTour" role="button" aria-expanded="false" aria-controls="multiCollapseAddTour">Step 1: Create Tour</a>
-        <a class="btn btn-primary btn-sm collapse-button" data-toggle="collapse" href="#multiCollapseAddEvent" role="button" aria-expanded="false" aria-controls="multiCollapseAddEvent">Step 2: Add Event</a>
-        <a class="btn btn-primary btn-sm collapse-button" data-toggle="collapse" href="#multiCollapseAddMember" role="button" aria-expanded="false" aria-controls="multiCollapseAddMember">Step 3: Invite Members</a>
+        <div class="d-flex justify-content-around">
+          <a class="collapse-button" data-toggle="collapse" href="#multiCollapseAddTour" role="button" aria-expanded="false" aria-controls="multiCollapseAddTour">Step 1</a>
+          <a class="collapse-button" data-toggle="collapse" href="#multiCollapseAddEvent" role="button" aria-expanded="false" aria-controls="multiCollapseAddEvent">Step 2</a>
+          <a class="collapse-button" data-toggle="collapse" href="#multiCollapseAddMember" role="button" aria-expanded="false" aria-controls="multiCollapseAddMember">Step 3</a>
+        </div>
 
         <%= simple_form_for(@tour) do |f| %>
           <%= f.error_notification %>
@@ -29,6 +31,7 @@
               <div class="collapse show multi-collapse" id="multiCollapseAddTour">
                 <div class="card card-body">
                   <div class="form-inputs">
+                    <h3 class="pb-3"> Add Tour </h3>
                     <%= f.input :name, label: 'Tour name' %>
                     <%= f.input :artist_name, label: 'Artist name' %>
                     <%= f.input :logo, as: :file %>
@@ -40,6 +43,7 @@
               <div class="collapse multi-collapse" id="multiCollapseAddEvent">
                 <div class="card card-body">
                   <div class="form-inputs">
+                    <h3 class="pb-3"> Add First Event </h3>
                     <%= f.simple_fields_for(:events) do |fe| %>
                       <%= render 'event_fields', f: fe %>
                   </div>
@@ -50,23 +54,22 @@
               <div class="collapse multi-collapse" id="multiCollapseAddMember">
                 <div class="card card-body">
                   <div class="form-inputs">
-                      <%= fe.simple_fields_for(:tour_members) do |ftm| %>
-                        <%= ftm.input :job_title, label: 'Job title:' %>
-                        <%= ftm.input :user_id, collection: User.all, label: 'User:' %>
-                        <%= link_to_remove_association 'Remove this tour member', ftm %>
-                        <%= render 'tour_member_fields', f: ftm %>
-                      <% end %>
-                      <div class="links"><%= link_to_add_association 'Add a member', fe, :tour_members %></div>
+                    <h3 class="pb-3"> Invite Members </h3>
+                    <%= fe.simple_fields_for(:tour_members) do |ftm| %>
+                      <%= ftm.input :job_title, label: 'Job title:' %>
+                      <%= ftm.input :user_id, collection: User.all, label: 'User:' %>
+                      <%= link_to_remove_association 'Remove this tour member', ftm %>
+                      <%= render 'tour_member_fields', f: ftm %>
                     <% end %>
+                    <div class="links"><%= link_to_add_association 'Add a member', fe, :tour_members %></div>
+                    <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Submit' %>
+                  <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal-footer sticky-bottom">
-            <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Submit' %>
-          </div>
         <% end %>
       </div>
     </div>
