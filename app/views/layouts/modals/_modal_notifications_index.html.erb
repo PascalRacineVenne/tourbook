@@ -1,21 +1,20 @@
-<%= image_tag "icons/icon_notif.svg",
+<%#= image_tag "icons/icon_notif.svg",
   id: 'notif',
   class: 'icon-round',
   data:  { toggle: "modal",
   target: "#notificationsIndexModal"
  } %>
 
-<div class="modal fade" id="notificationsIndexModal" tabindex="-1" role="dialog" aria-labelledby="notificationsIndexModalTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content modal-content-color">
-      <div class="modal-header">
-        <h5 class="modal-title" id="notificationsIndexModalTitle">Notifications</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
+ <div class="modal fade" id="notificationsIndexModal" tabindex="-1" role="dialog" aria-labelledby="notificationsIndexModalTitle" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content modal-content-color">
+       <div class="modal-header">
+         <h2 class="modal-title" id="notificationsIndexModalTitle">Notifications</h2>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
         <% @broadcasts.each do |broadcast| %>
           <% if  broadcast.broadcastable_type == 'Tour' %>
             <%= link_to tour_path(broadcast.broadcastable) do %>
