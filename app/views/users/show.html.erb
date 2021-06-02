@@ -30,7 +30,7 @@
             <p>Phone: <%= @user.phone %></p>
             <p>Bio: <%= @user.description %></p>
             <div class="skills">
-              <p>Skills: </p>
+              <h2>skills</h2>
               <div class="skills-list">
                 <ul>
                   <% @user.skills.each do |skill| %>
@@ -49,12 +49,16 @@
         <p>Email: <%= link_to @user.email, '#' %></p>
         <p>Phone: <%= link_to @user.phone, 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff5f20120-d2de-11e8-b8d4-d6fb90acb7b1.jpg?crop=3383%2C1903%2C34%2C501&resize=1180'%></p>
         <p>Bio: <%= @user.description %></p>
-        <p>Skills: </p>
-        <ul>
-          <% @user.skills.each do |skill| %>
-            <li><%= skill.name %></li>
-          <% end %>
-        </ul>
+        <div class="skills">
+          <h2>skills</h2>
+          <div class="skills-list">
+            <ul>
+              <% @user.skills.each do |skill| %>
+                <li><%= skill.name %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       <% end %>
       </div>
 

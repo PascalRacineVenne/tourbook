@@ -13,10 +13,42 @@
   text-align: justify;
   position: relative;
   bottom: 80px;
-  padding-right: 20px;
 }
 
 .profile-description h1, p {
   text-align: right;
+  padding-right: 20px;
 }
 
+.profile-description h1 {
+  font-family: $special-font;
+}
+
+.skills {
+  margin-top: 12px;
+}
+.skills h2 {
+  // border: 1px solid red;
+  text-align: center;
+}
+.skills ul {
+  // border: 1px solid red;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.skills ul li {
+  // border: 1px solid red;
+  width: 150px;
+  background-color: $blue;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border-radius: 24px;
+  margin: 8px;
+  padding: 4px;
+  text-align: center;
+}
