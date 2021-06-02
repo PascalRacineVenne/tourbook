@@ -1,5 +1,5 @@
 meta_product_name: "Tourbook"
-meta_title: "Tourbook - An interactive solution for touring bands"
+meta_title: "Tourbook - Interactive touring solution"
 meta_description: "A new coordination tools to ensure good logistics and efficient travel. For schedule management and to better appreciate locations and their assets."
 meta_image: "logos/social_media.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
