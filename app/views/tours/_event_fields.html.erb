@@ -1,13 +1,11 @@
 <div class="nested-fields">
-
-  <p class="control-label"> <%= f.input :venue, label: 'Venue' %> </p>
-  <p class="control-label"> <%= f.input :city, label: 'City' %> </p>
-  <p class="control-label">
-    <%= f.input :show_start_at,
-      as: :datetime,
-      label: 'Show starts at',
-      html5: true,
-      input_html: { value: "#{ (DateTime.now.next_week.noon + 8.hours).strftime("%Y-%m-%d#{'T'}%H:%M:%S") }" }  %>
-  </p>
-  <p class="control-label"> <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %> </p>
+  <%= f.input :venue, label: 'Venue' %>
+  <%= f.input :city, label: 'City' %>
+  <%= f.input :show_start_at,
+    as: :datetime,
+    label: 'Show starts at',
+    html5: true,
+    input_html: { value: "#{ (DateTime.now.next_week.noon + 8.hours).strftime("%Y-%m-%d#{'T'}%H:%M:%S") }" }  
+  %>
+  <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
 </div>

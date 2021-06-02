@@ -1,20 +1,79 @@
 .profile-background {
   height: 140px;
-  max-width: auto;
+  max-width: 100%;
   position: absolute;
 }
 
-.profile-avatar {
-  position: relative;
-  bottom: 20px;
-  right: 45px;
-}
+// .profile-avatar {
+//   position: relative;
+//   bottom: 20px;
+//   right: 45px;
+// }
 .profile-description {
   text-align: justify;
   position: relative;
-  bottom: 80px;
+  bottom: 60px;
 }
 
 .profile-description h1, p {
   text-align: right;
+  padding-right: 20px;
+}
+
+.profile-description h1 {
+  font-family: $special-font;
+}
+
+.skills {
+  margin-top: 12px;
+}
+.skills h2 {
+  // border: 1px solid red;
+  text-align: left;
+  padding-left: 20px;
+}
+.skills ul {
+  // border: 1px solid red;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.skills ul li {
+  // border: 1px solid red;
+  width: 150px;
+  background-color: $blue;
+  color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border-radius: 24px;
+  margin: 8px;
+  padding: 4px;
+  text-align: center;
+}
+
+.line {
+  border-bottom: 2px solid gray;
+  width: 50%;
+  height: 16px;
+  position: absolute;
+  left: 25%;
+  margin-bottom: 12px;
+}
+
+.bio {
+  margin-top: 16px;
+}
+
+.bio p {
+  padding: 12px 20px 12px 20px;
+  text-align: justify;
+}
+
+.log-out {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
 }
