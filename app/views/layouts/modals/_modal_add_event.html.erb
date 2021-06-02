@@ -11,7 +11,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h2 class="modal-title" id="addEventModalTitle">Add Event</h2>
+        <h2 class="modal-title" id="addEventModalTitle">Create an Event</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -25,13 +25,17 @@
           <div class="form-inputs">
             <%= f.input :venue, placeholder: 'Venue', label: false %>
             <%= f.input :city, placeholder: 'City', label: false %>
-            <%= f.input :show_start_at, html5: true, label: false %>
+            <%= f.input :show_start_at,
+              as: :datetime,
+              label: 'Show starts at',
+              html5: true,
+              input_html: { value: "#{ (DateTime.now.next_week.noon + 8.hours).strftime("%Y-%m-%d#{'T'}%H:%M:%S") }" }
+            %>
             <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-            <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Add an event' %>
+            <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Submit' %>
           </div>
         <% end %>
       </div>
