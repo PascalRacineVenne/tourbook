@@ -1,7 +1,6 @@
 <div class="icon-nav">
-  <%# if request.path.include?(/tours\d+/) %>
   <% if (controller_name == "tours" && action_name == "show") %>
-<!-- =======TOURS SHOW PAGE ICONS====== -->
+    <!-- =======TOURS SHOW PAGE ICONS====== -->
     <div class="tours-show">
       <%= image_tag "icons/icon_plus.svg",
         id: 'plus',
@@ -17,8 +16,15 @@
           target: "#editTourModal"
       } %>
 
+      <%= image_tag "icons/icon_crew_round.svg",
+         id: 'crew',
+         class: 'icon-round',
+         data:  { toggle: "modal",
+          target: "#editMemberModal"
+      } %>
+
       <% if user_signed_in? %>
-        <%= image_tag "icons/icon_notif.svg",
+        <%= image_tag "icons/icon_bell_round.svg",
           id: 'notif',
           class: 'icon-round',
           data:  { toggle: "modal",
@@ -29,7 +35,7 @@
     </div>
 
   <% elsif (controller_name == "events" && action_name == "show")%>
-<!-- =======EVENTS SHOW PAGE ICONS====== -->
+    <!-- =======EVENTS SHOW PAGE ICONS====== -->
     <div class="events-show">
 
       <%= image_tag "icons/icon_edit.svg",
@@ -47,7 +53,7 @@
       } %>
 
       <% if user_signed_in? %>
-        <%= image_tag "icons/icon_notif.svg",
+        <%= image_tag "icons/icon_bell_round.svg",
           id: 'notif',
           class: 'icon-round',
           data:  { toggle: "modal",
@@ -55,12 +61,18 @@
         } %>
       <% end %>
 
-<!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
-
+    <!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
+      <%= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
+      <%#= image_tag "icons/icon_notif.svg",
+         id: 'new-notif',
+         class: 'icon-round',
+         data:  { toggle: "modal",
+          target: "#editMemberModal"
+      } %>
     </div>
 
   <% elsif (controller_name == "users" && action_name == "show")%>
-<!-- =======USERS SHOW PAGE ICONS====== -->
+    <!-- =======USERS SHOW PAGE ICONS====== -->
     <div class="users-show">
       <%= image_tag "icons/icon_edit.svg",
         id: 'edit',
@@ -70,7 +82,7 @@
        } %>
 
       <% if user_signed_in? %>
-        <%= image_tag "icons/icon_notif.svg",
+        <%= image_tag "icons/icon_bell_round.svg",
           id: 'notif',
           class: 'icon-round',
           data:  { toggle: "modal",
@@ -80,7 +92,7 @@
     </div>
 
   <% elsif (controller_name == "tours" && action_name == "index") %>
-  <!-- =======TOURS INDEX PAGE ICONS====== -->
+    <!-- =======TOURS INDEX PAGE ICONS====== -->
     <div class="tours-index">
       <%= image_tag "icons/icon_plus.svg",
         id: 'plus',
@@ -90,7 +102,7 @@
        } %>
 
       <% if user_signed_in? %>
-        <%= image_tag "icons/icon_notif.svg",
+        <%= image_tag "icons/icon_bell_round.svg",
           id: 'notif',
           class: 'icon-round',
           data:  { toggle: "modal",
