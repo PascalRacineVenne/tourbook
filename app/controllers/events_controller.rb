@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 
   def show
     @tour = @event.tour
+    @broadcast = Broadcast.new
   end
 
   def create
