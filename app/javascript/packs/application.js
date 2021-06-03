@@ -29,14 +29,22 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { flatPickrCal } from '../plugins/init_flatpickr';
-import { buttonsListener, addTourButtonListener, closeButtonListener } from '../components/tour_modal';
 import { initUserNotificationCable } from '../channels/user_notification_channel';
+import { addTourButtonsListener, addTourButtonListener, addTourCloseButtonListener } from '../components/tour_modal';
+import { editProfileButtonsListener, editProfileButtonListener, editProfileCloseButtonListener } from '../components/profile_modal';
+import { editEventButtonsListener, editEventButtonListener, editEventCloseButtonListener } from '../components/event_modal';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   flatPickrCal();
-  buttonsListener();
-  addTourButtonListener();
-  closeButtonListener();
   initUserNotificationCable();
+  addTourButtonsListener();
+  addTourButtonListener();
+  addTourCloseButtonListener();
+  editProfileButtonsListener();
+  editProfileButtonListener();
+  editProfileCloseButtonListener();
+  editEventButtonsListener();
+  editEventButtonListener();
+  editEventCloseButtonListener();
 });

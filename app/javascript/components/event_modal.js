@@ -12,7 +12,7 @@ const showHideForms = (event) => {
   });
 };
 
-const addTourCloseButtonHandler = (event) => {
+const editEventCloseButtonHandler = (event) => {
   const firstCollapseButton = document.querySelector(".collapse-button:first-of-type");
   firstCollapseButton.classList.add('first');
   const removeMultiCollapse = document.getElementsByClassName("multi-collapse collapse show");
@@ -21,7 +21,7 @@ const addTourCloseButtonHandler = (event) => {
   firstMultiCollapse.classList.add('show');
 };
 
-const addTourButtonsListener = () => {
+const editEventButtonsListener = () => {
   const buttons = document.querySelectorAll(".collapse-button");
 
   if (buttons) {
@@ -31,8 +31,8 @@ const addTourButtonsListener = () => {
   }
 };
 
-const addTourButtonListener = () => {
-  const addButton = document.querySelector(".add-tour");
+const editEventButtonListener = () => {
+  const addButton = document.querySelector(".edit-event");
   if (!addButton) return
 
   addButton.addEventListener('click', () => {
@@ -41,12 +41,11 @@ const addTourButtonListener = () => {
   });
 };
 
-const addTourCloseButtonListener = () => {
-  const closeButton = document.querySelector("#close-add-tour");
+const editEventCloseButtonListener = () => {
+  const closeButton = document.querySelector("#close-edit-event");
   if (!closeButton) return
 
   closeButton.addEventListener('click', closeButtonHandler);
 };
 
-export { addTourButtonsListener, addTourButtonListener, addTourCloseButtonListener };
-
+export { editEventButtonsListener, editEventButtonListener, editEventCloseButtonListener };
