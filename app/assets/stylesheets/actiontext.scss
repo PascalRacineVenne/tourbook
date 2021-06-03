@@ -11,6 +11,10 @@
 
 @import "trix/dist/trix";
 
+.trix-button-group {
+  display: none !important;
+}
+
 trix-editor {
   overflow-y: auto !important; }
 
@@ -39,6 +43,7 @@ trix-editor {
       max-width: 100% !important;
     }
 }
+
 
   li > ul li {
     list-style: none;
