@@ -2,11 +2,12 @@ redis: &redis
   adapter: redis
   url: redis://localhost:6379/1
 
+# url: <%= ENV.fetch("REDISCLOUD_URL") { "redis://localhost:6379/1" } %>
 production:
   <<: *redis
   # You'll need to add rediscloud or similar to your
   # heroku app and point to its URL
-  url: <%= ENV["REDISCLOUD_URL"] %>
+  url: <%= ENV.fetch("REDISCLOUD_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: tourbook_production
 
 development: *redis
