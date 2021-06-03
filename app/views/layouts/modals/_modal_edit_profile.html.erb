@@ -25,19 +25,17 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :full_name, placeholder: 'Name', label: false %>
-            <%= f.input :nickname, placeholder: 'Nickname', label: false %>
-            <%= f.input :email, placeholder: 'Email', label: false %>
-            <%= f.input :phone, placeholder: 'Phone Number', label: false %>
-            <%= f.input :description, placeholder: 'Bio', label: false %>
-            <%= f.input :avatar, as: :file %>
-            <!-- uncomment below when cloudinary installed -->
-            <%#= f.input :photo, as: :file, label: 'Avatar:' %>
+            <%= f.input :full_name, label: 'Full Name' %>
+            <%= f.input :nickname, label: 'Nickname' %>
+            <%= f.input :email, label: 'Email' %>
+            <%= f.input :phone, label: 'Phone Number' %>
+            <%= f.input :avatar, label: 'Profile Picture', as: :file %>
+            <%= f.input :description, label: 'Bio' %>
             <%= f.association :skills, as: :check_boxes, label: 'Job skills:' %>
           </div>
 
           <div class="modal-footer">
-            <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Edit my profile' %>
+            <%= f.button :submit, class: 'btn btn-primary', value: 'Edit my profile' %>
           </div>
         <% end %>
       </div>

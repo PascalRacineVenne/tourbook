@@ -31,7 +31,7 @@
               <div class="collapse show multi-collapse" id="multiCollapseAddTour">
                 <div class="card card-body">
                   <div class="form-inputs">
-                    <h3 class="pb-3"> Add Tour </h3>
+                    <h1 class="pb-3"> Add Tour </h1>
                     <%= f.input :name, label: 'Tour name' %>
                     <%= f.input :artist_name, label: 'Artist name' %>
                     <%= f.input :logo, as: :file %>
@@ -43,7 +43,7 @@
               <div class="collapse multi-collapse" id="multiCollapseAddEvent">
                 <div class="card card-body">
                   <div class="form-inputs">
-                    <h3 class="pb-3"> Add First Event </h3>
+                    <h1 class="pb-3"> Add First Event </h1>
                     <%= f.simple_fields_for(:events) do |fe| %>
                       <%= render 'event_fields', f: fe %>
                   </div>
@@ -54,7 +54,7 @@
               <div class="collapse multi-collapse" id="multiCollapseAddMember">
                 <div class="card card-body">
                   <div class="form-inputs">
-                    <h3 class="pb-3"> Invite Members </h3>
+                    <h1 class="pb-3"> Invite Members </h1>
                     <%= fe.simple_fields_for(:tour_members) do |ftm| %>
                       <%= ftm.input :job_title, label: 'Job title:' %>
                       <%= ftm.input :user_id, collection: User.all, label: 'User:' %>
@@ -62,7 +62,9 @@
                       <%= render 'tour_member_fields', f: ftm %>
                     <% end %>
                     <div class="links"><%= link_to_add_association 'Add a member', fe, :tour_members %></div>
-                    <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Submit' %>
+                    <div class="modal-footer">
+                      <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>
+                    </div>
                   <% end %>
                   </div>
                 </div>

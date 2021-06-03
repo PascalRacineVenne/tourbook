@@ -9,27 +9,28 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h2 class="modal-title" id="viewTourMembersModalTitle">Tour Members</h2>
+        <h2 class="modal-title" id="viewTourMembersModalTitle"><%= @tour.name %> - <%= @tour.artist_name %></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+        <h1 class="pb-3"> Tour Members </h1>
         <% @uniq_tour_members.each do |tm| %>
-          <div class="card-event">
-            <div class="card-event-block">
+          <div class="card-member">
+            <div class="card-member-block">
               <div class="row">
-                <div class="col-2" id="event">
+                <div class="col-2" id="member">
 
-            <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar' %>
+            <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar-medium-bordered' %>
                 </div>
-                <div class="col-8" id="event-venue">
+                <div class="col-10" id="member-card">
                   <h3><strong> <%= link_to (tm.user.full_name ? tm.user.full_name : tm.user.email), user_path(tm.user) %> </strong></h3>
                   <p> <%= tm.job_title %> </p>
                 </div>
-                <div class="col-2" id="event-photo">
-                    <%= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
-                </div>
+<!--                 <div class="col-2" id="member-photo">
+                    <%#= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
+                </div> -->
               </div>
             </div>
           </div>
