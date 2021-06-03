@@ -39,7 +39,7 @@ end
 
 puts "created #{User.all.count} users!"
 
-puts 'creating tours'
+puts 'creating tours & events'
 
 tours = [
   { name: 'Silence Amplified', artist_name: 'Thommy T & Alex', logo: 'https://media.istockphoto.com/photos/whisper-picture-id139524150?k=6&m=139524150&s=612x612&w=0&h=ccXVWhxVpkxd6THkZ_z4OakWJLQjtMpIixUQkNcAJWU='},
@@ -51,20 +51,6 @@ tours = [
   # { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
   # { name: 'Wagon Girls', artist_name: 'Camille & Filles', logo: 'https://i.ytimg.com/vi/6oQv1tui-k8/maxresdefault.jpg'}
 ]
-
-tours.each do |tour|
-  t = Tour.new(
-    name: tour[:name],
-    artist_name: tour[:artist_name],
-  )
-  file = URI.open(tour[:logo])
-  t.logo.attach(io: file, filename: "logo.jpg", content_type: 'image/png')
-  t.save!
-end
-
-puts "created #{Tour.all.count} tours!"
-
-puts 'creating events'
 
 venues = [
   {venue: 'Sala Rossa', city: 'Montreal, QC'},
@@ -78,6 +64,30 @@ venues = [
   {venue: "L'ANTI Bar & Spectacles", city: 'Quebec, QC'}
 ]
 
+tours.each do |tour|
+  t = Tour.new(
+    name: tour[:name],
+    artist_name: tour[:artist_name],
+  )
+  file = URI.open(tour[:logo])
+  t.logo.attach(io: file, filename: "logo.jpg", content_type: 'image/png')
+  t.save!
+  10.times do
+    venue = venues.sample
+    event = Event.new(
+      schedule: '',
+      show_start_at: rand(30..60).days.from_now.beginning_of_day + rand(18..22).hours,
+      venue: venue[:venue],
+      city: venue[:city]
+    )
+    event.tour = t
+  end
+end
+
+puts "created #{Tour.all.count} tours!"
+
+# puts 'creating events'
+
 Tour.all.each do |tour|
   10.times do
     venue = venues.sample
@@ -88,6 +98,7 @@ Tour.all.each do |tour|
       city: venue[:city]
     )
     event.tour = tour
+    TourMember.new(event: event, )
     event.save!
   end
 end
