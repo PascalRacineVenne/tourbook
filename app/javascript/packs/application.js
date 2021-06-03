@@ -30,6 +30,7 @@ import "bootstrap";
 // Internal imports, e.g:
 import { flatPickrCal } from '../plugins/init_flatpickr';
 import { buttonsListener, addTourButtonListener, closeButtonListener } from '../components/tour_modal';
+import { initUserNotificationCable } from '../channels/user_notification_channel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   buttonsListener();
   addTourButtonListener();
   closeButtonListener();
+  initUserNotificationCable();
 });

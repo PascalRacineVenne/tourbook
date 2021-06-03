@@ -12,7 +12,9 @@ class BroadcastsController < ApplicationController
     authorize @broadcast
     if @broadcast.save
       @broadcast.broadcastable.users.each do |user|
-        Notification.create!(user: user, notifiable: @broadcast)
+        notif = Notification.create!(user: user, notifiable: @broadcast)
+        template = render_to_string(partial: 'notifications/notification', locals: { notification: notif })
+        User::NotificationChannel.broadcast_to(user, { template: template })
       end
       redirect_to @tour
     else

@@ -33,6 +33,8 @@ const buttonsListener = () => {
 
 const addTourButtonListener = () => {
   const addButton = document.querySelector(".add-tour");
+  if (!addButton) return
+
   addButton.addEventListener('click', () => {
     const firstCollapseButton = document.querySelector(".collapse-button:first-of-type");
     firstCollapseButton.classList.add('first');
@@ -41,6 +43,7 @@ const addTourButtonListener = () => {
 
 const closeButtonListener = () => {
   const closeButton = document.querySelector("#close-add-tour");
+  if (!closeButton) return
 
   closeButton.addEventListener('click', closeButtonHandler);
 };

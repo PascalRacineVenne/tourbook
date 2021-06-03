@@ -129,6 +129,8 @@ tour_members.each do |tm|
   )
 end
 
+# Event.all.each do |event|
+# end
 
 puts "created #{TourMember.all.count} tour members !"
 
