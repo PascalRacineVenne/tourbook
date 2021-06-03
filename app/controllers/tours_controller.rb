@@ -6,6 +6,7 @@ class ToursController < ApplicationController
     @tours = policy_scope(Tour).select { |tour| tour.users.include?(current_user) }
     @tour = Tour.new
     @tour.events.build
+    @tour.tour_members.build
   end
 
   def create

@@ -4,11 +4,17 @@
   <% end %>
 
   <% if (controller_name == "tours" && action_name == "show") %>
-    <h1><%= @tour.name %></h1>
+    <div>
+      <h3><%= @tour.name %></h3>
+      <h3><%= @tour.artist_name %></h3>
+    </div>
   <% elsif (controller_name == "events" && action_name == "show") %>
-    <h1><%= @event.venue %></h1>
+    <div>
+      <h3><%= @tour.name %></h3>
+      <h3><%= @tour.artist_name %></h3>
+    </div>
   <%# elsif (controller_name == "users" && action_name == "show") %>
-    <h1></h1>
+    <h3></h3>
   <% end %>
 
   <% if user_signed_in? %>
