@@ -69,6 +69,14 @@
   right: 15px;
 }
 
+#event-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px;
+}
+
 .card {
   width: 50vh !important;
   background: transparent !important;
