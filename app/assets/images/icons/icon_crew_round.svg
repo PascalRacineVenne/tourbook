@@ -1,5 +1,5 @@
 <svg width="60" height="62" viewBox="0 0 60 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="30" cy="32" r="29" fill="url(#paint0_linear)" stroke="white" stroke-width="2"/>
+<circle cx="30" cy="32" r="29" fill="url(#paint0_linear)" stroke="none" stroke-width="2"/>
 <path d="M38.3334 24.8066C40.6345 24.8066 42.5 22.9555 42.5 20.6721C42.5 18.3888 40.6345 16.5377 38.3334 16.5377C36.0322 16.5377 34.1667 18.3888 34.1667 20.6721C34.1667 22.9555 36.0322 24.8066 38.3334 24.8066Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M38.3333 38.588H48.0555C48.0556 36.8253 47.569 35.0962 46.6485 33.5886C45.728 32.081 44.4087 30.8524 42.8341 30.0364C41.2594 29.2204 39.4895 28.848 37.7166 28.9598C35.9437 29.0716 34.2356 29.6633 32.7777 30.6706" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
 <path d="M21.6667 30.3191C23.9679 30.3191 25.8333 28.4681 25.8333 26.1847C25.8333 23.9013 23.9679 22.0503 21.6667 22.0503C19.3655 22.0503 17.5 23.9013 17.5 26.1847C17.5 28.4681 19.3655 30.3191 21.6667 30.3191Z" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
@@ -11,3 +11,24 @@
 </linearGradient>
 </defs>
 </svg>
+
+<!-- <svg width="120" height="119" viewBox="0 0 120 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_d)">
+  <ellipse cx="60" cy="43.6452" rx="20" ry="19.3548" fill="white"/>
+  </g>
+  <path d="M65.5556 39.0042C67.0897 39.0042 68.3334 37.81 68.3334 36.3369C68.3334 34.8637 67.0897 33.6695 65.5556 33.6695C64.0215 33.6695 62.7778 34.8637 62.7778 36.3369C62.7778 37.81 64.0215 39.0042 65.5556 39.0042Z" stroke="#FF980A" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
+  <path d="M65.5555 47.8955H72.037C72.0371 46.7582 71.7127 45.6427 71.099 44.6701C70.4853 43.6974 69.6058 42.9048 68.5561 42.3783C67.5063 41.8519 66.3264 41.6116 65.1444 41.6838C63.9625 41.7559 62.8237 42.1376 61.8518 42.7875" stroke="#FF980A" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
+  <path d="M54.4444 42.5608C55.9786 42.5608 57.2222 41.3665 57.2222 39.8934C57.2222 38.4202 55.9786 37.226 54.4444 37.226C52.9103 37.226 51.6667 38.4202 51.6667 39.8934C51.6667 41.3665 52.9103 42.5608 54.4444 42.5608Z" stroke="#FF980A" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
+  <path d="M54.4444 45.2281C52.7254 45.2281 51.0768 45.8838 49.8613 47.051C48.6458 48.2183 47.963 49.8013 47.963 51.452H60.9259C60.9259 49.8013 60.243 48.2183 59.0275 47.051C57.812 45.8838 56.1634 45.2281 54.4444 45.2281Z" stroke="#FF980A" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square"/>
+  <defs>
+  <filter id="filter0_d" x="0" y="0.290314" width="120" height="118.71" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+  <feOffset dy="16"/>
+  <feGaussianBlur stdDeviation="20"/>
+  <feColorMatrix type="matrix" values="0 0 0 0 0.439216 0 0 0 0 0.564706 0 0 0 0 0.690196 0 0 0 0.2 0"/>
+  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+  </filter>
+  </defs>
+  </svg> -->

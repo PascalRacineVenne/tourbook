@@ -5,8 +5,8 @@
 .icon-round {
   display: flex;
   z-index: 1000;
-  width: 40px;
-  margin: 12px;
+  width: 50px;
+  margin: 12px auto;
 }
 
 #notif{
@@ -16,6 +16,7 @@
 }
 
 #plus {
+
 }
 
 #crew {
@@ -34,5 +35,5 @@
   width: 60px;
   height: 200px;
   bottom: 12px;
-  right: 12px;
+  right: 0px;
 }

@@ -17,10 +17,11 @@
       <div class="modal-body">
 
         <button type="button" class="close" id="close-edit-event" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <%# <span aria-hidden="true">&times;</span> %>
+          <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
         </button>
 
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around modal-navigation">
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseEditEvent" role="button" aria-expanded="false" aria-controls="multiCollapseEditEvent">Edit Event</a>
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseEditMember" role="button" aria-expanded="false" aria-controls="multiCollapseEditMember">Manage Members</a>
         </div>

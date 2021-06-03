@@ -33,4 +33,9 @@
   border: 0 !important;
   display: flex !important;
   justify-content: center !important;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  right: 0;
+  z-index: 1000000;
 }

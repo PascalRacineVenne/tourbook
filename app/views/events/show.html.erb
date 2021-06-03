@@ -1,7 +1,7 @@
-<div class="wrapper-light-blue">
+<div class="wrapper-orange">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6 px-0 before-card-padding">
+      <div class="col-md-6 px-0">
 
         <div class="card-event">
           <div class="card-event-block">
@@ -34,7 +34,7 @@
         </div>
         <div class="event-team">
           <% @event.tour_members.each do |tour_member| %>
-            <p><strong><%= tour_member.job_title %></strong> - <%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %></p>
+            <p><%= tour_member.job_title %></p><%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %>
           <% end %>
         </div>
 

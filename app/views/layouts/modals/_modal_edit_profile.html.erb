@@ -16,10 +16,11 @@
       <div class="modal-body">
 
         <button type="button" class="close" id="close-edit-profile" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <%# <span aria-hidden="true">&times;</span> %>
+          <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
         </button>
 
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-around modal-navigation">
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseEditProfile" role="button" aria-expanded="false" aria-controls="multiCollapseEditProfile">General</a>
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseUploadAvatar" role="button" aria-expanded="false" aria-controls="multiCollapseUploadAvatar">Profile Picture</a>
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseEditSkill" role="button" aria-expanded="false" aria-controls="multiCollapseEditSkill">Skills</a>
