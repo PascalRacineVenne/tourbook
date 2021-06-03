@@ -254,6 +254,7 @@ puts "created #{Tour.all.count} tours, #{Event.all.count} events & #{TourMember.
 
 # puts "created #{TourMember.all.count} tour members !"
 
+
 puts 'creating broadcasts'
 
 puts "created #{Broadcast.all.count} broadcasts !"
