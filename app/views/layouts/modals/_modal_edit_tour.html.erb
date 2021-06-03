@@ -32,8 +32,8 @@
           </div>
 
           <div class="modal-footer">
-            <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-secondary' %>
             <%= f.button :submit, class: 'btn btn-primary' %>
+            <%= link_to 'Delete this tour', tour_path(@tour), method: :delete, class: 'btn btn-warning' %>
           </div>
         <% end %>
       </div>
