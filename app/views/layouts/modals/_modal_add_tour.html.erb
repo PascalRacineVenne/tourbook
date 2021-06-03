@@ -32,8 +32,8 @@
                 <div class="card card-body">
                   <div class="form-inputs">
                     <h1 class="pb-3"> Add Tour </h1>
-                    <%= f.input :name, label: 'Tour name' %>
-                    <%= f.input :artist_name, label: 'Artist name' %>
+                    <%= f.input :name, label: 'Tour Name' %>
+                    <%= f.input :artist_name, label: 'Artist Name' %>
                     <%= f.input :logo, as: :file %>
                   </div>
                 </div>
@@ -56,8 +56,8 @@
                   <div class="form-inputs">
                     <h1 class="pb-3"> Invite Members </h1>
                     <%= fe.simple_fields_for(:tour_members) do |ftm| %>
-                      <%= ftm.input :job_title, label: 'Job title:' %>
-                      <%= ftm.input :user_id, collection: User.all, label: 'User:' %>
+                      <%= ftm.input :job_title, label: 'Job title' %>
+                      <%= ftm.input :user_id, collection: User.all, label: 'Member' %>
                       <%= link_to_remove_association 'Remove this tour member', ftm %>
                       <%= render 'tour_member_fields', f: ftm %>
                     <% end %>
