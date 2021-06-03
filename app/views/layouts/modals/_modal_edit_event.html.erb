@@ -15,13 +15,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h2 class="modal-title" id="editEventModalTitle">Edit Event</h2>
+        <h2 class="modal-title" id="editEventModalTitle"><%= @event.venue %> @<%= @event.city %></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
+        <h1 class="pb-3"> Edit Event </h1>
         <%= simple_form_for(@event) do |f| %>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -34,7 +34,7 @@
           </div>
 
           <div class="modal-footer">
-            <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary btn-sm' %>
+            <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn btn-secondary' %>
             <%= f.button :submit, class: 'btn btn-primary btn-sm', value: 'Edit this event' %>
           </div>
         <% end %>
