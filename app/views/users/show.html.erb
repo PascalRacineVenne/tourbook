@@ -2,15 +2,6 @@
   <div class="row justify-content-center">
     <%= image_tag "UI/stage_light_2.png", class: "profile-background" %>
     <div class="col-md-6 px-0">
-<!-- tour background -->
-      <%# if @tour.logo.present? %>
-        <!-- <div class="card-tour" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%#= cl_image_path @tour.logo.key, height: 300, width: 400, crop: :fill %>)'> -->
-        <!-- </div> -->
-      <%# else %>
-        <!-- <div class="card-tour" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1567942712661-82b9b407abbf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80)"> -->
-        <!-- </div> -->
-      <%# end %>
-      <!-- end tour background -->
       <div class="profile-avatar">
         <% if  @user.avatar.attached? %>
           <%= cl_image_tag @user.avatar.key, crop: :fill, class: 'avatar-large' %>
@@ -20,9 +11,10 @@
 
       <div class="profile-description">
         <% if @user.full_name.nil? && @user == current_user%>
-          <div class="user">
+          <div class="user-name-display">
             <h1><%= @user.nickname || @user.full_name ? @user.nickname || @user.full_name : @user.email %></h1>
           </div>
+
           <% if policy(@user).edit? %>
             <p>Please update your profile <%= render 'layouts/modals/modal_edit_profile', user: @user %></p>
           <% end %>
@@ -34,7 +26,6 @@
               <p><%= @user.description %></p>
             </div>
             <div class="skills">
-              <!-- <h2>skills</h2> -->
               <div class="skills-list">
                 <ul>
                   <% @user.skills.each do |skill| %>
@@ -43,29 +34,31 @@
                 </ul>
               </div>
             </div>
-      <% else %>
-        <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
-          <% if policy(@user).edit? %>
-            <%= render 'layouts/modals/modal_edit_profile', user: @user %>
+        <% else %>
+          <div class="user-name-display">
+            <h1><%= @user.full_name || @user.nickname || @user.email %></h1>
+          </div>
+            <% if policy(@user).edit? %>
+              <%= render 'layouts/modals/modal_edit_profile', user: @user %>
+            <% end %>
+              <p>Nickname: <%= @user.nickname %></p>
+              <p>Email: <%= link_to @user.email, '#' %></p>
+              <p>Phone: <%= link_to @user.phone, 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff5f20120-d2de-11e8-b8d4-d6fb90acb7b1.jpg?crop=3383%2C1903%2C34%2C501&resize=1180'%></p>
+              <div class="line"></div>
+              <div class="bio">
+                <p><%= @user.description %></p>
+              </div>
+              <div class="skills">
+                <!-- <h2>skills</h2> -->
+                <div class="skills-list">
+                  <ul>
+                    <% @user.skills.each do |skill| %>
+                      <li><%= skill.name %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
           <% end %>
-            <p>Nickname: <%= @user.nickname %></p>
-            <p>Email: <%= link_to @user.email, '#' %></p>
-            <p>Phone: <%= link_to @user.phone, 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Ff5f20120-d2de-11e8-b8d4-d6fb90acb7b1.jpg?crop=3383%2C1903%2C34%2C501&resize=1180'%></p>
-            <div class="line"></div>
-            <div class="bio">
-              <p><%= @user.description %></p>
-            </div>
-            <div class="skills">
-              <!-- <h2>skills</h2> -->
-              <div class="skills-list">
-                <ul>
-                  <% @user.skills.each do |skill| %>
-                    <li><%= skill.name %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-        <% end %>
       </div>
 
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-secondary log-out" %>
