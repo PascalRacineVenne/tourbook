@@ -1,7 +1,7 @@
 .btn-primary {
   color: orange !important;
-  font-weight: bold !important;
-  font-size: 23px !important;
+  font-weight: lighter !important;
+  font-size: 16px !important;
   font-family: $body-font !important;
   background-color: white !important;
   width: 260px !important;
@@ -9,19 +9,27 @@
   border-radius: 24px !important;
   border: none !important;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25) !important;
+  text-transform: uppercase!important;
 }
 
 .btn-secondary {
   color: orange !important;
-  font-weight: bold !important;
+  font-weight: lighter !important;
   font-size: 23px !important;
   font-family: $body-font !important;
   background-color: white !important;
-  width: 260px !important;
+  width: 200px !important;
   height: 44px;
   border-radius: 24px !important;
   border: none !important;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25) !important;
+  margin: 0 auto;
+}
+
+.btn-100-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .close {

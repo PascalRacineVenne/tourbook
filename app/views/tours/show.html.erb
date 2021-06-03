@@ -1,7 +1,7 @@
-<div class="wrapper-orange">
+<div class="wrapper-light-blue">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6 px-0 before-card-padding">
+      <div class="col-md-6 px-0 ">
 
         <% if policy(@tour).edit? %>
           <%= render 'layouts/modals/modal_new_broadcast', tour: @tour, broadcast: @broadcast %>
@@ -19,7 +19,7 @@
             <%= link_to event_path(event) do %>
               <div class="card-event">
                 <div class="card-event-block">
-                  <div class="row">
+                  <div class="row event-list-flex">
                     <div class="col-2" id="event">
                       <h3> <%= event.show_start_at.strftime("%b")%> </h3>
                       <h3><strong> <%= event.show_start_at.strftime("%d")%> </strong></h3>
@@ -32,7 +32,7 @@
                       <p> <%= event.city %> </p>
                     </div>
                     <div class="col-2" id="event-photo">
-                        <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue' %>
+                        <%= image_tag "icons/icon_arrow.svg", alt: "alttext", class: 'icon-blue ' %>
                     </div>
                   </div>
                 </div>

@@ -12,7 +12,7 @@ const showHideForms = (event) => {
   });
 };
 
-const editProfileCloseButtonHandler = (event) => {
+const closeButtonHandler = (event) => {
   const firstCollapseButton = document.querySelector(".collapse-button:first-of-type");
   firstCollapseButton.classList.add('first');
   const removeMultiCollapse = document.getElementsByClassName("multi-collapse collapse show");

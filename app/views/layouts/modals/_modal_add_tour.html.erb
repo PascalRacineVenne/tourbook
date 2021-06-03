@@ -13,10 +13,11 @@
       <div class="modal-body">
 
         <button type="button" class="close" id="close-add-tour" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <%# <span aria-hidden="true">&times;</span> %>
+          <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
         </button>
 
-        <div class="d-flex justify-content-around">
+        <div class="d-flex justify-content-between modal-navigation">
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseAddTour" role="button" aria-expanded="false" aria-controls="multiCollapseAddTour">Step 1</a>
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseAddEvent" role="button" aria-expanded="false" aria-controls="multiCollapseAddEvent">Step 2</a>
           <a class="collapse-button" data-toggle="collapse" href="#multiCollapseAddMember" role="button" aria-expanded="false" aria-controls="multiCollapseAddMember">Step 3</a>

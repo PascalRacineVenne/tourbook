@@ -3,34 +3,57 @@
   margin: 8px;
   padding: 4px;
   text-align: justify;
-  background-color: white;
+  background-color:rgba(255,255,255,.2);
   border-radius: 4px;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  // box-shadow: 0 4px 4px rgba(0,0,0,0.25);
 }
 
 .schedule-title {
-  margin: 16px 8px 8px 24px;
+  margin: 16px 0px 0px 10px;
 }
 
 .schedule-title > p {
-  display: inline-block;
-  padding: 0;
-  // border-bottom: 1px solid $blue;
-  text-align: left;
-  color: $blue;
+  // display: inline-block;
+  // padding: 0;
+  // // border-bottom: 1px solid $blue;
+  // text-align: left;
+  // color: $blue;
+  // font-weight: bold;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: .8;
+  text-align: left;
+  color: white;
 }
 
 .event-team {
+  // min-height: 128px;
+  // margin: 8px;
+  // padding: 4px;
+  // text-align: justify;
+  // background-color: white;
+  // border-radius: 4px;
+  // box-shadow: 0 4px 4px rgba(0,0,0,0.25);
   min-height: 128px;
   margin: 8px;
-  padding: 4px;
+  padding: 12px;
   text-align: justify;
-  background-color: white;
+  background-color:rgba(255,255,255,.2);
   border-radius: 4px;
-  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
 }
 
 .event-team p {
   text-align: left;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px!important;
+}
+
+.event-team a {
+  text-align: left;
+  // font-weight: bold;
+  // text-transform: uppercase;
+  font-size: 12px!important;
+  padding-left: 8px;
 }
