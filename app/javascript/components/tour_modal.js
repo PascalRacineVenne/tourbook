@@ -1,9 +1,9 @@
 const showHideForms = (event) => {
   const forms = document.querySelectorAll(".multi-collapse");
   const button = event.currentTarget;
+
   const firstCollapseButton = document.querySelector(".collapse-button:first-of-type");
   firstCollapseButton.classList.remove('first');
-
 
   forms.forEach((form) => {
     if (form.id !== button.attributes.href) {
