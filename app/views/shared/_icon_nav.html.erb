@@ -56,7 +56,7 @@
 
         <%= image_tag "icons/icon_edit.svg",
           id: 'edit',
-          class: 'icon-round',
+          class: 'icon-round edit-event',
           data:  { toggle: "modal",
           target: "#editEventModal"
         } %>
@@ -95,7 +95,7 @@
       <% if policy(@user).edit? %>
         <%= image_tag "icons/icon_edit.svg",
           id: 'edit',
-          class: 'icon-round',
+          class: 'icon-round edit-profile',
           data:  { toggle: "modal",
            target: "#editProfileModal"
          } %>
