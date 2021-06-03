@@ -3,10 +3,13 @@
     <%= image_tag "logos/tourbook_logo_2.png" %>
   <% end %>
 
-  <%#= link_to 'notifs', notifications_path %>
-  <%#= link_to notifications_path do %>
-    <%#= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
-  <%# end %>
+  <% if (controller_name == "tours" && action_name == "show") %>
+    <h1><%= @tour.name %></h1>
+  <% elsif (controller_name == "events" && action_name == "show") %>
+    <h1><%= @event.venue %></h1>
+  <%# elsif (controller_name == "users" && action_name == "show") %>
+    <h1></h1>
+  <% end %>
 
   <% if user_signed_in? %>
     <%= link_to user_path(current_user) do %>
@@ -42,3 +45,7 @@
 
 </div>
 
+  <%#= link_to 'notifs', notifications_path %>
+  <%#= link_to notifications_path do %>
+    <%#= image_tag "icons/icon_notif.svg", class: 'icon-round' %>
+  <%# end %>
