@@ -33,10 +33,10 @@
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
           <div class="form-inputs">
-              <%= f.simple_fields_for(:tour_members) do |ftm| %>
-                <%= render 'tour_member_fields', f: ftm %>
-              <% end %>
-              <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
+          <%= f.simple_fields_for(:tour_members) do |ftm| %>
+            <%= render 'tour_member_fields', f: ftm %>
+          <% end %>
+          <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
           <div class="modal-footer">
             <%= f.button :submit, class: 'btn btn-secondary', value: "Save Changes" %>
           </div>
