@@ -27,7 +27,7 @@
             <%= f.input :city, label: 'City' %>
             <%= f.input :show_start_at,
               as: :datetime,
-              label: 'Show starts at',
+              label: 'Start Time',
               class: 'form-control-datetime',
               html5: true,
               input_html: { value: "#{ (DateTime.now.next_week.noon + 8.hours).strftime("%Y-%m-%d#{'T'}%H:%M:%S") }" }
