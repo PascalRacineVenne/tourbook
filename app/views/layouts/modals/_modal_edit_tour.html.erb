@@ -26,8 +26,8 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
           <div class="form-inputs">
-            <%= f.input :name, placeholder: 'Tour name', label: false %>
-            <%= f.input :artist_name, placeholder: 'Artist name', label: false %>
+            <%= f.input :name, label: 'Tour Name' %>
+            <%= f.input :artist_name, label: 'Artist Name' %>
             <%= f.input :logo, as: :file %>
           </div>
 
