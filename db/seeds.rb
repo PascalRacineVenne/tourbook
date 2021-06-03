@@ -82,7 +82,7 @@ Tour.all.each do |tour|
   10.times do
     venue = venues.sample
     event = Event.new(
-      schedule: 'schedule#placeholder',
+      schedule: '',
       show_start_at: rand(30..60).days.from_now.beginning_of_day + rand(18..22).hours,
       venue: venue[:venue],
       city: venue[:city]
