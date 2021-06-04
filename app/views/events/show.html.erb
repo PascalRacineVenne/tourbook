@@ -37,8 +37,9 @@
             <p><%= tour_member.job_title %></p><%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %>
           <% end %>
         </div>
-
-        <%= link_to 'Back', tour_path(@tour), class: "btn back-button-white btn-100-center" %>
+        <div class="btn-back">
+          <%= link_to 'Back', tour_path(@tour), class: "btn back-button-white btn-100-center" %>
+        </div>
 
         <% if policy(@tour).edit? %>
           <%= render 'layouts/modals/modal_edit_event', event: @event %>
