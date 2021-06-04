@@ -26,7 +26,7 @@ class ToursController < ApplicationController
     @event = Event.create
     @events = @tour.events.order(show_start_at: :asc)
     @uniq_user_ids = @tour.tour_members.select(:user_id).map(&:user_id).uniq
-    @uniq_tour_members = @uniq_user_ids.map { |id| @tour.tour_members.find_by(user_id: id) }
+    @uniq_tour_members = @uniq_user_ids.map { |id| @tour.tour_members.find_by(user_id: id) }.sort_by { |tm| tm.user.full_name }
   end
 
   def update

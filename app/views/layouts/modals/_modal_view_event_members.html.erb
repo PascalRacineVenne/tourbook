@@ -1,0 +1,34 @@
+<div class="modal fade" id="viewEventMembersModal" tabindex="-1" role="dialog" aria-labelledby="viewEventMembersModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-content-color">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <%# <span aria-hidden="true">&times;</span> %>
+          <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1 class="pb-3"> Event Members </h1>
+        <% @uniq_tour_members.each do |tm| %>
+          <div class="card-member ml-2">
+            <div class="card-member-block">
+              <div class="row">
+                <div class="col-2" id="member">
+
+            <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar-medium-bordered' %>
+                </div>
+                <div class="col-10" id="member-card">
+                  <h3><strong> <%= link_to (tm.user.full_name ? tm.user.full_name : tm.user.email), user_path(tm.user) %> </strong></h3>
+                  <p> <%= tm.job_title %> </p>
+                </div>
+<!--                 <div class="col-2" id="member-photo">
+                    <%#= image_tag "icons/icon_arrow.svg", alt: "alttext" %>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,8 @@ class EventsController < ApplicationController
   def show
     @tour = @event.tour
     @broadcast = Broadcast.new
+    @uniq_user_ids = @event.tour_members.select(:user_id).map(&:user_id).uniq
+    @uniq_tour_members = @uniq_user_ids.map { |id| @event.tour_members.find_by(user_id: id) }.sort_by { |tm| tm.user.full_name }
   end
 
   def create
