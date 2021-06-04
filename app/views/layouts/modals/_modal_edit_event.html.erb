@@ -41,7 +41,7 @@
                       <%= f.input :schedule, as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
                   </div>
                   <div class="modal-footer">
-                    <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>
+                    <%= f.button :submit, class: 'btn btn-primary', value: 'Update event' %>
                     <%= link_to 'Delete this event', event_path(@event), method: :delete, class: 'btn delete-button' %>
                   </div>
                 </div>
@@ -55,8 +55,9 @@
                       <%= render 'tour_member_fields', f: ftm %>
                     <% end %>
                     <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
+
                     <div class="modal-footer">
-                      <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>
+                      <%= f.button :submit, class: 'btn btn-primary', value: 'Update event' %>
                     </div>
                   </div>
                 </div>

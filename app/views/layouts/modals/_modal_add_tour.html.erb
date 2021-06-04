@@ -36,6 +36,9 @@
                     <%= f.input :name, label: 'Tour Name' %>
                     <%= f.input :artist_name, label: 'Artist Name' %>
                     <%= f.input :logo, as: :file %>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" type="button" disabled>Submit</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,6 +50,9 @@
                     <h1 class="pb-3"> Add First Event </h1>
                     <%= f.simple_fields_for(:events) do |fe| %>
                       <%= render 'event_fields', f: fe %>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" type="button" disabled>Submit</button>
+                    </div>
                   </div>
                 </div>
               </div>
