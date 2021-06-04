@@ -33,7 +33,7 @@
           <p>EVENT TEAM</p>
         </div>
         <div class="event-team">
-          <% @event.tour_members.each do |tour_member| %>
+          <% @event.tour_members.order(job_title: :asc).each do |tour_member| %>
             <p><%= tour_member.job_title %></p><%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %>
           <% end %>
         </div>

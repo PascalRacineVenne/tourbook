@@ -28,7 +28,7 @@
             <div class="skills">
               <div class="skills-list">
                 <ul>
-                  <% @user.skills.each do |skill| %>
+                  <% @user.skills.order(name: :asc).each do |skill| %>
                     <li><%= skill.name %></li>
                   <% end %>
                 </ul>
@@ -52,7 +52,7 @@
                 <!-- <h2>skills</h2> -->
                 <div class="skills-list">
                   <ul>
-                    <% @user.skills.each do |skill| %>
+                    <% @user.skills.order(name: :asc).each do |skill| %>
                       <li><%= skill.name %></li>
                     <% end %>
                   </ul>

@@ -22,27 +22,29 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
-        <h2 class="modal-title" id="editMemberModalTitle"><%= @event.venue %> @<%= @event.city %></h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <%# <span aria-hidden="true">&times;</span> %>
           <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
         </button>
+      <%= simple_form_for(@event) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
       </div>
-      <div class="modal-body">
-        <h1 class="pb-3"> Manage Tour Members </h1>
-        <%= simple_form_for(@event) do |f| %>
-          <%= f.error_notification %>
-          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-          <div class="form-inputs">
-          <%= f.simple_fields_for(:tour_members) do |ftm| %>
-            <%= render 'tour_member_fields', f: ftm %>
-          <% end %>
-          <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
-          <div class="modal-footer">
-            <%= f.button :submit, class: 'btn btn-secondary', value: "Save Changes" %>
-          </div>
-        <% end %>
-      </div>
+      <div class="form-inputs">
+        <div class="card card-body">
+          <div class="modal-body">
+            <h1 class="pb-3"> Manage Members </h1>
+
+              <%= f.simple_fields_for(:tour_members) do |ftm| %>
+                <%= render 'tour_member_fields', f: ftm %>
+              <% end %>
+              <div class="links"><%= link_to_add_association 'Add a tour member', f, :tour_members %></div>
+              <div class="modal-footer">
+                <%= f.button :submit, class: 'btn btn-secondary', value: "Save Changes" %>
+              </div>
+            <% end %>
+            </div>
+        </div>
     </div>
   </div>
 </div>
