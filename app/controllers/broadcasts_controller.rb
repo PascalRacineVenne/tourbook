@@ -13,6 +13,8 @@ class BroadcastsController < ApplicationController
     if @broadcast.save
       @broadcast.broadcastable.users.each do |user|
         notif = Notification.create!(user: user, notifiable: @broadcast)
+        next if current_user == user
+
         template = render_to_string(partial: 'notifications/notification', locals: { notification: notif })
         User::NotificationChannel.broadcast_to(user, { template: template })
       end
