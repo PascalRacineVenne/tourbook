@@ -13,10 +13,13 @@
   background-color:  transparent !important;
 }
 
-
 label {
   padding: 0;
   margin: 0;
 }
 
+.scrollable {
+  max-height: 470px;
+  overflow: scroll;
+}
 

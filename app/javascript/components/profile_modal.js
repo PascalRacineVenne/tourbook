@@ -12,13 +12,14 @@ const showHideForms = (event) => {
   });
 };
 
-const closeButtonHandler = (event) => {
-  const firstCollapseButton = document.querySelector(".collapse-button:first-of-type");
-  firstCollapseButton.classList.add('first');
-  const removeMultiCollapse = document.getElementsByClassName("multi-collapse collapse show");
-  removeMultiCollapse[0].classList.remove('show');
-  const firstMultiCollapse = document.querySelector("#multiCollapseAddTour");
-  firstMultiCollapse.classList.add('show');
+const activeStep = (event) => {
+  const button = event.currentTarget;
+
+  [...button.parentElement.children].forEach((child) => {
+    child.classList.remove('active');
+  });
+
+  button.classList.add('active');
 };
 
 const editProfileButtonsListener = () => {
@@ -27,8 +28,18 @@ const editProfileButtonsListener = () => {
   if (buttons) {
     buttons.forEach((button) => {
       button.addEventListener('click', showHideForms);
+      button.addEventListener('click', activeStep);
     });
   }
+};
+
+const closeButtonHandler = (event) => {
+  const firstCollapseButton = document.querySelector(".collapse-button:first-of-type");
+  firstCollapseButton.classList.add('first');
+  const removeMultiCollapse = document.getElementsByClassName("multi-collapse collapse show");
+  removeMultiCollapse[0].classList.remove('show');
+  const firstMultiCollapse = document.querySelector("#multiCollapseAddTour");
+  firstMultiCollapse.classList.add('show');
 };
 
 const editProfileButtonListener = () => {
