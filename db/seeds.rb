@@ -41,9 +41,9 @@ users = [
     full_name: 'Freddy M', nickname: 'Freddy', description: 'live love drum',
     phone: '5145551278', email: 'freddy@tunez.com',
     avatar: "https://avatars.githubusercontent.com/u/77168127?v=4" },
-  # { skills: ['Piano', 'Bass', 'Vocals'], full_name: 'Holly Hilts', nickname: 'Holly', description: 'live love drum',
-  #   phone: '5145551278', email: 'holly@wagon.com',
-  #   avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+  { skills: ['Piano', 'Bass', 'Vocals'], full_name: 'Patrick Watson', nickname: 'Patty', description: 'i <3 music',
+    phone: '5145551278', email: 'patrick@wagon.com',
+    avatar: "https://townsquare.media/site/838/files/2019/09/patrick-watson.jpg?w=980&q=75" },
   { skills: ['Electric Guitar', 'Acoustic Guitar'], full_name: 'Chris B', nickname: 'Chris', description: 'live love drum',
     phone: '5145551278', email: 'chris@wagon.com',
     avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617627276/hoact5mfjbglgnnwq4o9.jpg" },
@@ -97,7 +97,7 @@ User.all.each do |user|
   random_users << user unless user[:nickname] == 'Cathy' || user [:nickname] == 'Freddy'
 end
 
-pp random_users
+# pp random_users
 
 puts "created #{User.all.count} users!"
 
@@ -105,12 +105,12 @@ puts 'creating tours, events & tour members'
 
 tours = [
   { name: 'Silence Amplified', artist_name: 'Thommy T & Alex', logo: 'https://media.istockphoto.com/photos/whisper-picture-id139524150?k=6&m=139524150&s=612x612&w=0&h=ccXVWhxVpkxd6THkZ_z4OakWJLQjtMpIixUQkNcAJWU='},
-  { name: 'Man in Love', artist_name: 'Smooth L', logo: 'https://nafme.org/wp-content/uploads/2016/03/themacx-iStock-Thinkstock.jpg'},
+  { name: 'Melody Noir', artist_name: 'Patrick Watson', logo: 'https://www.dominomusic.com/res/0edZ/600_/Patrick-Watson_Ilenia-Tesoro_Aug2019_04_color_medres.jpg'},
   { name: 'Hairless Heroes', artist_name: 'Steph Pas', logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53195d3d-df08-48aa-98e8-f34bc81a9980/d4xmo4x-10fe2193-2098-4ce1-8c98-5feec94c05f6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzMTk1ZDNkLWRmMDgtNDhhYS05OGU4LWYzNGJjODFhOTk4MFwvZDR4bW80eC0xMGZlMjE5My0yMDk4LTRjZTEtOGM5OC01ZmVlYzk0YzA1ZjYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.P8fsS9P9Hn-jVMbK5lu7BQPi39vpxhsLeaxlMScz5go'},
   { name: 'French Connexion', artist_name: 'BT & jean-jean', logo: 'https://www.fluentu.com/blog/french/wp-content/uploads/sites/3/2014/01/casual-everyday-french-phrases1.jpg'},
   { name: 'Bros & Brews', artist_name: 'Cloton & Chrissy B', logo: 'https://images.saymedia-content.com/.image/t_share/MTc0MzU0ODM0NjQ2OTAyMTIw/ten-wonderful-uses-for-beer-besides-drinking-it.jpg'},
   { name: 'Moto Sounds', artist_name: 'Daniel Bronzeman', logo: 'https://i.pinimg.com/originals/5c/56/18/5c561846c00cc8b76229e290daca79f1.jpg'},
-  # { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
+  { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
   # { name: 'Wagon Girls', artist_name: 'Camille & Filles', logo: 'https://i.ytimg.com/vi/6oQv1tui-k8/maxresdefault.jpg'}
 ]
 
@@ -135,10 +135,13 @@ tours.each do |tour|
   t.logo.attach(io: file, filename: "logo.jpg", content_type: 'image/png')
   t.save!
 
-  if tour[:name] == 'Man in Love'
+  if tour[:name] == 'Melody Noir'
     main_event = Event.create!(
-      schedule: "",
-      show_start_at: DateTime.new(2021, 7, 27, 20, 00, 0),
+      schedule: "1:00PM - Load-In<br>
+        3:00PM - Soundcheck<br>
+        6:00PM - Dinner<br>
+        9:00PM - Showcall<br>
+        10:00PM - Showtime",      show_start_at: DateTime.new(2021, 7, 27, 22, 00, 0),
       venue: 'Danforth Music Hall',
       city: 'Toronto, ON',
       tour: t
@@ -150,57 +153,110 @@ tours.each do |tour|
       administrator: true
     )
     TourMember.create!(
+      user: User.find_by(email: 'patrick@wagon.com'),
+      event: main_event,
+      job_title: 'Vocals',
+    )
+    TourMember.create!(
       user: User.find_by(email: 'alex@drums.com'),
       event: main_event,
       job_title: 'Drums',
     )
+    TourMember.create!(
+      user: User.find_by(email: 'daniel@wagon.com'),
+      event: main_event,
+      job_title: 'Bass',
+    )
+    TourMember.create!(
+      user: User.find_by(email: 'a-m@muzak.com'),
+      event: main_event,
+      job_title: 'Sound Tech',
+    )
+    TourMember.create!(
+      user: User.find_by(email: 'luis@wagon.com'),
+      event: main_event,
+      job_title: 'Electric Guitar',
+    )
+  end
 
-
+    puts "Tour #{Tour.all.count} created!"
   10.times do
     venue = venues.sample
 
     event = Event.create!(
-      schedule: '',
+      schedule: "1:00PM - Load-In<br>
+        3:00PM - Soundcheck<br>
+        6:00PM - Dinner<br>
+        9:00PM - Showcall<br>
+        10:00PM - Showtime",
       show_start_at: rand(30..60).days.from_now.beginning_of_day + rand(18..22).hours,
       venue: venue[:venue],
       city: venue[:city],
       tour: t
     )
-    if tour[:name] == 'Man in Love'
-      puts 'creating Man in Love'
+    if tour[:name] == 'Melody Noir'
+      # puts 'creating Melody Noir'
       TourMember.create!(
         user: User.find_by(email: 'cathy@mgmt.com'),
         event: event,
         job_title: 'Manager',
         administrator: true
       )
-      TourMember.create!(
-        user: User.find_by(email: 'freddy@tunez.com'),
-        event: event,
-        job_title: 'Drums',
-      )
+    #   TourMember.create!(
+    #     user: User.find_by(email: 'freddy@tunez.com'),
+    #     event: event,
+    #     job_title: 'Drums',
+    #   )
     elsif tour[:name] == 'Moto Sounds'
-      puts 'creating Moto Sounds'
+      # puts 'creating Moto Sounds'
       TourMember.create!(
         user: User.find_by(email: 'freddy@tunez.com'),
         event: event,
         job_title: 'Drums',
       )
     elsif tour[:name] == 'Hairless Heroes'
-      puts 'creating Hairless Heroes'
+      # puts 'creating Hairless Heroes'
       TourMember.create!(
         user: User.find_by(email: 'freddy@tunez.com'),
         event: event,
         job_title: 'Drums',
       )
+      TourMember.create!(
+        user: User.find_by(email: 'cathy@mgmt.com'),
+        event: event,
+        job_title: 'Manager',
+        administrator: true
+      )
     elsif tour[:name] == 'Silence Amplified'
       TourMember.create!(
         user: User.find_by(email: 'cathy@mgmt.com'),
         event: event,
-        job_title: 'Sound Tech',
+        job_title: 'Manager',
+        administrator: true
+      )
+    elsif tour[:name] == 'French Connexion'
+      TourMember.create!(
+        user: User.find_by(email: 'cathy@mgmt.com'),
+        event: event,
+        job_title: 'Manager',
+        administrator: true
+      )
+    elsif tour[:name] == 'Bros & Brews'
+      TourMember.create!(
+        user: User.find_by(email: 'cathy@mgmt.com'),
+        event: event,
+        job_title: 'Manager',
+        administrator: true
+      )
+    elsif tour[:name] == 'Feminist Wave'
+      TourMember.create!(
+        user: User.find_by(email: 'cathy@mgmt.com'),
+        event: event,
+        job_title: 'Manager',
+        administrator: true
       )
     else
-      puts 'creating another tour'
+      # puts 'creating another tour'
       TourMember.create!(
         user: User.find_by(email: 'thomas@wagon.com'),
         event: event,
@@ -227,6 +283,7 @@ tours.each do |tour|
     end
     # event.tour = t
   end
+    puts "Tour #{Tour.all.count} events created!"
 end
 
 puts "created #{Tour.all.count} tours, #{Event.all.count} events & #{TourMember.all.count} tour members!"
@@ -253,11 +310,11 @@ puts "created #{Tour.all.count} tours, #{Event.all.count} events & #{TourMember.
 
 # tour_members = [
 #   {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Moto Sounds').events.first, job_title: 'Drums', administrator: false},
-#   {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Man in Love').events.first, job_title: 'Drums', administrator: false},
+#   {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Melody Noir').events.first, job_title: 'Drums', administrator: false},
 #   {user: User.find_by(email: 'freddy@tunez.com'), event: Tour.find_by(name: 'Hairless Heroes').events.first, job_title: 'Drums', administrator: false},
 #   {user: User.find_by(email: 'steph@ilovemycat.com'), event: Tour.find_by(name: 'Hairless Heroes').events.first, job_title: 'Singer', administrator: false},
 #   {user: User.find_by(email: 'a-m@muzak.com'), event: Tour.find_by(name: 'Hairless Heroes').events.first, job_title: 'Sound Tech', administrator: true},
-#   {user: User.find_by(email: 'cathy@mgmt.com'), event: Tour.find_by(name: 'Man in Love').events.first, job_title: 'Manager', administrator: true},
+#   {user: User.find_by(email: 'cathy@mgmt.com'), event: Tour.find_by(name: 'Melody Noir').events.first, job_title: 'Manager', administrator: true},
 #   {user: User.find_by(email: 'cathy@mgmt.com'), event: Tour.find_by(name: 'Silence Amplified').events.first, job_title: 'Sound Tech', administrator: false},
 #   # {user: User.find_by(email:), tour: Tour.find_by(name:), job_title: , administrator: }
 # ]
