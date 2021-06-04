@@ -18,15 +18,6 @@
              data:  { toggle: "modal",
               target: "#editTourModal"
           } %>
-
-          <!-- =========ADD IMAGE_TAG TO CREATE NEW NOTIF========== -->
-          <%#= link_to 'Create new broadcast', new_tour_broadcast_path(@event.tour) %>
-          <%= image_tag "icons/icon_notif.svg",
-             id: 'new-notif',
-             class: 'icon-round',
-             data:  { toggle: "modal",
-              target: "#newBroadcastModal"
-          } %>
         <% end %>
 
         <%= image_tag "icons/icon_crew_round.svg",
@@ -35,6 +26,15 @@
            data:  { toggle: "modal",
             target: "#viewTourMembersModal"
         } %>
+
+        <% if policy(@tour).edit? %>
+          <%= image_tag "icons/icon_notif.svg",
+             id: 'new-notif',
+             class: 'icon-round',
+             data:  { toggle: "modal",
+              target: "#newBroadcastModal"
+          } %>
+        <% end %>
 
         <% if user_signed_in? %>
           <%= image_tag "icons/icon_bell_round.svg",
