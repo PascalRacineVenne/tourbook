@@ -48,9 +48,9 @@ class ToursController < ApplicationController
 
   def add_tour_members
     @event.tour_members.new(user: current_user, job_title: 'Manager', administrator: true)
-    # @tour_member.save
     if params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes] != nil
       atts = params.dig(:tour, :events_attributes, "0").permit(tour_members_attributes:[:job_title, :user_id])[:tour_members_attributes].values
+      atts.reject! { |att| att[:job_title].blank? || att[:user_id].blank? }
       @event.tour_members.build(atts)
     end
   end
