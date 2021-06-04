@@ -27,7 +27,7 @@ puts 'creating users with skills!'
 
 users = [
   { skills: ['Drums', 'Light Tech'], full_name: 'Alex P', nickname: 'Alex', description: '',
-    phone: '5145556316', email: 'alex@silentboys.com', avatar: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1620009393/elpxfvm9mhxsxqcjm1l2.jpg' },
+    phone: '5145556316', email: 'alex@drums.com', avatar: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1620009393/elpxfvm9mhxsxqcjm1l2.jpg' },
   { skills: ['Electric Guitar', 'Acoustic Guitar'], full_name: 'Anne-Marie N', nickname: 'A-M', description: '',
     phone: '5145556298', email: 'a-m@muzak.com', avatar: 'https://avatars.githubusercontent.com/u/77209045?v=4' },
   { skills: ['Piano', 'Sound Tech', 'Light Tech'], full_name: 'Steph Laf', nickname: 'Steph',
@@ -36,35 +36,35 @@ users = [
     avatar: 'https://avatars.githubusercontent.com/u/37821714?v=4' },
   { skills: ['Manager', 'Sound Tech'], full_name: 'Cathy G', nickname: 'Cathy', description: "pumped to be here - let's go!",
     phone: '5145559846', email: 'cathy@mgmt.com',
-    avatar: 'https://www.evidentlycochrane.net/wp-content/uploads/2019/05/mature-woman-on-phone-e1559294112725.jpg' },
+    avatar: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617638724/rozdl8g3ybb6siqechzz.jpg' },
   { skills: ['Vocals', 'Drums', 'Bass', 'Electric Guitar', 'Acoustic Guitar'],
     full_name: 'Freddy M', nickname: 'Freddy', description: 'live love drum',
     phone: '5145551278', email: 'freddy@tunez.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
-  { skills: ['Piano', 'Bass', 'Vocals'], full_name: 'Holly Hilts', nickname: 'Holly', description: 'live love drum',
-    phone: '5145551278', email: 'holly@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+    avatar: "https://avatars.githubusercontent.com/u/77168127?v=4" },
+  # { skills: ['Piano', 'Bass', 'Vocals'], full_name: 'Holly Hilts', nickname: 'Holly', description: 'live love drum',
+  #   phone: '5145551278', email: 'holly@wagon.com',
+  #   avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
   { skills: ['Electric Guitar', 'Acoustic Guitar'], full_name: 'Chris B', nickname: 'Chris', description: 'live love drum',
     phone: '5145551278', email: 'chris@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+    avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617627276/hoact5mfjbglgnnwq4o9.jpg" },
   { skills: ['Sound Tech', 'Light Tech'], full_name: 'Clayton L', nickname: 'Clayton', description: 'live love drum',
     phone: '5145551278', email: 'clayton@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+    avatar: "https://avatars.githubusercontent.com/u/80467300?v=4" },
   { skills: ['Vocals', 'Bass'], full_name: 'Luis B', nickname: 'Luis', description: 'live love drum',
     phone: '5145551278', email: 'luis@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+    avatar: "https://avatars.githubusercontent.com/u/34893593?v=4" },
   { skills: ['Vocals', 'Drums'], full_name: 'Baptiste A', nickname: 'Baptiste', description: 'live love drum',
     phone: '5145551278', email: 'baptiste@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+    avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617709843/puydxesogpdoftbzekyp.jpg" },
   { skills: ['Acoustic Guitar', 'Bass'], full_name: 'Jean C', nickname: 'Jean-Jean', description: 'live love drum',
     phone: '5145551278', email: 'jean@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
-  { skills: ['Drums', 'Vocals'], full_name: 'Pascal RV', nickname: 'Pascal', description: 'live love drum',
-    phone: '5145551278', email: 'pascal@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" },
+    avatar: "https://avatars.githubusercontent.com/u/43459137?v=4" },
+  { skills: ['Drums', 'Vocals'], full_name: 'Daniel S', nickname: 'Daniel', description: 'live love drum',
+    phone: '5145551278', email: 'daniel@wagon.com',
+    avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617128231/a2jv0r1qgeekuaptcyfw.jpg" },
   { skills: ['Bass', 'Electric Guitar'], full_name: 'Thomas S', nickname: 'Thomas', description: 'live love drum',
     phone: '5145551278', email: 'thomas@wagon.com',
-    avatar: "https://www.biography.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTc5OTQ5ODk3MTMzMzM1ODk2/gettyimages-1176816280.jpg" }
+    avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617625823/uxiisxmqoxwg6ltetmwt.jpg" }
 ]
 
 
@@ -134,6 +134,28 @@ tours.each do |tour|
   file = URI.open(tour[:logo])
   t.logo.attach(io: file, filename: "logo.jpg", content_type: 'image/png')
   t.save!
+
+  if tour[:name] == 'Man in Love'
+    main_event = Event.create!(
+      schedule: "",
+      show_start_at: DateTime.new(2021, 7, 27, 20, 00, 0),
+      venue: 'Danforth Music Hall',
+      city: 'Toronto, ON',
+      tour: t
+    )
+    TourMember.create!(
+      user: User.find_by(email: 'cathy@mgmt.com'),
+      event: main_event,
+      job_title: 'Manager',
+      administrator: true
+    )
+    TourMember.create!(
+      user: User.find_by(email: 'alex@drums.com'),
+      event: main_event,
+      job_title: 'Drums',
+    )
+
+
   10.times do
     venue = venues.sample
 
@@ -180,7 +202,7 @@ tours.each do |tour|
     else
       puts 'creating another tour'
       TourMember.create!(
-        user: User.find_by(email: 'holly@wagon.com'),
+        user: User.find_by(email: 'thomas@wagon.com'),
         event: event,
         job_title: 'Manager',
         administrator: true
