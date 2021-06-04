@@ -104,14 +104,14 @@ puts "created #{User.all.count} users!"
 puts 'creating tours, events & tour members'
 
 tours = [
-  { name: 'Silence Amplified', artist_name: 'Thommy T & Alex', logo: 'https://media.istockphoto.com/photos/whisper-picture-id139524150?k=6&m=139524150&s=612x612&w=0&h=ccXVWhxVpkxd6THkZ_z4OakWJLQjtMpIixUQkNcAJWU='},
+  { name: 'Quand la nuit tombe', artist_name: 'Louis Jean Cormier', logo: 'https://lecanalauditif.ca/wp-content/uploads/2020/02/louis-jean-cormier-quand-la-nuit-tombe.jpg'},
   { name: 'Melody Noir', artist_name: 'Patrick Watson', logo: 'https://www.dominomusic.com/res/0edZ/600_/Patrick-Watson_Ilenia-Tesoro_Aug2019_04_color_medres.jpg'},
-  { name: 'Hairless Heroes', artist_name: 'Steph Pas', logo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/53195d3d-df08-48aa-98e8-f34bc81a9980/d4xmo4x-10fe2193-2098-4ce1-8c98-5feec94c05f6.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzUzMTk1ZDNkLWRmMDgtNDhhYS05OGU4LWYzNGJjODFhOTk4MFwvZDR4bW80eC0xMGZlMjE5My0yMDk4LTRjZTEtOGM5OC01ZmVlYzk0YzA1ZjYuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.P8fsS9P9Hn-jVMbK5lu7BQPi39vpxhsLeaxlMScz5go'},
-  { name: 'French Connexion', artist_name: 'BT & jean-jean', logo: 'https://www.fluentu.com/blog/french/wp-content/uploads/sites/3/2014/01/casual-everyday-french-phrases1.jpg'},
-  { name: 'Bros & Brews', artist_name: 'Cloton & Chrissy B', logo: 'https://images.saymedia-content.com/.image/t_share/MTc0MzU0ODM0NjQ2OTAyMTIw/ten-wonderful-uses-for-beer-besides-drinking-it.jpg'},
-  { name: 'Moto Sounds', artist_name: 'Daniel Bronzeman', logo: 'https://i.pinimg.com/originals/5c/56/18/5c561846c00cc8b76229e290daca79f1.jpg'},
-  { name: 'Feminist Wave', artist_name: 'A-M Knows', logo: 'https://assets.vogue.com/photos/5891224258aa89a00d5417c9/master/pass/07-feminist-posters-see-red-womens-workshop.jpg'},
-  # { name: 'Wagon Girls', artist_name: 'Camille & Filles', logo: 'https://i.ytimg.com/vi/6oQv1tui-k8/maxresdefault.jpg'}
+  { name: 'After Hours', artist_name: 'The Weeknd', logo: 'https://i.guim.co.uk/img/media/8b1b3eaeca71621192646fdd9e94536dc7293aa4/0_579_8688_5213/master/8688.jpg?width=1200&quality=85&auto=format&fit=max&s=4e2a76e91cd2bbb0411923f347752c4b'},
+  { name: 'Miss Colombia', artist_name: 'Lido Pimienta', logo: 'https://media.pitchfork.com/photos/5e988b3b2eea7f00096658df/2:1/w_1000/Miss%20Colombia_Lido%20Pimienta.jpg'},
+  { name: 'Rumours & Doubts', artist_name: 'Flara K', logo: 'https://d1z39p6l75vw79.cloudfront.net/u/312659/85227f11b6a4985e2102ed3d405bcd923be35709/original/img-1724.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJjb250ZW50LnNpdGV6b29nbGUuY29tIn0%3D.jpg'},
+  { name: 'Time Well Wasted', artist_name: 'Lisa Leblanc', logo: 'https://f4.bcbits.com/img/a2485628065_16.jpg'},
+  { name: 'Congratulations', artist_name: 'Maya Malkin', logo: 'https://www.wearegoingsolo.com/wp-content/uploads/2021/04/Maya-Malkin-Congratulations_Cover_by_Mrs_Makaveli_1290_961_90.jpeg'},
+  { name: 'Jour 2', artist_name: 'Hildegard', logo: 'https://images.squarespace-cdn.com/content/5622cff4e4b0a49a91cfb980/1614780185355-ZYPP3PJCOW3BDZSGFZZ3/H_web1_JulesMoskovtchenko.jpg?content-type=image%2Fjpeg'}
 ]
 
 venues = [
@@ -202,19 +202,26 @@ tours.each do |tour|
         job_title: 'Manager',
         administrator: true
       )
-    #   TourMember.create!(
-    #     user: User.find_by(email: 'freddy@tunez.com'),
-    #     event: event,
-    #     job_title: 'Drums',
-    #   )
-    elsif tour[:name] == 'Moto Sounds'
+      TourMember.create!(
+        user: User.find_by(email: 'freddy@tunez.com'),
+        event: event,
+        job_title: 'Drums',
+      )
+    elsif tour[:name] == 'Time Well Wasted'
       # puts 'creating Moto Sounds'
       TourMember.create!(
         user: User.find_by(email: 'freddy@tunez.com'),
         event: event,
         job_title: 'Drums',
       )
-    elsif tour[:name] == 'Hairless Heroes'
+    elsif tour[:name] == 'Jour 2'
+      # puts 'creating Moto Sounds'
+      TourMember.create!(
+        user: User.find_by(email: 'freddy@tunez.com'),
+        event: event,
+        job_title: 'Drums',
+      )
+    elsif tour[:name] == 'After Hours'
       # puts 'creating Hairless Heroes'
       TourMember.create!(
         user: User.find_by(email: 'freddy@tunez.com'),
@@ -227,28 +234,28 @@ tours.each do |tour|
         job_title: 'Manager',
         administrator: true
       )
-    elsif tour[:name] == 'Silence Amplified'
+    elsif tour[:name] == 'Quand la nuit tombe'
       TourMember.create!(
         user: User.find_by(email: 'cathy@mgmt.com'),
         event: event,
         job_title: 'Manager',
         administrator: true
       )
-    elsif tour[:name] == 'French Connexion'
+    elsif tour[:name] == 'Miss Colombia'
       TourMember.create!(
         user: User.find_by(email: 'cathy@mgmt.com'),
         event: event,
         job_title: 'Manager',
         administrator: true
       )
-    elsif tour[:name] == 'Bros & Brews'
+    elsif tour[:name] == 'Rumours & Doubts'
       TourMember.create!(
         user: User.find_by(email: 'cathy@mgmt.com'),
         event: event,
         job_title: 'Manager',
         administrator: true
       )
-    elsif tour[:name] == 'Feminist Wave'
+    elsif tour[:name] == 'Congratulations'
       TourMember.create!(
         user: User.find_by(email: 'cathy@mgmt.com'),
         event: event,
