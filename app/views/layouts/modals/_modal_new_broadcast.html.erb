@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <div class="card card-body">
-          <h1 class="pb-3"> Send Notification </h1>
+          <h1 class="pb-3"> Create Notification </h1>
           <%= simple_form_for([@tour, @broadcast]) do |f| %>
             <%= f.error_notification %>
             <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="modal-footer">
-              <%= f.button :submit, class: 'btn btn-primary', value: 'Send notification' %>
+              <%= f.button :submit, class: 'btn btn-primary', value: 'Send' %>
             </div>
           <% end %>
         </div>
