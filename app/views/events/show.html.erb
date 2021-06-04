@@ -43,7 +43,7 @@
         <% if policy(@tour).edit? %>
           <%= render 'layouts/modals/modal_edit_event', event: @event %>
           <%= render 'layouts/modals/modal_new_broadcast', tour: @event.tour, broadcast: @broadcast %>
-          <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
+          <%= render 'layouts/modals/modal_view_event_members', tour: @event.tour, event: @event %>
         <% end %>
 
       </div>
