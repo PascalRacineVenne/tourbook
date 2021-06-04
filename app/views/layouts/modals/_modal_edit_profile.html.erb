@@ -63,7 +63,7 @@
               <div class="collapse multi-collapse" id="multiCollapseEditSkill">
                 <div class="card card-body">
                   <div class="form-inputs">
-                    <%= f.association :skills, as: :check_boxes, label: 'Job skills:' %>
+                    <%= f.association :skills, collection: Skill.order('name ASC'), as: :check_boxes, label: 'Job skills:' %>
 
                     <div class="modal-footer">
                       <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>

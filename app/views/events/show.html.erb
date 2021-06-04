@@ -33,17 +33,17 @@
           <p>EVENT TEAM</p>
         </div>
         <div class="event-team">
-          <% @event.tour_members.each do |tour_member| %>
+          <% @event.tour_members.order(job_title: :asc).each do |tour_member| %>
             <p><%= tour_member.job_title %></p><%= link_to (tour_member.user.full_name ? tour_member.user.full_name : tour_member.user.email), user_path(tour_member.user) %>
           <% end %>
         </div>
 
-        <%= link_to 'Back', tour_path(@tour), class: "btn btn-link" %>
+        <%= link_to 'Back', tour_path(@tour), class: "btn back-button-white btn-100-center" %>
 
         <% if policy(@tour).edit? %>
           <%= render 'layouts/modals/modal_edit_event', event: @event %>
           <%= render 'layouts/modals/modal_new_broadcast', tour: @event.tour, broadcast: @broadcast %>
-          <%= render 'layouts/modals/modal_manage_members_for_specific_event', event: @event %>
+          <%= render 'layouts/modals/modal_view_event_members', tour: @event.tour, event: @event %>
         <% end %>
 
       </div>
