@@ -33,7 +33,7 @@
               html5: true,
               input_html: { value: "#{ (DateTime.now.next_week.noon + 8.hours).strftime("%Y-%m-%d#{'T'}%H:%M:%S") }" }
             %>
-            <%= f.input :schedule, class: 'schedule', as: :rich_text_area, label: 'Schedule', placeholder: 'Text goes here' %>
+            <%= f.input :schedule, class: 'schedule', as: :rich_text_area, label: 'Schedule', placeholder: '' %>
           </div>
         </div>
 

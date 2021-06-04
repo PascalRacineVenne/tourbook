@@ -158,7 +158,7 @@ tours.each do |tour|
       job_title: 'Vocals',
     )
     TourMember.create!(
-      user: User.find_by(email: 'alex@drums.com'),
+      user: User.find_by(email: 'baptiste@wagon.com'),
       event: main_event,
       job_title: 'Drums',
     )
