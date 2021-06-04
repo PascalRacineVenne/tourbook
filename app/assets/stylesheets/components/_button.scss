@@ -53,6 +53,12 @@
   color: white !important;
 }
 
+.collapse-button.active {
+  border-bottom: 1px solid white;
+  font-weight: bold;
+  color: white !important;
+}
+
 .delete-button {
   color: white;
   font-weight: normal;
