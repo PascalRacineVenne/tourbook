@@ -1,6 +1,11 @@
+.modal-header {
+  border-bottom: none;
+}
+
 .modal-content {
   width: 100%;
   min-height: 100vh !important;
+  overflow: auto;
 }
 
 .modal-dialog {
@@ -36,3 +41,10 @@
 .modal-navigation {
   margin-top: 40px;
 }
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: white;
+  font-weight: bold;
+}
+
+
