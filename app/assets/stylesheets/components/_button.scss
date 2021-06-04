@@ -53,3 +53,27 @@
   color: white !important;
 }
 
+.delete-button {
+  color: white;
+  font-weight: normal;
+  position: fixed;
+  bottom: 100px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-button {
+  color: $orange;
+  font-weight: normal;
+  bottom: 100px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-button-white {
+  color: white;
+  font-weight: normal;
+  bottom: 100px;
+  font-size: 14px;
+  text-decoration: none;
+}

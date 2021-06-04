@@ -38,7 +38,7 @@
           <% end %>
         </div>
 
-        <%= link_to 'Back', tour_path(@tour), class: "btn btn-link" %>
+        <%= link_to 'Back', tour_path(@tour), class: "btn back-button-white btn-100-center" %>
 
         <% if policy(@tour).edit? %>
           <%= render 'layouts/modals/modal_edit_event', event: @event %>
