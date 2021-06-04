@@ -53,22 +53,22 @@
             </div>
             <div class="col">
               <div class="collapse multi-collapse" id="multiCollapseAddMember">
-                <div class="card card-body">
+                <div class="card card-body scrollable">
                   <div class="form-inputs">
                     <h1 class="pb-3"> Invite Members </h1>
                     <%= fe.simple_fields_for(:tour_members) do |ftm| %>
-                      <%= ftm.input :job_title, label: 'Job title' %>
-                      <%= ftm.input :user_id, collection: User.all, label: 'Member' %>
-                      <%= link_to_remove_association 'Remove this tour member', ftm %>
+                      <%#= ftm.input :job_title, label: 'Job title' %>
+                      <%#= ftm.input :user_id, collection: User.all, label: 'Member' %>
+                      <%#= link_to_remove_association 'Remove this tour member', ftm %>
                       <%= render 'tour_member_fields', f: ftm %>
                     <% end %>
                     <div class="links"><%= link_to_add_association 'Add a member', fe, :tour_members %></div>
-                    <div class="modal-footer">
-                      <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>
-                    </div>
                   <% end %>
                   </div>
                 </div>
+                    <div class="modal-footer">
+                      <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>
+                    </div>
               </div>
             </div>
           </div>
