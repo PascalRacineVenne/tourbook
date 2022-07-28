@@ -108,7 +108,7 @@ tours = [
   { name: 'Melody Noir', artist_name: 'Patrick Watson', logo: 'https://www.dominomusic.com/res/0edZ/600_/Patrick-Watson_Ilenia-Tesoro_Aug2019_04_color_medres.jpg'},
   { name: 'After Hours', artist_name: 'The Weeknd', logo: 'https://i.guim.co.uk/img/media/8b1b3eaeca71621192646fdd9e94536dc7293aa4/0_579_8688_5213/master/8688.jpg?width=1200&quality=85&auto=format&fit=max&s=4e2a76e91cd2bbb0411923f347752c4b'},
   { name: 'Miss Colombia', artist_name: 'Lido Pimienta', logo: 'https://media.pitchfork.com/photos/5e988b3b2eea7f00096658df/2:1/w_1000/Miss%20Colombia_Lido%20Pimienta.jpg'},
-  { name: 'Rumours & Doubts', artist_name: 'Flara K', logo: 'https://d1z39p6l75vw79.cloudfront.net/u/312659/85227f11b6a4985e2102ed3d405bcd923be35709/original/img-1724.jpg/!!/b%3AW1sicmVzaXplIiwxODAwXSxbIm1heCJdLFsid2UiXV0%3D/meta%3AeyJzcmNCdWNrZXQiOiJjb250ZW50LnNpdGV6b29nbGUuY29tIn0%3D.jpg'},
+  { name: 'Rumours & Doubts', artist_name: 'Flara K', logo: 'https://images.squarespace-cdn.com/content/5622cff4e4b0a49a91cfb980/1614780185355-ZYPP3PJCOW3BDZSGFZZ3/H_web1_JulesMoskovtchenko.jpg?content-type=image%2Fjpeg'},
   { name: 'Time Well Wasted', artist_name: 'Lisa Leblanc', logo: 'https://f4.bcbits.com/img/a2485628065_16.jpg'},
   { name: 'Congratulations', artist_name: 'Maya Malkin', logo: 'https://www.wearegoingsolo.com/wp-content/uploads/2021/04/Maya-Malkin-Congratulations_Cover_by_Mrs_Makaveli_1290_961_90.jpeg'},
   { name: 'Jour 2', artist_name: 'Hildegard', logo: 'https://images.squarespace-cdn.com/content/5622cff4e4b0a49a91cfb980/1614780185355-ZYPP3PJCOW3BDZSGFZZ3/H_web1_JulesMoskovtchenko.jpg?content-type=image%2Fjpeg'}
