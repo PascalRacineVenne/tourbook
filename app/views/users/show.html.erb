@@ -6,6 +6,11 @@
         <% if  @user.avatar.attached? %>
           <%= cl_image_tag @user.avatar.key, crop: :fill, class: 'avatar-large' %>
           <!-- else pour image par défaut -->
+        <#% else %>
+          <#%= image_tag "https://res.cloudinary.com/dli73zoz7/image/upload/v1659793675/anonymous-avatar-icon-25_r45hmv.png",
+            crop: :fill, 
+            class: 'avatar-large'
+          %>
         <% end %>
       </div>
 
