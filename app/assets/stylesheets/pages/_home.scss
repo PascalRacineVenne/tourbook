@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+.create-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50% auto;
+  h2 {
+    color: white;
+    padding: 12px 48px;
+    text-align: center;
+  }
+}
+
+.profile-link {
+  color: pink;
+}
