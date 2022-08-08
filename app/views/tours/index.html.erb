@@ -32,12 +32,10 @@
               <% end %>
             <% end %>
           <% end %>
-
-
         </div>
-      <% end %>
-      <% if policy(Tour).create? %>
-        <%= render 'layouts/modals/modal_add_tour', tour: @tour %>
+        <% if policy(Tour).create? %>
+          <%= render 'layouts/modals/modal_add_tour', tour: @tour %>
+        <% end %>
       <% end %>
     </div>
   </div>
