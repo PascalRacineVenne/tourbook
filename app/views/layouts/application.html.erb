@@ -33,15 +33,12 @@
 
   <body>
       <%= render 'shared/navbar' %>
-      <%#= link_to notifications_path do %>
-      <% if user_signed_in? %>
-        <%= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
-      <% end %>
-        <%#= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif' %>
-      <%# end %>
-        <div class="page-body">
-          <%= yield %>
-          <%= render 'shared/icon_nav' %>
-        </div>
+      <div class="page-body">
+        <% if user_signed_in? %>
+          <%= render 'layouts/modals/modal_notifications_index', broadcasts: @broadcasts %>
+        <% end %>
+        <%= yield %>
+        <%= render 'shared/icon_nav' %>
+      </div>
   </body>
 </html>

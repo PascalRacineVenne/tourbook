@@ -1,29 +1,8 @@
-<!-- Edit Crew icon -->
-
-<%#= image_tag "icons/icon_crew_round.svg",
-  id: 'crew',
-  class: 'icon-round',
-  data:  { toggle: "modal",
-   target: "#editMemberModal"
- } %>
-
-<!-- Notif icon -->
- <%#= link_to notifications_path do %>
-   <%#= image_tag "icons/icon_notif.svg", class: 'icon-round', id: 'notif' %>
- <%# end %>
-
-
-<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editMemberModal">
-  Manage the tour members
-</button> -->
-
-
 <div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="editMemberModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <%# <span aria-hidden="true">&times;</span> %>
           <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
         </button>
       <%= simple_form_for(@event) do |f| %>
