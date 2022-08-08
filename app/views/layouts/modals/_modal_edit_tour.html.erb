@@ -1,21 +1,8 @@
-<!-- EDIT ICON -->
-<%#= image_tag "icons/icon_edit.svg",
-  id: 'edit',
-  class: 'icon-round',
-  data:  { toggle: "modal",
-   target: "#editTourModal"
- } %>
-
-<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editTourModal">
-  Edit this tour
-</button> -->
-
 <div class="modal fade" id="editTourModal" tabindex="-1" role="dialog" aria-labelledby="editTourModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content modal-content-color">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <%# <span aria-hidden="true">&times;</span> %>
           <%= image_tag "icons/icon_esc.svg", alt: "alttext", class: '' %>
         </button>
       </div>
