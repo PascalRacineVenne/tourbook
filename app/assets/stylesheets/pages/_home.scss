@@ -1,1 +1,39 @@
 // Specific CSS for your home-page
+.create-profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50% auto;
+  h2 {
+    color: white;
+    padding: 12px 48px;
+    text-align: center;
+  }
+}
+
+.profile-link {
+  color: $orange;
+  display: inline-block;
+  position: relative;
+}
+.profile-link:hover {
+  color: $orange;
+}
+
+.profile-link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: $orange;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.profile-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

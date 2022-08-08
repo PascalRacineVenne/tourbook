@@ -26,6 +26,10 @@
   margin: 0 auto;
 }
 
+// .btn {
+//   opacity: 1;
+// }
+
 .btn-100-center {
   width: 100%;
   display: flex;
@@ -68,8 +72,9 @@
   text-decoration: none;
 }
 
-.back-button {
+.back-tour-button {
   color: $orange;
+  background-color: white;
   font-weight: normal;
   bottom: 100px;
   font-size: 14px;
@@ -78,6 +83,7 @@
 
 .back-button-white {
   color: white;
+  background-color: #FFA14B;
   font-weight: normal;
   bottom: 100px;
   font-size: 14px;

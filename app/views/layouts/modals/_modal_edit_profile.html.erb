@@ -35,11 +35,11 @@
               <div class="collapse show multi-collapse" id="multiCollapseEditProfile">
                 <div class="card card-body">
                   <div class="form-inputs">
-                    <%= f.input :full_name, label: 'Full Name' %>
-                    <%= f.input :nickname, label: 'Nickname' %>
+                    <%= f.input :full_name, label: 'Full Name', placeholder: "** required **"%>
+                    <%= f.input :nickname, label: 'Nickname'%>
                     <%= f.input :email, label: 'Email' %>
-                    <%= f.input :phone, label: 'Phone Number' %>
-                    <%= f.input :description, label: 'Bio' %>
+                    <%= f.input :phone, label: 'Phone Number'%>
+                    <%= f.input :description, label: 'Bio'%>
                   </div>
                   <div class="modal-footer">
                     <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>
@@ -51,7 +51,7 @@
               <div class="collapse multi-collapse" id="multiCollapseUploadAvatar">
                 <div class="card card-body">
                   <div class="form-inputs">
-                    <%= f.input :avatar, label: 'Profile Picture', as: :file %>
+                    <%= f.input :avatar, label: 'Profile Picture ( ** required** )', as: :file %>
                   </div>
                   <div class="modal-footer">
                     <%= f.button :submit, class: 'btn btn-primary', value: 'Submit' %>

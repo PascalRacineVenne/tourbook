@@ -23,6 +23,7 @@
                     <div class="col-2" id="event">
                       <h3> <%= event.show_start_at.strftime("%b")%> </h3>
                       <h3><strong> <%= event.show_start_at.strftime("%d")%> </strong></h3>
+                      <h3> <%= event.show_start_at.strftime("%Y")%> </h3>
                       <h3> <%= event.show_start_at.strftime("%a")%> </h3>
                     </div>
                     <div class="col-8" id="event-venue">
@@ -41,7 +42,7 @@
           <% end %>
         <% end %>
         <div class="btn-back">
-          <%= link_to 'Back', root_path, class: "btn back-button btn-100-center" %>
+          <%= link_to 'Back', root_path, class: "btn back-tour-button btn-100-center" %>
         </div>
       </div>
     </div>

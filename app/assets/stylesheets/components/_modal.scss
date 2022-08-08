@@ -13,7 +13,7 @@
 }
 
 .modal-content-color {
-  background: linear-gradient(317.08deg, #FF7A00 0%, #FFD336 290%);
+  background: linear-gradient(317.08deg, #ff7a00 0%, #ffd336 290%);
 }
 
 .modal-title {
@@ -26,7 +26,7 @@
   font-weight: lighter;
   text-transform: uppercase;
   font-size: 12px;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .modal {
@@ -37,15 +37,18 @@
   font-weight: bold;
 }
 
-
 .modal-navigation {
   margin-top: 40px;
 }
 
-.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+.was-validated .form-check-input:valid ~ .form-check-label,
+.form-check-input.is-valid ~ .form-check-label {
   color: white;
   font-weight: bold;
 }
 
-
-
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: lighter;
+}
