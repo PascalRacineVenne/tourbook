@@ -111,7 +111,7 @@ tours = [
   { name: 'Rumours & Doubts', artist_name: 'Flara K', logo: 'https://images.squarespace-cdn.com/content/5622cff4e4b0a49a91cfb980/1614780185355-ZYPP3PJCOW3BDZSGFZZ3/H_web1_JulesMoskovtchenko.jpg?content-type=image%2Fjpeg'},
   { name: 'Time Well Wasted', artist_name: 'Lisa Leblanc', logo: 'https://f4.bcbits.com/img/a2485628065_16.jpg'},
   { name: 'Congratulations', artist_name: 'Maya Malkin', logo: 'https://www.wearegoingsolo.com/wp-content/uploads/2021/04/Maya-Malkin-Congratulations_Cover_by_Mrs_Makaveli_1290_961_90.jpeg'},
-  { name: 'Jour 2', artist_name: 'Hildegard', logo: 'https://images.squarespace-cdn.com/content/5622cff4e4b0a49a91cfb980/1614780185355-ZYPP3PJCOW3BDZSGFZZ3/H_web1_JulesMoskovtchenko.jpg?content-type=image%2Fjpeg'}
+  # { name: 'Jour 2', artist_name: 'Hildegard', logo: 'https://images.squarespace-cdn.com/content/5622cff4e4b0a49a91cfb980/1614780185355-ZYPP3PJCOW3BDZSGFZZ3/H_web1_JulesMoskovtchenko.jpg?content-type=image%2Fjpeg'}
 ]
 
 venues = [
@@ -214,13 +214,13 @@ tours.each do |tour|
         event: event,
         job_title: 'Drums',
       )
-    elsif tour[:name] == 'Jour 2'
-      # puts 'creating Moto Sounds'
-      TourMember.create!(
-        user: User.find_by(email: 'freddy@tunez.com'),
-        event: event,
-        job_title: 'Drums',
-      )
+    # elsif tour[:name] == 'Jour 2'
+    #   # puts 'creating Moto Sounds'
+    #   TourMember.create!(
+    #     user: User.find_by(email: 'freddy@tunez.com'),
+    #     event: event,
+    #     job_title: 'Drums',
+    #   )
     elsif tour[:name] == 'After Hours'
       # puts 'creating Hairless Heroes'
       TourMember.create!(
