@@ -13,7 +13,16 @@
             <div class="card-member-block">
               <div class="row">
                 <div class="col-2" id="member">
-                  <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar-medium-bordered' %>
+                          <% if  tm.user.avatar.attached? %>
+                             <%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar-medium-bordered' %>
+                            <!-- else pour image par défaut -->
+                          <% else %>
+                            <%= cl_image_tag("https://res.cloudinary.com/dli73zoz7/image/upload/v1659793675/anonymous-avatar-icon-25_r45hmv.png",
+                              crop: :fill, 
+                              class: 'avatar-medium-bordered')
+                            %>
+                          <% end %>
+                  <#%= cl_image_tag tm.user.avatar.key, crop: :fill, class: 'avatar-medium-bordered' %>
                 </div>
                 <div class="col-10" id="member-card">
                   <h3><strong> <%= link_to (tm.user.full_name ? tm.user.full_name : tm.user.email), user_path(tm.user) %> </strong></h3>
