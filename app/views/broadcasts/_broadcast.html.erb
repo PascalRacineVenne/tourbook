@@ -52,7 +52,8 @@
 
           <div class="col-8" id="event-venue">
             <p><strong><%= broadcast.broadcastable.tour.name %></strong> -- <%= broadcast.broadcastable.show_start_at.strftime('%b %d') %>, <%= broadcast.broadcastable.city %></p>
-            <%= broadcast.content %>
+            <p><%= broadcast.name %></p>
+            <p><%= broadcast.content %></p>
           </div>
 
           <div class="col-2" id="event-photo">
